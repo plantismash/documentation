@@ -1,0 +1,19 @@
+site_name: PlantiSMASH 2.0 Documentation 
+
+nav:
+  - Home: index.md
+  - About: about.md
+  - Backend: backend.md
+  - Dispatcher: dispatcher.md
+  - Webserver: webserver.md
+
+theme: readthedocs
+
+plugins:
+  - search
+
+markdown_extensions:
+  - codehilite 
+  - toc:
+      permalink: true
+  - admonition
