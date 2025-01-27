@@ -1,19 +1,37 @@
-site_name: PlantiSMASH 2.0 Documentation 
-
+site_name: PlantiSMASH Documentation
 nav:
-  - Home: index.md
-  - About: about.md
-  - Backend: backend.md
-  - Dispatcher: dispatcher.md
-  - Webserver: webserver.md
-
-theme: readthedocs
-
+    - Home: index.md
+    - Using PlantiSMASH:
+        - Introduction: intro.md
+        - Submitting jobs on the website: website_submission.md
+        - Understanding the output:
+            - Region concept: understanding_output/regions.md
+            - Overview page: understanding_output/overview.md
+            - Results page: understanding_output/results.md
+    - Module-specific information:
+        - BGC detection: modules/clusterrules.md
+        - CLusterBLAST: modules/clusterblast.md
+        - TFBS Finder: modules/tfbs.md
+    - Local Installation:
+        - Installation: install.md
+        - Starting command line runs: command_line.md
+    - Change Log:
+        - Version 2.0: changelog/2.0.md
+    - FAQ: faq.md
+    - Glossary: glossary.md
+    - About: about.md
+theme:
+    name: readthedocs
+    custom_dir: custom_theme
+markdown_extensions:
+    - footnotes
+    - toc:
+        permalink: "#"
 plugins:
   - search
+  - git-revision-date-localized:
+      enabled: true
+      locale: en
+extra_css: 
+  - css/extra.css 
 
-markdown_extensions:
-  - codehilite 
-  - toc:
-      permalink: true
-  - admonition
