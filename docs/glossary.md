@@ -1,5 +1,7 @@
 #Protocluster Types
 
+<span class="red-comment">TODO: Check if this glossary applies to plantismash.</span>
+
 antiSMASH uses some abbreviations internally and in outputs to refer to the different
 types of secondary metabolite clusters detected.
 

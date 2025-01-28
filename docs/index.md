@@ -26,4 +26,4 @@ For instructions on how to install antiSMASH locally, please see the [Install Gu
 ### For developers 
 
 This documentation is mainly addressed to users wanting to know more about the individual analyses of antiSMASH.
-If you are interested in contributing to antiSMASH or in the technical design, please see the [plantiSMASH GitHub Wiki](https://github.com/antismash/antismash/wiki).
+If you are interested in contributing to antiSMASH or in the technical design, please see the [plantiSMASH GitHub Wiki](https://github.com/plantismash/plantismash/wiki).

@@ -1,7 +1,7 @@
 Command Line Use
 ----------------
 
-The antiSMASH command line tool comes with a built-in help system. Use
+The plantiSMASH command line tool comes with a built-in help system. Use
 `antismash --help` to display help for the most common options, or `antismash
 --help-showall` to get a description of all possible options.
 

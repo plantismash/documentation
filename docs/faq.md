@@ -3,43 +3,24 @@ Frequently Asked Questions
 
 ### Can I run antiSMASH locally as a stand-alone program?
 
-Yes. A stand-alone version of antiSMASH is available from the [download page](https://antismash.secondarymetabolites.org/#!/download).
+Yes. A stand-alone version of antiSMASH is available from the [download page](https://plantismash.bioinformatics.nl/download.html).
 
-### Why doesn't antiSMASH detect my gene cluster?
+### Why doesn't plantiSMASH detect my gene cluster?
 
-Some gene clusters, such as fatty acid or cofactor biosynthesis gene clusters are not identified by antiSMASH, as they are
-categorized as primary metabolism instead of secondary metabolism. If you are
-aware of a true secondary metabolite biosynthesis gene cluster that escapes
-detection by antiSMASH, please contact us, and we will add the models necessary
-to detect it.
-
-### In some cases, two or three gene clusters appear to be fused into one gene cluster by antiSMASH while they are in fact separate gene clusters. Why is this?
-
-Currently, it is not possible to judge on the basis of sequence
-information only whether a large cluster of secondary metabolite biosynthesis
-genes of different types is either a hybrid gene cluster or comprises multiple
-separate gene clusters that are located very close to one another. A careful
-manual study of the provided comparative gene cluster analysis results may
-provide hints on solving this question.
+Some gene clusters, such as cofactor biosynthesis gene clusters are not identified by plantiSMASH, as they are categorized as primary metabolism instead of secondary metabolism. If you are aware of a true secondary metabolite biosynthesis gene cluster that escapes detection by antiSMASH, please contact us, and we will add the models necessary to detect it.
 
 ### Why are several genes upstream and downstream of gene clusters included, even though they do not seem to be part of the gene cluster?
 
-In designing antiSMASH, we tried to be very conservative in
-cutting gene cluster borders, leaving this to the expert eye of the user, as it
-is better to show some extra genes than to leave out key genes.
+In designing plantiSMASH, we tried to be very conservative in cutting gene cluster borders, leaving this to the expert eye of the user, as it is better to show some extra genes than to leave out key genes.
+
+### Why is my BGC not detected in full?
+
+The user can specify a different cutoff when running the program as a stand-alone program, by manually editing the cluster rules file, avaialble on the gitHub repository. If you run into such an issue, contact us or open a ticket on GitHub.
 
 ### Can I also submit an unannotated genome sequence in FASTA format?
 
-Yes. We offer integrated preliminary gene prediction by Prodigal or GlimmerHMM based on a FASTA input.
-If you want the highest possible quality of results, we recommend you to use an annotation
-pipeline like RAST first to obtain high-quality gene predictions in GBK format.
-You can also upload annotations in GFF3 format.
+To enable us to operate the plantiSMASH webserver with the resources available, users are expected to upload annotated Genbank-formatted or fasta files with gene/CDS annotations (i.e. fasta = gff3). Please first run your assembly on gene finding tools of your preference, such as [AUGUSTUS](https://bioinf.uni-greifswald.de/augustus/) or [MAKER](https://www.yandell-lab.org/software/maker.html) before submitting it into plantiSMASH.
 
-### What is the privacy policy of antiSMASH concerning my sequence data?
+### What is the privacy policy of plantiSMASH concerning my sequence data?
 
-We try to keep this
-site and the data that it analyzes as safe and secure as possible. Your output
-files will be deleted from our server within one month. However, sending your
-data to the web site is at your own risk. If you are concerned about the
-sensitivity of your data, please use the stand-alone version of our
-tool.
+We keep this site and the data that it analyses as safe and secure as possible. The randomly generated URL ensures that your data cannot easily be found by third parties. Your output files will be periodically deleted from our server. However, sending your data to the web site is at your own risk. If you are concerned about the sensitivity of your data, please use the stand-alone version of our tool.
