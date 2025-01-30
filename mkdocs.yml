@@ -21,7 +21,7 @@ nav:
     - Glossary: glossary.md
     - About: about.md
 theme:
-    name: material
+    name: readthedocs
     custom_dir: custom_theme
 markdown_extensions:
     - footnotes
@@ -29,7 +29,6 @@ markdown_extensions:
         permalink: "#"
 plugins:
   - search
-  - git-revision-date-localized
 extra_css: 
   - css/extra.css 
 
