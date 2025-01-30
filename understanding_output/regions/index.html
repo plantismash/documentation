@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Region concept - PlantiSMASH Documentation</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../css/extra.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Region concept";
+        var mkdocs_page_input_path = "understanding_output/regions.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> PlantiSMASH Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Using PlantiSMASH</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../../intro/">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../website_submission/">Submitting jobs on the website</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" >Understanding the output</a>
+    <ul class="current">
+                <li class="toctree-l2 current"><a class="reference internal current" href="#">Region concept</a>
+    <ul class="current">
+    <li class="toctree-l3"><a class="reference internal" href="#how-are-antismash-regions-defined">How are antiSMASH regions defined?</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#candidate-cluster-types">Candidate cluster types</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#chemical-hybrid">Chemical hybrid</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#interleaved">Interleaved</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#neighbouring">Neighbouring</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#single">Single</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../overview/">Overview page</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../results/">Results page</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Module-specific information</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../modules/clusterrules/">BGC detection</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../modules/clusterblast/">CLusterBLAST</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../modules/tfbs/">TFBS Finder</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Local Installation</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../install/">Installation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../command_line/">Starting command line runs</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Change Log</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../changelog/2.0/">Version 2.0</a>
+                  </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../faq/">FAQ</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../glossary/">Glossary</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../about/">About</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">PlantiSMASH Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Using PlantiSMASH</li>
+          <li class="breadcrumb-item">Understanding the output</li>
+      <li class="breadcrumb-item active">Region concept</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h2 id="the-antismash-region-concept">The antiSMASH region concept<a class="headerlink" href="#the-antismash-region-concept" title="Permanent link">#</a></h2>
+<p>Currently, there is no good method available to accurately predict gene cluster borders based purely on the submitted sequence data (with the exception of the CASSIS algorithm, which is able to detect co-regulated genes in fungal genomes).
+In antiSMASH5, the display of gene clusters change to reflect the fact that the BGC borders are just offsets defined in the cluster detection rules, we renamed the highest level that is displayed to “Region”.</p>
+<p>A <em>region</em> in antiSMASH 5 and above corresponds to the <em>gene cluster</em> annotation in antiSMASH 4 and earlier.</p>
+<h3 id="how-are-antismash-regions-defined">How are antiSMASH regions defined?<a class="headerlink" href="#how-are-antismash-regions-defined" title="Permanent link">#</a></h3>
+<p>In the first step, all gene products of the analyzed sequence are searched against a database of highly conserved enzyme HMM profiles (core-enzymes), which are indicative of a specific BGC type.
+In a second step, pre-defined cluster rules are employed to define individual <em>protoclusters</em> encoded in the region.
+These make up a <em>core</em>, which is extended by its <em>neighbourhood</em>, which constiutes of genes encoded up- and downstream of the <em>core</em>.</p>
+<p>Here is an example of a rule for detecting a protocluster for a type I PKS:</p>
+<p><img alt="Example cluster rule" src="/img/clusterrules.png" /></p>
+<p>Whenever antiSMASH finds a gene coding for a protein that has as PKS_AT domain and a PKS_KS domain of various sub-types, a new “Type I PKS <em>protocluster</em>” feature is generated within the region; this feature comprises the <em>core</em> gene-product(s) that trigger the rule (i.e. the PKS encoding genes and extends the <em>neighborhood</em> to the left and right of the core genes by 20 kb to the left and right (as defined by the EXTENT parameter in the rule definition).
+The values for the different cluster types are empirically determined and generally tend to overpredict, i.e. included also adjacent genes.
+After the <em>protocluster</em> features are assigned (note: there can be multiple protocluster features within a single <em>region</em>), they are checked for overlaps (as defined by the CUTOFF parameter) and are grouped into several types of <em>candidate clusters</em> to reflect the observation that many BGCs actually comprise several classes of biosynthetic machinery. For example glycopeptides like vancomycin or balhimycin (shown) are synthesized via NRPS, but also contain a type III PKS as a precursor pathway.</p>
+<p><img alt="Balhimycin biosynthetic gene cluster" src="/img/bal-cluster.png" /></p>
+<p>Thus, the displayed region contains the <code>NRPS</code> <em>protocluster</em> (green bar) and a <code>T3PKS</code> <em>protocluster</em> (yellow bar).
+As their neighbourhoods overlap, they are assigned to a <em>candidate cluster</em>.</p>
+<h3 id="candidate-cluster-types">Candidate cluster types<a class="headerlink" href="#candidate-cluster-types" title="Permanent link">#</a></h3>
+<p><img alt="Figure candidate clusters" src="/img/regionLogic.png" /></p>
+<h4 id="chemical-hybrid">Chemical hybrid<a class="headerlink" href="#chemical-hybrid" title="Permanent link">#</a></h4>
+<p>These candidate clusters contains protoclusters which share cluster-defining CDS/genes/gene products.
+They will also include protoclusters within that shared range that do
+not share a CDS, provided that they are completely contained within the supercluster border.
+For example, case <strong>A</strong> in the image above.</p>
+<p>In the example, CDS 1 and 2 define the protocluster of type A, and CDS 2 and 4 define the protocluster of type B.
+Since both protoclusters share a CDS that defines those protoclusters, a <em>chemical hybrid</em> candidate cluster is created.
+If CDS 4 and some later CDS were also contributing to a third protocluster type, it would be merged into this same candidate cluster.
+If CDS 3 defined another protocluster which did not extend past CDS 1 or 4, then that new protocluster would also be included in the chemical hybrid,
+under the assumption that it is relevant to the other protoclusters.</p>
+<h4 id="interleaved">Interleaved<a class="headerlink" href="#interleaved" title="Permanent link">#</a></h4>
+<p>These candidate clusters contain protoclusters which do not share cluster-defining CDS features,
+but their core locations overlap, e.g. case <strong>B</strong> in the image above.
+ </p>
+<h4 id="neighbouring">Neighbouring<a class="headerlink" href="#neighbouring" title="Permanent link">#</a></h4>
+<p>These candidate clusters are the weakest form of hybrid candidates.
+They contain protoclusters which do not match either <em>chemical</em> or <em>interleaved</em> variants,
+but transitively overlap in their neighbourhoods.
+Every protocluster in a "neighbouring candidate cluster" will also belong to one of the other kinds of candidate clusters, including the <em>single</em> kind, described below,
+excepting cases where it would be a <em>single</em> candidate <strong>and</strong> have the exact coordinates of the neighbouring candidate cluster.</p>
+<h4 id="single">Single<a class="headerlink" href="#single" title="Permanent link">#</a></h4>
+<p>This kind of candidate clusters exists where only one protocluster is contained, e.g. case <strong>D</strong>.
+It exists only for internal consistency.
+A <code>single</code> candidate cluster will not exist for a protocluster which is contained in either a chemical hybrid or an interleaved candidate cluster,
+but will exist for each inside a <code>neighbouring</code> candidate.
+For example, both protoclusters in case <strong>C</strong> will have an independent <code>single</code> candidate, along with the <code>neighbouring</code>.</p>
+              
+            </div>
+          </div>
+<hr>
+<p>
+
+</p>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../../website_submission/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../overview/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

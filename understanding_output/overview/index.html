@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Overview page - PlantiSMASH Documentation</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../css/extra.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Overview page";
+        var mkdocs_page_input_path = "understanding_output/overview.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> PlantiSMASH Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Using PlantiSMASH</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../../intro/">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../website_submission/">Submitting jobs on the website</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" >Understanding the output</a>
+    <ul class="current">
+                <li class="toctree-l2"><a class="reference internal" href="../regions/">Region concept</a>
+                </li>
+                <li class="toctree-l2 current"><a class="reference internal current" href="#">Overview page</a>
+    <ul class="current">
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../results/">Results page</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Module-specific information</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../modules/clusterrules/">BGC detection</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../modules/clusterblast/">CLusterBLAST</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../modules/tfbs/">TFBS Finder</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Local Installation</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../install/">Installation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../command_line/">Starting command line runs</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Change Log</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../changelog/2.0/">Version 2.0</a>
+                  </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../faq/">FAQ</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../glossary/">Glossary</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../about/">About</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">PlantiSMASH Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Using PlantiSMASH</li>
+          <li class="breadcrumb-item">Understanding the output</li>
+      <li class="breadcrumb-item active">Overview page</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h2 id="overview-page">Overview page<a class="headerlink" href="#overview-page" title="Permanent link">#</a></h2>
+<p>The overview page contains a summary of all regions found in all records/contigs within the input given to antiSMASH.</p>
+<p><img alt="Region overview" src="/img/cluster_overview.png" /></p>
+<p>At the top left of the page is the antiSMASH version information (<strong>1</strong>).
+Direct comparisons between antiSMASH results should use the same version for consistency, as results can change between versions.</p>
+<p>At the top right of the page are ancillary links that may be useful.
+<code>Download</code> allows you to download various parts of the results.
+<code>About</code> links to information about antiSMASH (including publications).
+<code>Help</code> links to these documentation pages.
+Finally, <code>Contact</code> links to a page with a form to send feedback or questions to the antiSMASH developers.</p>
+<p>Under the top bar are region buttons (<strong>2</strong>).
+These buttons are visible on all antiSMASH HTML pagesand can be used to quickly jump between regions.
+If a region is being viewed, the matching button for that region will be highlighted.
+Region buttons are in the form <code>X.Y</code>. For example, <code>5.7</code> would be the seventh region within the fifth record.
+Region buttons are color coded by predicted secondary metabolite type.
+Clicking the <code>Overview</code> button will bring you back to this page.</p>
+<p>Under these buttons are a summary of each record, each starting the name of the record (<strong>3</strong>) as given in the input file.
+At the top of the summary is an image (<strong>4</strong>) showing where the regions are located in the record.
+Following that is a table with a summary of each region found in the record, with each row (<strong>5</strong>) having the following fields:</p>
+<ul>
+<li><strong>Region</strong>: the region number</li>
+<li><strong>Type</strong>: the product types as detected by antiSMASH (clicking the types will take you to their description in these help pages)</li>
+<li><strong>From</strong>, <strong>To</strong>: the location of the region (in nucleotides)</li>
+<li><strong>Most similar known cluster</strong>: the closest compound from the MiBIG database (clicking this will take you to the MiBIG entry), along with its type (e.g. <code>t1pks+t3pks</code>)</li>
+<li><strong>Similarity</strong>: a percentage of genes within the closest known compound that have a significant BLAST hit to genes within the current region</li>
+</ul>
+<p>The last two columns containing comparisons to the MiBIG database will only be shown if antiSMASH was run with the <a href="/modules/clusterblast/">KnownClusterBlast</a> option.</p>
+<p>Clicking anywhere in the row that is not already an external link will take you to the detailed results for that region.</p>
+              
+            </div>
+          </div>
+<hr>
+<p>
+
+</p>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../regions/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../results/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

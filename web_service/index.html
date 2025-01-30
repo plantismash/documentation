@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Web service - PlantiSMASH Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/extra.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Web service";
+        var mkdocs_page_input_path = "web_service.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> PlantiSMASH Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Using PlantiSMASH</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../intro/">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../website_submission/">Submitting jobs on the website</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Understanding the output</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../understanding_output/regions/">Region concept</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../understanding_output/overview/">Overview page</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../understanding_output/results/">Results page</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Module-specific information</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../modules/clusterrules/">BGC detection</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../modules/clusterblast/">CLusterBLAST</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../modules/tfbs/">TFBS Finder</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Local Installation</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../install/">Installation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../command_line/">Starting command line runs</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Change Log</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../changelog/2.0/">Version 2.0</a>
+                  </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../faq/">FAQ</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../glossary/">Glossary</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../about/">About</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">PlantiSMASH Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Web service</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h2 id="running-the-plantismash-web-service">Running the plantiSMASH web service<a class="headerlink" href="#running-the-plantismash-web-service" title="Permanent link">#</a></h2>
+<p>This is the documentation on running the whole plantiSMASH web service setup.  If
+you are just interested in running antiSMASH for yourself, you might not need
+this. Feel free to skip to the guide on <a href="../website_submission/">submitting antiSMASH jobs</a>.</p>
+<p>Recently, we have switched the whole setup to run in <a href="https://docker.io/">docker</a>
+containers. Make sure you have a reasonably recent install of docker.
+This guide explains how to run the whole antiSMASH web service stack on a single
+machine. Larger production setups will be more complicated.</p>
+<p>Note that it's trivial to wrap this whole setup in a <code>docker-compose</code> file, but
+I'm running the appropriate commands via the docker CLI for increased
+flexibility.</p>
+<h3 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">#</a></h3>
+<p>There are multiple components involved in running the antiSMASH webservice.</p>
+<p><img alt="antiSMASH architecture" src="../antismash_architecture.png" /></p>
+<h4 id="web-app">Web App<a class="headerlink" href="#web-app" title="Permanent link">#</a></h4>
+<p>The webapp is what the users interact with in their browsers. It is responsible
+for starting jobs, displaying the status of running jobs, and showing the
+results of completed jobs. Provided by the <code>antismash/websmash</code> image.</p>
+<h4 id="job-queue">Job Queue<a class="headerlink" href="#job-queue" title="Permanent link">#</a></h4>
+<p>The job queue is taking care of tracking everything concerning jobs. It is
+run on a Redis server. Provided by the <code>redis</code> image.</p>
+<h4 id="antismash-instances">antiSMASH instances<a class="headerlink" href="#antismash-instances" title="Permanent link">#</a></h4>
+<p>Individual jobs are run using the antiSMASH main executable. This is wrapped by
+a job runner that knows how to retrieve new jobs from the job queue, and how to
+pick the correct parameters depending on the user input. Provided by the
+<code>antismash/runsmash-lite</code> container.</p>
+<h4 id="job-status-monitor">Job Status Monitor<a class="headerlink" href="#job-status-monitor" title="Permanent link">#</a></h4>
+<p>Not shown on the schema, not absolutely required, but really nice to have is the
+status monitor tool that will make sure the web app can display the latest
+available status. Also provided by the <code>antismash/runsmash-lite</code> container.</p>
+<h3 id="shared-setup">Shared setup<a class="headerlink" href="#shared-setup" title="Permanent link">#</a></h3>
+<p>The web app, job runners and the status monitor need to have access to a shared
+directory. In this example, we will provide it on the host. In a more complex
+multi-host setup, you will want to put this on a shared filesystem.
+In all the below setups, the shared directory will be called
+<code>/data/antismash/upload</code>. If you are using a different directory, adjust
+accordingly.</p>
+<h3 id="setting-up-the-job-queue">Setting up the job queue<a class="headerlink" href="#setting-up-the-job-queue" title="Permanent link">#</a></h3>
+<p>This is straightforward and using the off the shelf <code>redis</code> image available on
+the docker hub. Run it using <code>docker run --name antismash-redis redis</code>.</p>
+<h3 id="setting-up-the-antismash-job-runners">Setting up the antiSMASH job runner(s)<a class="headerlink" href="#setting-up-the-antismash-job-runners" title="Permanent link">#</a></h3>
+<p>This step requires more work. First, set up the PFAM and ClusterBlast databases
+as <a href="../install/#antismash-standalone-lite">described for the standalone-lite
+image</a>. Once the databases are all set up,
+you can start up a <code>runSMASH</code> executable in the container like so:</p>
+<pre><code class="language-sh">docker run --name antismash-run01 \
+           --volume /data/antismash/upload:/upload:rw \
+           --volume /data/databases:/databases:ro \
+           --link antismash-redis:redis \
+           antismash/runsmash \
+           /runsmash/runSMASH --queue redis://redis/0 \
+                              --workdir /upload \
+                              --statusdir /upload/status \
+                              --name runner01 \
+                              --cpus 8
+</code></pre>
+<p>Make sure to adjust the number of <code>--cpus</code> to the number you want to use per
+job. You can run multiple of these job runners, just make sure you use a
+different <code>--name</code> both for the <code>docker run</code> and the <code>runSMASH</code> commands.</p>
+<h3 id="setting-up-the-antismash-job-status-monitor">Setting up the antiSMASH job status monitor<a class="headerlink" href="#setting-up-the-antismash-job-status-monitor" title="Permanent link">#</a></h3>
+<p>This one is easier, just make sure to match the <code>--statusdir</code> to what you used
+for the <code>runSMASH</code> command if you changed that. Run:</p>
+<pre><code class="language-sh">docker run --name antismash-watch \
+           --volume /data/antismash/upload:/upload:rw \
+           --link antismash-redis:redis \
+           antismash/runsmash \
+           /runsmash/watchStatus --queue redis://redis/0 \
+                                 --statusdir /upload/status
+</code></pre>
+<h3 id="setting-up-the-antismash-web-interface">Setting up the antiSMASH web interface<a class="headerlink" href="#setting-up-the-antismash-web-interface" title="Permanent link">#</a></h3>
+<p>The web interface needs a file containing some settings. You will have to adjust
+those according to your local setup. An example settings file looks like this:</p>
+<pre><code class="language-python">############# Configuration #############
+DEBUG = False
+SECRET_KEY = &quot;replace this by a long random string&quot;
+RESULTS_PATH = '/upload'
+RESULTS_URL = '/upload'
+
+# Flask-Mail settings
+MAIL_SERVER = &quot;mail&quot;
+DEFAULT_MAIL_SENDER = &quot;antismash@example.org&quot;
+DEFAULT_RECIPIENTS = [&quot;antismash@example.org&quot;]
+
+# Flask-Redis settings
+REDIS_URL = &quot;redis://redis/0&quot;
+
+#########################################
+</code></pre>
+<p>Assuming you have saved this file as
+<code>/data/antismash/websmash/settings.py</code>, you can start the web interface
+like this:</p>
+<pre><code class="language-sh">docker run --name antismash-web \
+           --volume /data/antismash/upload:/upload \
+           --volume /data/antismash/websmash:/config \
+           --link antismash-redis:redis \
+           --publish 5000:8000 \
+           antismash/websmash
+</code></pre>
+<p>Now the antiSMASH web interface is available on your local machine at port
+<code>5000</code>, ready to accept and process jobs.</p>
+              
+            </div>
+          </div>
+<hr>
+<p>
+
+</p>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

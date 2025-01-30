@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Starting command line runs - PlantiSMASH Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/extra.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Starting command line runs";
+        var mkdocs_page_input_path = "command_line.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> PlantiSMASH Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Using PlantiSMASH</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../intro/">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../website_submission/">Submitting jobs on the website</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Understanding the output</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../understanding_output/regions/">Region concept</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../understanding_output/overview/">Overview page</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../understanding_output/results/">Results page</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Module-specific information</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../modules/clusterrules/">BGC detection</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../modules/clusterblast/">CLusterBLAST</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../modules/tfbs/">TFBS Finder</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Local Installation</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../install/">Installation</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Starting command line runs</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#default-run">Default run</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#minimal-run">Minimal run</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#reusing-results-from-a-previous-run">Reusing results from a previous run</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#customising-output">Customising output</a>
+    </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Change Log</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../changelog/2.0/">Version 2.0</a>
+                  </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../faq/">FAQ</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../glossary/">Glossary</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../about/">About</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">PlantiSMASH Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Local Installation</li>
+      <li class="breadcrumb-item active">Starting command line runs</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h2 id="command-line-use">Command Line Use<a class="headerlink" href="#command-line-use" title="Permanent link">#</a></h2>
+<p>The plantiSMASH command line tool comes with a built-in help system. Use
+<code>antismash --help</code> to display help for the most common options, or <code>antismash
+--help-showall</code> to get a description of all possible options.</p>
+<h3 id="default-run">Default run<a class="headerlink" href="#default-run" title="Permanent link">#</a></h3>
+<p>Running antiSMASH without parameters will run the core detection modules
+and those analyses which are quite fast to run.</p>
+<p>More time consuming options such as the
+ClusterBlast analyses, Pfam annotations, smCoG tree generation,
+etc. will not be run.</p>
+<p>On a quad-core machine, running the <em>Streptomyces coelicolor</em> genome with these options will take about two minutes.</p>
+<p>Example:</p>
+<pre><code class="language-bash">antismash streptomyces_coelicolor.gbk
+</code></pre>
+<h3 id="minimal-run">Minimal run<a class="headerlink" href="#minimal-run" title="Permanent link">#</a></h3>
+<p>Running antiSMASH with the <code>--minimal</code> parameter will only run the core detection modules and no other modules.
+Any modules disabled by this (e.g. HTML output) can be explicitly re-enabled,
+if desired, with their matching option (see <code>--help-showall</code>).
+On a quad-core machine, running the <em>Streptomyces coelicolor</em> genome in minimal mode will take about one minute.</p>
+<p>In general, we recommend running without the <code>--minimal</code>
+option, as a default run will generate much more useful results for only
+one additional minute of runtime.</p>
+<p>Example:</p>
+<pre><code class="language-bash">antismash --minimal streptomyces_coelicolor.gbk
+</code></pre>
+<h3 id="reusing-results-from-a-previous-run">Reusing results from a previous run<a class="headerlink" href="#reusing-results-from-a-previous-run" title="Permanent link">#</a></h3>
+<p>The JSON output file previously generated by antiSMASH can be reused to regenerate other output files.
+Additional analyses can be enabled for the new run by adding their options.</p>
+<p>NOTE: there are some situations in which results cannot be reused,
+these are typically when detection modules have changed since the results were generated.
+In this case, using the version of antiSMASH that generated the results will be required.</p>
+<p>Example:</p>
+<pre><code class="language-bash">antismash --reuse-results strepomyces_coelicolor.json
+</code></pre>
+<h3 id="customising-output">Customising output<a class="headerlink" href="#customising-output" title="Permanent link">#</a></h3>
+<p>Output directories and custom names for output can be specified, instead of using the input filename by default
+(see the <code>--output</code> family of arguments).</p>
+<p>HTML output can also be customised with alternative titles and descriptions
+(see the <code>--html</code> family of arguments).</p>
+              
+            </div>
+          </div>
+<hr>
+<p>
+
+</p>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../install/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../changelog/2.0/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
