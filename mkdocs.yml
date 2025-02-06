@@ -31,7 +31,5 @@ plugins:
   - search
 extra_css: 
   - css/extra.css 
-extra:
-copyright: "© Copyright 2025 Elena Del Pup"
-
-
+extra: 
+    copyright: "© Copyright 2025 Elena Del Pup"
