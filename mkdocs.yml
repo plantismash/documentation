@@ -32,4 +32,5 @@ plugins:
 extra_css: 
   - css/extra.css 
 extra: 
-    copyright: "© Copyright 2025 Elena Del Pup"
+    copyright: '© 2025 <a href="https://github.com/elenadelpup" target="_blank">Elena Del Pup</a>'
+
