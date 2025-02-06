@@ -4,6 +4,8 @@ The documentation of the plant genome-mining tool [plantiSMASH](https://plantism
 
 To publish the documentation follow the [GitHub workflow](./.github/workflows/publish.yml)
 
+Check the deployment status of the last push at [Deploy MKdocs](https://github.com/plantismash/documentation/actions/workflows/publish.yml)
+
 ### License
 
 See [LICENSE](LICENSE)
