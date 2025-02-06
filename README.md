@@ -6,6 +6,28 @@ To publish the documentation follow the [GitHub workflow](./.github/workflows/pu
 
 Check the deployment status of the last push at [Deploy MKdocs](https://github.com/plantismash/documentation/actions/workflows/publish.yml)
 
+### Run Mkdocs locally 
+
+Create a conda environment with the Mkdocs required dependencies 
+
+``` 
+conda create -n plantidocs python=3.9
+conda activate plantidocs 
+pip install -r requirements.txt
+```
+
+Start the local MkDocs server:
+```
+mkdocs serve 
+```
+Open your browser and go to:
+[http://127.0.0.1:8000/](http://127.0.0.1:8000/)
+
+Stop the server: 
+```
+Ctrl+C
+```
+
 ### License
 
 See [LICENSE](LICENSE)
