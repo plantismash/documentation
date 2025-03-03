@@ -1,4 +1,6 @@
-# plantiSMASH Documentation
+plantiSMASH Documentation
+--------------------------
+
 
 Welcome to the documentation of **plantiSMASH**. 
 
@@ -28,6 +30,6 @@ This documentation is mainly addressed to users wanting to know more about the i
 If you are interested in contributing to antiSMASH or in the technical design, please see the [plantiSMASH GitHub Wiki](https://github.com/plantismash/plantismash/wiki).
 
 
-## antiSMASH 
+### antiSMASH 
 
 If you want to know more about the antiSMASH framework, check the [antiSMASH Documentation](https://docs.antismash.secondarymetabolites.org/). 

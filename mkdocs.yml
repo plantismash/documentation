@@ -27,6 +27,8 @@ markdown_extensions:
     - footnotes
     - toc:
         permalink: "#"
+    - pymdownx.details # Enables collapsible sections
+    - pymdownx.superfences # Ensures proper code block rendering
 plugins:
   - search
 extra_css: 

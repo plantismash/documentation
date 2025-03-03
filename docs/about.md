@@ -17,7 +17,7 @@ vis.js
 pplacer
 GraPhlAn
 
-# antiSMASH contributors 
+# plantiSMASH contributors 
 
 plantiSMASH version 2.0 is the product of a collaborative effort between:
 

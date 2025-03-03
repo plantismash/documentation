@@ -6,6 +6,8 @@ To publish the documentation follow the [GitHub workflow](./.github/workflows/pu
 
 Check the deployment status of the last push at [Deploy MKdocs](https://github.com/plantismash/documentation/actions/workflows/publish.yml)
 
+This documentation is based on the template of  the [antiSMASH documentation](https://docs.antismash.secondarymetabolites.org/)
+
 ### Run Mkdocs locally 
 
 Create a conda environment with the Mkdocs required dependencies 
