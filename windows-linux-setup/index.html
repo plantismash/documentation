@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="shortcut icon" href="../img/favicon.ico" />
-    <title>Starting command line runs - PlantiSMASH Documentation</title>
+    <title>Windows linux setup - PlantiSMASH Documentation</title>
     <link rel="stylesheet" href="../css/theme.css" />
     <link rel="stylesheet" href="../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
@@ -13,8 +13,8 @@
     
       <script>
         // Current page data
-        var mkdocs_page_name = "Starting command line runs";
-        var mkdocs_page_input_path = "command_line.md";
+        var mkdocs_page_name = "Windows linux setup";
+        var mkdocs_page_input_path = "windows-linux-setup.md";
         var mkdocs_page_url = null;
       </script>
     
@@ -71,18 +71,10 @@
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Local Installation</span></p>
-              <ul class="current">
+              <ul>
                   <li class="toctree-l1"><a class="reference internal" href="../install/">Installation</a>
                   </li>
-                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Starting command line runs</a>
-    <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#1-run-a-test-dataset">1. Run a test dataset</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#11-run-plantismash-on-a-ncbi-reference-genome-genebank-format-to-test">1.1. Run PlantiSMASH on a NCBI reference genome (genebank format) to test</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#12-run-plantismash-on-a-genome-with-gff3-fasta">1.2. Run PlantiSMASH on a genome with gff3 + fasta</a>
-    </li>
-    </ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../command_line/">Starting command line runs</a>
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Change Log</span></p>
@@ -116,8 +108,7 @@
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
-          <li class="breadcrumb-item">Local Installation</li>
-      <li class="breadcrumb-item active">Starting command line runs</li>
+      <li class="breadcrumb-item active">Windows linux setup</li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
@@ -126,25 +117,24 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h2 id="command-line-use">Command Line Use<a class="headerlink" href="#command-line-use" title="Permanent link">#</a></h2>
-<p>The plantiSMASH command line tool comes with a built-in help system. Use
-<code>python run_antismash.py -h</code> to display help for the most common options, or <code>python run_antismash.py --help-showall</code> to get a description of all possible options.</p>
-<h3 id="1-run-a-test-dataset">1. Run a test dataset<a class="headerlink" href="#1-run-a-test-dataset" title="Permanent link">#</a></h3>
-<h3 id="11-run-plantismash-on-a-ncbi-reference-genome-genebank-format-to-test">1.1. Run PlantiSMASH on a NCBI reference genome (genebank format) to test<a class="headerlink" href="#11-run-plantismash-on-a-ncbi-reference-genome-genebank-format-to-test" title="Permanent link">#</a></h3>
-<pre class="highlight"><code class="language-bash">mkdir -p test_datasets/Arabidopsis_thaliana
-cd test_datasets/Arabidopsis_thaliana
-datasets download genome accession GCF_000001735.4 --include gbff
-unzip ncbi_dataset.zip
-python ../../run_antismash.py --clusterblast --knownclusterblast --verbose --debug --limit -1 --taxon plants --outputfolder result/ ncbi_dataset/data/GCF_000001735.4/genomic.gbff
-# --clusterblast --knownclusterblast are optional</code></pre>
-<h3 id="12-run-plantismash-on-a-genome-with-gff3-fasta">1.2. Run PlantiSMASH on a genome with gff3 + fasta<a class="headerlink" href="#12-run-plantismash-on-a-genome-with-gff3-fasta" title="Permanent link">#</a></h3>
-<pre class="highlight"><code class="language-bash">python run_antismash.py --verbose --debug --limit -1 --taxon plants --outputfolder result/ --use_phase --gff3 path/to/gff3/file path/to/fasta/file
-# Please check the error message. The genome names in the gff3 file may differ from those in the fasta file, causing an error.</code></pre>
-<h2 id="note">Note<a class="headerlink" href="#note" title="Permanent link">#</a></h2>
-<p>It is recommended to change the output folder or delete it every time you run PlantiSMASH. Because when using the same output folder, files from the previous run may be partially preserved (only rewriting files with the same names).</p>
-<h3 id="customising-output">Customising output<a class="headerlink" href="#customising-output" title="Permanent link">#</a></h3>
-<p>Output directories and custom names for output can be specified, instead of using the input filename by default
-(see the <code>--output</code> family of arguments).</p>
+                <h2 id="setting-up-plantismash-on-windows-without-linux">Setting Up plantiSMASH on Windows Without Linux<a class="headerlink" href="#setting-up-plantismash-on-windows-without-linux" title="Permanent link">#</a></h2>
+<p>For users who do not have a Linux system installed, follow this guide to set up a Linux environment on Windows .</p>
+<hr />
+<h2 id="create-a-linux-environment-in-windows">Create a Linux Environment in Windows<a class="headerlink" href="#create-a-linux-environment-in-windows" title="Permanent link">#</a></h2>
+<p>Skip this step if using a Linux server. Refer to the <a href="https://medium.com/@larysha.rothmann/getting-started-with-wsl-for-bioinformatics-setting-up-a-fully-functional-and-pretty-53b9c79b5380">WSL setup guide</a>.</p>
+<ol>
+<li>Open the Windows command prompt: Press <code>Win Key</code>, search for ‘command prompt’, and select ‘Run as administrator’. Click ‘Yes’ when prompted by Windows to allow the app to make changes.</li>
+<li>Type in the command prompt: 
+   <pre class="highlight"><code class="language-bash">wsl.exe --install</code></pre></li>
+<li>Wait for the installation to finish, and type ‘Yes’ if prompted.</li>
+<li>Restart your computer.</li>
+<li>Click on Ubuntu.exe to register Ubuntu.</li>
+<li>To have root as the administrator every time you start, use:
+   <pre class="highlight"><code class="language-bash">sudo -s</code></pre></li>
+<li>If any issues arise, unregister Ubuntu in PowerShell with:
+   <pre class="highlight"><code class="language-bash">wsl --unregister Ubuntu</code></pre>
+   Then click Ubuntu.exe to register Ubuntu again or visit your Linux server terminal. </li>
+</ol>
               
             </div>
           </div>
@@ -168,10 +158,6 @@ python ../../run_antismash.py --clusterblast --knownclusterblast --verbose --deb
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../install/" style="color: #fcfcfc">&laquo; Previous</a></span>
-    
-    
-      <span><a href="../changelog/2.0/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>

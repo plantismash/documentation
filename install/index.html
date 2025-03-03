@@ -74,6 +74,8 @@
               <ul class="current">
                   <li class="toctree-l1 current"><a class="reference internal current" href="#">Installation</a>
     <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#current-release">Current Release</a>
+    </li>
     </ul>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../command_line/">Starting command line runs</a>
@@ -120,8 +122,87 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="download-plantismash-standalone">Download plantiSMASH standalone<a class="headerlink" href="#download-plantismash-standalone" title="Permanent link">#</a></h1>
-<p>Check our guidelines <a href="https://plantismash.bioinformatics.nl/download.html">Download plantiSMASH standalone</a>. </p>
+                <h3 id="download-plantismash-standalone">Download plantiSMASH Standalone<a class="headerlink" href="#download-plantismash-standalone" title="Permanent link">#</a></h3>
+<p>Stand-alone versions of plantiSMASH are available through <strong><a href="https://github.com/plantismash/plantismash">our GitHub page</a></strong>.</p>
+<h4 id="current-release">Current Release<a class="headerlink" href="#current-release" title="Permanent link">#</a></h4>
+<p>The current standalone release is <strong><a href="https://github.com/plantismash/plantismash/tree/dev">plantiSMASH 2.0-beta</a></strong> (<em>December 16th, 2024</em>).</p>
+<hr />
+<h2 id="installation-options">Installation Options<a class="headerlink" href="#installation-options" title="Permanent link">#</a></h2>
+<p>There are two ways to install plantiSMASH:</p>
+<ol>
+<li><strong>Downloading the standalone release</strong> – Suitable for users who want to install plantiSMASH from a zip package and ensure dependencies are installed separately.</li>
+<li><strong>Cloning from the development branch</strong> – Recommended for users who want the latest development version and prefer managing dependencies in a virtual Conda environment.</li>
+</ol>
+<hr />
+<h3 id="option-1-installing-from-the-standalone-release">Option 1: Installing from the Standalone Release<a class="headerlink" href="#option-1-installing-from-the-standalone-release" title="Permanent link">#</a></h3>
+<ol>
+<li>Download the plantiSMASH standalone release from our GitHub repo:</li>
+</ol>
+<p><a href="https://github.com/plantismash/plantismash/releases">https://github.com/plantismash/plantismash/releases</a></p>
+<ol>
+<li>
+<p>Ensure you have the following dependencies installed (tested versions in parentheses):</p>
+</li>
+<li>
+<p><a href="https://ccb.jhu.edu/software/glimmer/">Glimmer</a> (3.02)</p>
+</li>
+<li><a href="https://ccb.jhu.edu/software/glimmerhmm/">GlimmerHMM</a> (3.0.4)</li>
+<li><a href="http://hmmer.janelia.org/">HMMER3</a> (3.3.2)</li>
+<li><a href="http://www.microbesonline.org/fasttree/">FastTree</a> (2.1.8)</li>
+<li><a href="https://github.com/bbuchfink/diamond">DIAMOND</a> (2.0.15)</li>
+<li><a href="http://www.drive5.com/muscle/">MUSCLE</a> (3.8.31)</li>
+<li><a href="https://github.com/hyattpd/Prodigal">Prodigal</a> (2.6.3)</li>
+<li><a href="https://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST/">NCBI Blast+</a> (2.12.0)</li>
+<li><a href="http://weizhongli-lab.org/cd-hit/">CD-HIT</a> (4.8.1)</li>
+<li><a href="http://xmlsoft.org/">LibXML2</a> (2.10.3)</li>
+<li><a href="https://matsen.fhcrc.org/pplacer/">pplacer</a></li>
+<li><a href="https://www.ncbi.nlm.nih.gov/datasets/">NCBI Datasets CLI</a> (16.40.1)</li>
+<li><a href="https://linux.die.net/man/1/unzip">Unzip</a></li>
+<li><a href="https://github.com/helperlibs">Helperlibs</a> (0.2.1)</li>
+<li>
+<p><a href="https://biopython.org/">Biopython</a> (1.76)</p>
+</li>
+<li>
+<p>Once all dependencies are installed, plantiSMASH should be ready to use.</p>
+</li>
+</ol>
+<hr />
+<h3 id="option-2-cloning-from-the-development-branch">Option 2: Cloning from the Development Branch<a class="headerlink" href="#option-2-cloning-from-the-development-branch" title="Permanent link">#</a></h3>
+<p>Using Windows? Click here for the full <a href="../windows-linux-setup/">Windows Setup Guide</a>.</p>
+<ol>
+<li>Clone the latest version from GitHub:</li>
+</ol>
+<pre class="highlight"><code class="language-bash">git clone -b dev https://github.com/plantismash/plantismash.git
+cd plantismash</code></pre>
+<ol>
+<li>If not installed already, conda/mamba can be installed by following these instructions:</li>
+</ol>
+<pre class="highlight"><code class="language-bash"># install miniforge
+ curl -L -O "https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-$(uname)-$(uname -m).sh"
+ bash Miniforge3-$(uname)-$(uname -m).sh
+ # follow instructions and let it run `conda init`
+
+ # set default channels
+ source ~/.bashrc
+ conda config --set auto_activate_base false
+ source ~/.bashrc
+ conda config --add channels bioconda
+ conda config --add channels conda-forge
+ conda config --set channel_priority strict  </code></pre>
+<ol>
+<li>Create and activate a Conda environment using the provided <code>environment.yml</code> file</li>
+</ol>
+<pre class="highlight"><code class="language-bash">conda env create -f environment.yml
+conda activate plantismash</code></pre>
+<ol>
+<li>Download the required databases:</li>
+</ol>
+<pre class="highlight"><code class="language-bash">python download_databases.py</code></pre>
+<ol>
+<li>Verify the installation </li>
+</ol>
+<pre class="highlight"><code class="language-bash">python run_antismash.py -h</code></pre>
+<hr />
               
             </div>
           </div>

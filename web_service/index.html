@@ -161,8 +161,8 @@ the docker hub. Run it using <code>docker run --name antismash-redis redis</code
 <p>This step requires more work. First, set up the PFAM and ClusterBlast databases
 as <a href="../install/#antismash-standalone-lite">described for the standalone-lite
 image</a>. Once the databases are all set up,
-you can start up a <code>runSMASH</code> executable in the container like so:</p>
-<pre><code class="language-sh">docker run --name antismash-run01 \
+you can start up a <code>runSMASH</code> executable in the container like so:
+<pre class="highlight"><code class="language-sh">docker run --name antismash-run01 \
            --volume /data/antismash/upload:/upload:rw \
            --volume /data/databases:/databases:ro \
            --link antismash-redis:redis \
@@ -171,50 +171,46 @@ you can start up a <code>runSMASH</code> executable in the container like so:</p
                               --workdir /upload \
                               --statusdir /upload/status \
                               --name runner01 \
-                              --cpus 8
-</code></pre>
+                              --cpus 8</code></pre></p>
 <p>Make sure to adjust the number of <code>--cpus</code> to the number you want to use per
 job. You can run multiple of these job runners, just make sure you use a
 different <code>--name</code> both for the <code>docker run</code> and the <code>runSMASH</code> commands.</p>
 <h3 id="setting-up-the-antismash-job-status-monitor">Setting up the antiSMASH job status monitor<a class="headerlink" href="#setting-up-the-antismash-job-status-monitor" title="Permanent link">#</a></h3>
 <p>This one is easier, just make sure to match the <code>--statusdir</code> to what you used
-for the <code>runSMASH</code> command if you changed that. Run:</p>
-<pre><code class="language-sh">docker run --name antismash-watch \
+for the <code>runSMASH</code> command if you changed that. Run:
+<pre class="highlight"><code class="language-sh">docker run --name antismash-watch \
            --volume /data/antismash/upload:/upload:rw \
            --link antismash-redis:redis \
            antismash/runsmash \
            /runsmash/watchStatus --queue redis://redis/0 \
-                                 --statusdir /upload/status
-</code></pre>
+                                 --statusdir /upload/status</code></pre></p>
 <h3 id="setting-up-the-antismash-web-interface">Setting up the antiSMASH web interface<a class="headerlink" href="#setting-up-the-antismash-web-interface" title="Permanent link">#</a></h3>
 <p>The web interface needs a file containing some settings. You will have to adjust
-those according to your local setup. An example settings file looks like this:</p>
-<pre><code class="language-python">############# Configuration #############
+those according to your local setup. An example settings file looks like this:
+<pre class="highlight"><code class="language-python">############# Configuration #############
 DEBUG = False
-SECRET_KEY = &quot;replace this by a long random string&quot;
+SECRET_KEY = "replace this by a long random string"
 RESULTS_PATH = '/upload'
 RESULTS_URL = '/upload'
 
 # Flask-Mail settings
-MAIL_SERVER = &quot;mail&quot;
-DEFAULT_MAIL_SENDER = &quot;antismash@example.org&quot;
-DEFAULT_RECIPIENTS = [&quot;antismash@example.org&quot;]
+MAIL_SERVER = "mail"
+DEFAULT_MAIL_SENDER = "antismash@example.org"
+DEFAULT_RECIPIENTS = ["antismash@example.org"]
 
 # Flask-Redis settings
-REDIS_URL = &quot;redis://redis/0&quot;
+REDIS_URL = "redis://redis/0"
 
-#########################################
-</code></pre>
+#########################################</code></pre></p>
 <p>Assuming you have saved this file as
 <code>/data/antismash/websmash/settings.py</code>, you can start the web interface
-like this:</p>
-<pre><code class="language-sh">docker run --name antismash-web \
+like this:
+<pre class="highlight"><code class="language-sh">docker run --name antismash-web \
            --volume /data/antismash/upload:/upload \
            --volume /data/antismash/websmash:/config \
            --link antismash-redis:redis \
            --publish 5000:8000 \
-           antismash/websmash
-</code></pre>
+           antismash/websmash</code></pre></p>
 <p>Now the antiSMASH web interface is available on your local machine at port
 <code>5000</code>, ready to accept and process jobs.</p>
               
