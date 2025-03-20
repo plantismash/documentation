@@ -90,10 +90,10 @@
                 <li class="toctree-l1 current"><a class="reference internal current" href="#">Glossary</a>
     <ul class="current">
     <li class="toctree-l2"><a class="reference internal" href="#current-types">Current Types</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#strict">Strict</a>
     </li>
-        </ul>
+    <li class="toctree-l2"><a class="reference internal" href="#deprecated-or-merged-types">Deprecated or Merged Types</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#reference-links">Reference Links</a>
     </li>
     </ul>
                 </li>
@@ -125,33 +125,142 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="protocluster-types">Protocluster Types<a class="headerlink" href="#protocluster-types" title="Permanent link">#</a></h1>
-<p><span class="red-comment">TODO: Check if this glossary applies to plantismash.</span></p>
-<p>antiSMASH uses some abbreviations internally and in outputs to refer to the different
+                <h1 id="cluster-types">Cluster types<a class="headerlink" href="#cluster-types" title="Permanent link">#</a></h1>
+<p>plantiSMASH uses some abbreviations internally and in outputs to refer to the different
 types of secondary metabolite clusters detected.</p>
-<p>There are three strictness levels for cluster detection: strict, relaxed, and loose.
-Each level includes the more strict levels.
-The types of cluster within each ruleset are given below:</p>
+<p>Cluster rules and associated HMM profiles are available in the <a href="https://github.com/plantismash/plantismash/">plantiSMASH GitHub repository</a>. </p>
 <h2 id="current-types">Current Types<a class="headerlink" href="#current-types" title="Permanent link">#</a></h2>
-<h3 id="strict">Strict<a class="headerlink" href="#strict" title="Permanent link">#</a></h3>
 <table>
 <thead>
 <tr>
 <th>Label</th>
 <th>Description</th>
-<th style="text-align: center;">Added</th>
-<th style="text-align: center;">Last updated</th>
+<th>Added</th>
+<th>Last updated</th>
+<th>Detection Rule Updates</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+<td><strong>alkaloid</strong></td>
+<td>Putative alkaloid biosynthetic cluster. Characterized by the presence of Bet_v_1, Cu_amine_oxid, Str_synth, BBE, Orn_DAP_Arg_deC, Pyridoxal_deC enzymes.</td>
+<td>1.0</td>
+<td>2.0</td>
+<td><strong>Added:</strong> BBE, Orn_DAP_Arg_deC, Pyridoxal_deC</td>
+</tr>
+<tr>
+<td><strong>lignan</strong></td>
+<td>Putative lignan biosynthetic cluster. Characterized by the presence of Dirigent enzyme.</td>
+<td>1.0</td>
+<td>2.0</td>
+<td>No changes</td>
+</tr>
+<tr>
+<td><strong>saccharide</strong></td>
+<td>Putative saccharide biosynthetic cluster. Characterized by the presence of Glycosyl transferases (1,2,28), UDPGT, Glyco_hydro, Cellulose_synt enzymes.</td>
+<td>1.0</td>
+<td>2.0</td>
+<td><strong>Added:</strong> Glyco_hydro_1, Cellulose_synt</td>
+</tr>
+<tr>
+<td><strong>terpene</strong></td>
+<td>Putative terpene biosynthetic cluster. Characterized by the presence of Terpene_synth, Prenyltrans, SQHop_cyclase, PRISE enzymes.</td>
+<td>1.0</td>
+<td>2.0</td>
+<td>No changes</td>
+</tr>
+<tr>
+<td><strong>polyketide</strong></td>
+<td>Putative polyketide biosynthetic cluster. Characterized by the presence of AMP-binding and Chal_sti_synt enzymes.</td>
+<td>1.0</td>
+<td>2.0</td>
+<td><strong>Now allows multiple detection rules:</strong> AMP-binding + Thr_dehydrat_C OR AMP-binding + Chal_sti_synt_C/N</td>
+</tr>
+<tr>
+<td><strong>fatty acid</strong></td>
+<td>Putative polyketide biosynthetic cluster. Characterized by the presence of AMP-binding, Transferase.</td>
+<td>1.0</td>
+<td>2.0</td>
+<td><strong>Added alternative detection rules:</strong> FA_desaturase, FA_desaturase_2, FA_hydroxylase, CER1-like_C</td>
+</tr>
+<tr>
+<td><strong>mate</strong></td>
+<td>Putative polyketide biosynthetic cluster. Characterized by the presence of MatE enzymes.</td>
+<td>1.0</td>
+<td>2.0</td>
+<td>No changes</td>
+</tr>
+<tr>
+<td><strong>sesterpene</strong></td>
+<td>Putative polyketide biosynthetic cluster. Characterized by the presence of Terpene_synth_C, polyprenyl_synt.</td>
+<td>1.0</td>
+<td>2.0</td>
+<td>No changes</td>
+</tr>
+<tr>
+<td><strong>strictosidine-like</strong></td>
+<td>Putative polyketide biosynthetic cluster. Characterized by the presence of Str_synth, Pyridoxal_deC enzymes.</td>
+<td>1.0</td>
+<td>2.0</td>
+<td>No changes</td>
+</tr>
+<tr>
+<td><strong>phenolamide</strong></td>
+<td>Putative phenolamide biosynthetic cluster. Characterized by the presence of Transferase, Pyridoxal_deC enzymes or Transferase, Orn_DAP_Arg_deC, Orn_Arg_deC_N enzymes.</td>
+<td>1.0</td>
+<td>2.0</td>
+<td><strong>Added alternative detection rules:</strong> Orn_DAP_Arg_deC, Orn_Arg_deC_N</td>
+</tr>
+<tr>
+<td><strong>cyclopeptide</strong></td>
+<td>Putative polyketide biosynthetic cluster. Characterized by the presence of BURP enzymes as well as a putative peptide precursor repeat sequence.</td>
+<td>2.0</td>
+<td>2.0</td>
+<td>No changes</td>
+</tr>
+<tr>
+<td><strong>plant</strong></td>
+<td>Putative / uncategorized plant biosynthetic cluster, containing a minimum of 4 enzyme domains from the full list.</td>
+<td>1.0</td>
+<td>2.0</td>
+<td>No changes</td>
 </tr>
 </tbody>
 </table>
+<hr />
+<h2 id="deprecated-or-merged-types"><strong>Deprecated or Merged Types</strong><a class="headerlink" href="#deprecated-or-merged-types" title="Permanent link">#</a></h2>
+<table>
+<thead>
+<tr>
+<th>Label</th>
+<th>Description</th>
+<th>Added</th>
+<th>Removed</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>putative</strong></td>
+<td>Putative / uncategorized biosynthetic cluster.</td>
+<td>1.0</td>
+<td>2.0</td>
+</tr>
+<tr>
+<td><strong>hybrid</strong></td>
+<td>Biosynthetic cluster containing signature traces from both A and B secondary metabolite types.</td>
+<td>1.0</td>
+<td>2.0</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="reference-links">Reference Links<a class="headerlink" href="#reference-links" title="Permanent link">#</a></h2>
+<p>For reference, you can find the detection rules for different plantiSMASH versions here:</p>
+<ul>
+<li><strong>Version 1 Rules:</strong> <a href="https://github.com/plantismash/plantismash/releases/tag/1.0/antismash/generic_modules/hmm_detection/plants/cluster_rules.txt/">View on GitHub</a></li>
+<li><strong>Version 2 Rules:</strong> <a href="https://github.com/plantismash/plantismash/releases/tag/2.0-beta2">View on GitHub</a></li>
+</ul>
+<p>This glossary provides an overview of the secondary metabolite types detected by plantiSMASH. If you have any questions, refer to the documentation or reach out to the development team.</p>
               
             </div>
           </div>
