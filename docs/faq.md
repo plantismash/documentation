@@ -3,7 +3,7 @@ Frequently Asked Questions
 
 ### Can I run antiSMASH locally as a stand-alone program?
 
-Yes. A stand-alone version of antiSMASH is available from the [download page](https://plantismash.bioinformatics.nl/download.html).
+Yes. A stand-alone version of plantiSMASH is available from the [download page](install.md).
 
 ### Why doesn't plantiSMASH detect my gene cluster?
 
