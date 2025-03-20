@@ -27,7 +27,7 @@ Cluster rules and associated HMM profiles are available in the [plantiSMASH GitH
 ---
 
 ## **Deprecated or Merged Types**
-| Putative cluster type | Description | Added | Removed |
+| Putative cluster type | Characterized by the presence of | Added | Removed |
 |-------|-------------|---------|---------|
 | **putative** | Putative / uncategorized biosynthetic cluster. | 1.0 | 2.0 |
 | **hybrid** | Biosynthetic cluster containing signature traces from both A and B secondary metabolite types. | 1.0 | 2.0 |
