@@ -8,19 +8,20 @@ Cluster rules and associated HMM profiles are available in the [plantiSMASH GitH
 ## Current Types
 
 | Putative cluster type | Characterized by the presence of | Added | Last updated | Detection Rule Updates |
-|-------|-------------|---------|---------|----------------------|
+|-----------------------|----------------------------------|-------|--------------|-------------------------|
 | **alkaloid** | Bet_v_1, Cu_amine_oxid, Str_synth, BBE, Orn_DAP_Arg_deC, Pyridoxal_deC enzymes. | 1.0 | 2.0 | **Added:** BBE, Orn_DAP_Arg_deC, Pyridoxal_deC |
-| **lignan** | Dirigent enzyme. | 1.0 | 2.0 | No changes |
-| **saccharide** | Glycosyl transferases (1,2,28), UDPGT, Glyco_hydro, Cellulose_synt enzymes. | 1.0 | 2.0 | **Added:** Glyco_hydro_1, Cellulose_synt |
-| **terpene** | Terpene_synth, Prenyltrans, SQHop_cyclase, PRISE enzymes. | 1.0 | 2.0 | No changes |
-| **polyketide** | AMP-binding and Chal_sti_synt enzymes. | 1.0 | 2.0 | **Now allows multiple detection rules:** AMP-binding + Thr_dehydrat_C OR AMP-binding + Chal_sti_synt_C/N |
-| **fatty acid** | AMP-binding, Transferase. | 1.0 | 2.0 | **Added alternative detection rules:** FA_desaturase, FA_desaturase_2, FA_hydroxylase, CER1-like_C |
-| **mate** | MatE enzymes. | 1.0 | 2.0 | No changes |
-| **sesterpene** | Terpene_synth_C, polyprenyl_synt. | 1.0 | 2.0 | No changes |
-| **strictosidine-like** | Str_synth, Pyridoxal_deC enzymes. | 1.0 | 2.0 | No changes |
-| **phenolamide** | Transferase, Pyridoxal_deC enzymes or Transferase, Orn_DAP_Arg_deC, Orn_Arg_deC_N enzymes. | 1.0 | 2.0 | **Added alternative detection rules:** Orn_DAP_Arg_deC, Orn_Arg_deC_N |
 | **cyclopeptide** | BURP enzymes and putative peptide precursor repeat sequence. | 2.0 | 2.0 | No changes |
-| **plant*** | Minimum of 4 enzyme domains from the full list. | 1.0 | 2.0 | No changes |
+| **fatty acid** | AMP-binding, Transferase. | 2.0 | 2.0 | **Added alternative detection rules:** FA_desaturase, FA_desaturase_2, FA_hydroxylase, CER1-like_C |
+| **lignan** | Dirigent enzyme. | 1.0 | 1.0 | No changes |
+| **mate** | MatE enzymes. | 2.0 | 2.0 | No changes |
+| **phenolamide** | Transferase, Pyridoxal_deC enzymes or Transferase, Orn_DAP_Arg_deC, Orn_Arg_deC_N enzymes. | 2.0 | 2.0 | **Added alternative detection rules:** Orn_DAP_Arg_deC, Orn_Arg_deC_N |
+| **plant*** | Minimum of 4 core enzyme domains from the full list. | 1.0 | 2.0 |  |
+| **polyketide** | AMP-binding and Chal_sti_synt enzymes. | 1.0 | 2.0 | **Now allows multiple detection rules:** AMP-binding + Thr_dehydrat_C OR AMP-binding + Chal_sti_synt_C/N |
+| **saccharide** | Glycosyl transferases (1,2,28), UDPGT, Glyco_hydro, Cellulose_synt enzymes. | 1.0 | 2.0 | **Added:** Glyco_hydro_1, Cellulose_synt |
+| **sesterpene** | Terpene_synth_C, polyprenyl_synt. | 2.0 | 2.0 | No changes |
+| **strictosidine-like** | Str_synth, Pyridoxal_deC enzymes. | 2.0 | 2.0 | No changes |
+| **terpene** | Terpene_synth, Prenyltrans, SQHop_cyclase, PRISE enzymes. | 1.0 | 1.0 | No changes |
+
 
 *Putative / uncategorized plant biosynthetic cluster.
 
