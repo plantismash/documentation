@@ -131,77 +131,78 @@
 <p>There are two ways to install plantiSMASH:</p>
 <ol>
 <li><strong>Downloading the standalone release</strong> – Suitable for users who want to install plantiSMASH from a zip package and ensure dependencies are installed separately.</li>
-<li><strong>Cloning from the development branch</strong> – Recommended for users who want the latest development version and prefer managing dependencies in a virtual Conda environment.</li>
+<li><strong>Cloning from GitHub</strong> – Recommended for users who want the latest development version and prefer managing dependencies in a virtual Conda environment.</li>
 </ol>
 <hr />
-<h3 id="option-1-installing-from-the-standalone-release">Option 1: Installing from the Standalone Release<a class="headerlink" href="#option-1-installing-from-the-standalone-release" title="Permanent link">#</a></h3>
-<ol>
-<li>Download the plantiSMASH standalone release from our GitHub repo:</li>
-</ol>
-<p><a href="https://github.com/plantismash/plantismash/releases">https://github.com/plantismash/plantismash/releases</a></p>
+<h3 id="option-1-downloading-the-standalone-release">Option 1: Downloading the standalone release<a class="headerlink" href="#option-1-downloading-the-standalone-release" title="Permanent link">#</a></h3>
 <ol>
 <li>
-<p>Ensure you have the following dependencies installed (tested versions in parentheses):</p>
+<p>Download the latest plantiSMASH standalone release from our GitHub repo:<br />
+<a href="https://github.com/plantismash/plantismash/releases">https://github.com/plantismash/plantismash/releases</a></p>
 </li>
 <li>
-<p><a href="https://ccb.jhu.edu/software/glimmer/">Glimmer</a> (3.02)</p>
-</li>
-<li><a href="https://ccb.jhu.edu/software/glimmerhmm/">GlimmerHMM</a> (3.0.4)</li>
-<li><a href="http://hmmer.janelia.org/">HMMER3</a> (3.3.2)</li>
-<li><a href="http://www.microbesonline.org/fasttree/">FastTree</a> (2.1.8)</li>
-<li><a href="https://github.com/bbuchfink/diamond">DIAMOND</a> (2.0.15)</li>
-<li><a href="http://www.drive5.com/muscle/">MUSCLE</a> (3.8.31)</li>
-<li><a href="https://github.com/hyattpd/Prodigal">Prodigal</a> (2.6.3)</li>
-<li><a href="https://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST/">NCBI Blast+</a> (2.12.0)</li>
-<li><a href="http://weizhongli-lab.org/cd-hit/">CD-HIT</a> (4.8.1)</li>
-<li><a href="http://xmlsoft.org/">LibXML2</a> (2.10.3)</li>
-<li><a href="https://matsen.fhcrc.org/pplacer/">pplacer</a></li>
-<li><a href="https://www.ncbi.nlm.nih.gov/datasets/">NCBI Datasets CLI</a> (16.40.1)</li>
-<li><a href="https://linux.die.net/man/1/unzip">Unzip</a></li>
-<li><a href="https://github.com/helperlibs">Helperlibs</a> (0.2.1)</li>
-<li>
-<p><a href="https://biopython.org/">Biopython</a> (1.76)</p>
+<p>Ensure you have the following dependencies installed (tested versions in parentheses):  </p>
+<ul>
+<li><a href="https://ccb.jhu.edu/software/glimmer/">Glimmer</a> (3.02)  </li>
+<li><a href="https://ccb.jhu.edu/software/glimmerhmm/">GlimmerHMM</a> (3.0.4)  </li>
+<li><a href="http://hmmer.janelia.org/">HMMER3</a> (3.3.2)  </li>
+<li><a href="ftp://ftp.sanger.ac.uk/pub/1000genomes/ftp/technical/working/20110111_hmmer-2.3.2.tar.gz">HMMER2</a> (version 2.3.2 tested). plantiSMASH requires hmmpfam2, a legacy tool from HMMER 2. This binary is no longer included in HMMER 3.x and must be installed manuallyappend a 2 to all hmmer2 executables to avoid conflict with hmmer3 executable names, like hmmalign -&gt; hmmalign2 </li>
+<li><a href="http://www.microbesonline.org/fasttree/">FastTree</a> (2.1.8)  </li>
+<li><a href="https://github.com/bbuchfink/diamond">DIAMOND</a> (2.0.15)  </li>
+<li><a href="http://www.drive5.com/muscle/">MUSCLE</a> (3.8.31)  </li>
+<li><a href="https://github.com/hyattpd/Prodigal">Prodigal</a> (2.6.3)  </li>
+<li><a href="https://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST/">NCBI Blast+</a> (2.12.0)  </li>
+<li><a href="http://weizhongli-lab.org/cd-hit/">CD-HIT</a> (4.8.1)  </li>
+<li><a href="http://xmlsoft.org/">LibXML2</a> (2.10.3)  </li>
+<li><a href="https://matsen.fhcrc.org/pplacer/">pplacer</a>  </li>
+<li><a href="https://www.ncbi.nlm.nih.gov/datasets/">NCBI Datasets CLI</a> (16.40.1)  </li>
+<li><a href="https://linux.die.net/man/1/unzip">Unzip</a>  </li>
+<li><a href="https://github.com/helperlibs">Helperlibs</a> (0.2.1)  </li>
+<li><a href="https://biopython.org/">Biopython</a> (1.76)  </li>
+</ul>
 </li>
 <li>
 <p>Once all dependencies are installed, plantiSMASH should be ready to use.</p>
 </li>
 </ol>
 <hr />
-<h3 id="option-2-cloning-from-the-development-branch">Option 2: Cloning from the Development Branch<a class="headerlink" href="#option-2-cloning-from-the-development-branch" title="Permanent link">#</a></h3>
+<h3 id="option-2-cloning-from-github">Option 2: Cloning from GitHub<a class="headerlink" href="#option-2-cloning-from-github" title="Permanent link">#</a></h3>
 <p>Using Windows? Click here for the full <a href="../windows-linux-setup/">Windows Setup Guide</a>.</p>
 <ol>
-<li>Clone the latest version from GitHub:</li>
-</ol>
+<li>
+<p>Clone the latest version from GitHub:</p>
 <pre class="highlight"><code class="language-bash">git clone -b dev https://github.com/plantismash/plantismash.git
 cd plantismash</code></pre>
-<ol>
-<li>If not installed already, conda/mamba can be installed by following these instructions:</li>
-</ol>
+</li>
+<li>
+<p>If not installed already, conda/mamba can be installed by following these instructions:</p>
 <pre class="highlight"><code class="language-bash"># install miniforge
- curl -L -O "https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-$(uname)-$(uname -m).sh"
- bash Miniforge3-$(uname)-$(uname -m).sh
- # follow instructions and let it run `conda init`
+curl -L -O "https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-$(uname)-$(uname -m).sh"
+bash Miniforge3-$(uname)-$(uname -m).sh
+# follow instructions and let it run `conda init`
 
- # set default channels
- source ~/.bashrc
- conda config --set auto_activate_base false
- source ~/.bashrc
- conda config --add channels bioconda
- conda config --add channels conda-forge
- conda config --set channel_priority strict  </code></pre>
-<ol>
-<li>Create and activate a Conda environment using the provided <code>environment.yml</code> file</li>
-</ol>
+# set default channels
+source ~/.bashrc
+conda config --set auto_activate_base false
+source ~/.bashrc
+conda config --add channels bioconda
+conda config --add channels conda-forge
+conda config --set channel_priority strict  </code></pre>
+</li>
+<li>
+<p>Create and activate a Conda environment using the provided <code>environment.yml</code> file</p>
 <pre class="highlight"><code class="language-bash">conda env create -f environment.yml
 conda activate plantismash</code></pre>
-<ol>
-<li>Download the required databases:</li>
-</ol>
+</li>
+<li>
+<p>Download the required databases:</p>
 <pre class="highlight"><code class="language-bash">python download_databases.py</code></pre>
-<ol>
-<li>Verify the installation </li>
-</ol>
+</li>
+<li>
+<p>Verify the installation </p>
 <pre class="highlight"><code class="language-bash">python run_antismash.py -h</code></pre>
+</li>
+</ol>
 <hr />
               
             </div>
