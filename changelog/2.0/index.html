@@ -50,6 +50,8 @@
                   </li>
                   <li class="toctree-l1"><a class="reference internal" >Understanding the output</a>
     <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../website_submission/">Submitting jobs on the webserver</a>
+                </li>
                 <li class="toctree-l2"><a class="reference internal" href="../../understanding_output/regions/">Region concept</a>
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="../../understanding_output/overview/">Overview page</a>
@@ -122,7 +124,32 @@
 <h1 id="important-notes">Important notes<a class="headerlink" href="#important-notes" title="Permanent link">#</a></h1>
 <p>This release increases the minimum python version to 3.9 </p>
 <h1 id="new-features">New features<a class="headerlink" href="#new-features" title="Permanent link">#</a></h1>
-<h2 id="major">Major<a class="headerlink" href="#major" title="Permanent link">#</a></h2>
+<h3>Major</h3>
+
+<h4>Expanded BGC Detection Rules</h4>
+
+<p>plantiSMASH version 2 introduces updated and additional biosynthetic gene cluster (BGC) detection rules, significantly expanding the framework’s ability to identify specialized metabolic pathways in plant genomes. These improvements:</p>
+<ul>
+<li>Broaden the range of detectable cluster types.</li>
+<li>Increase accuracy in gene grouping and cluster boundary prediction.</li>
+<li>Enable detection of newly characterized biosynthetic gene families.</li>
+</ul>
+<h4>Substrate Prediction</h4>
+
+<p>This version adds substrate specificity prediction for selected enzyme families, providing functional insight into the metabolic products of plant BGCs. Features include:</p>
+<ul>
+<li>Prediction of likely substrates based on sequence motifs and known biochemistry.</li>
+<li>Integration of substrate information in cluster output and visualizations.</li>
+<li>Enhanced interpretability of BGC functions and potential products.</li>
+</ul>
+<h4>Regulatory Feature Detection</h4>
+
+<p>plantiSMASH 2 enhances regulatory analysis by predicting transcription factor binding sites (TFBS) in the promoter regions of BGC-associated genes. This new functionality:</p>
+<ul>
+<li>Leverages known plant TFBS motif libraries.</li>
+<li>Identifies putative regulatory elements linked to biosynthetic gene expression.</li>
+<li>Facilitates hypotheses about coordinated gene regulation within clusters.</li>
+</ul>
               
             </div>
           </div>

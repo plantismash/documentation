@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="shortcut icon" href="../img/favicon.ico" />
-    <title>Setting up your plantiSMASH job - PlantiSMASH Documentation</title>
+    <title>Submitting jobs on the webserver - PlantiSMASH Documentation</title>
     <link rel="stylesheet" href="../css/theme.css" />
     <link rel="stylesheet" href="../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
@@ -13,7 +13,7 @@
     
       <script>
         // Current page data
-        var mkdocs_page_name = "Setting up your plantiSMASH job";
+        var mkdocs_page_name = "Submitting jobs on the webserver";
         var mkdocs_page_input_path = "website_submission.md";
         var mkdocs_page_url = null;
       </script>
@@ -45,11 +45,15 @@
                 </li>
               </ul>
               <p class="caption"><span class="caption-text">Using PlantiSMASH</span></p>
-              <ul>
+              <ul class="current">
                   <li class="toctree-l1"><a class="reference internal" href="../intro/">Introduction</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" >Understanding the output</a>
-    <ul>
+                  <li class="toctree-l1 current"><a class="reference internal current" >Understanding the output</a>
+    <ul class="current">
+                <li class="toctree-l2 current"><a class="reference internal current" href="#">Submitting jobs on the webserver</a>
+    <ul class="current">
+    </ul>
+                </li>
                 <li class="toctree-l2"><a class="reference internal" href="../understanding_output/regions/">Region concept</a>
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="../understanding_output/overview/">Overview page</a>
@@ -106,7 +110,9 @@
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
-      <li class="breadcrumb-item active">Setting up your plantiSMASH job</li>
+          <li class="breadcrumb-item">Using PlantiSMASH</li>
+          <li class="breadcrumb-item">Understanding the output</li>
+      <li class="breadcrumb-item active">Submitting jobs on the webserver</li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
@@ -116,6 +122,67 @@
             <div class="section" itemprop="articleBody">
               
                 <h1 id="setting-up-your-plantismash-job">Setting up your plantiSMASH job<a class="headerlink" href="#setting-up-your-plantismash-job" title="Permanent link">#</a></h1>
+<p>This page describes all relevant steps to get to interpretable antiSMASH output using the web server. 
+It covers everything from the correct input data to what all settings and parameters mean. 
+<a href="https://antismash.secondarymetabolites.org/#!/start">Here</a> is the latest stable bacterial
+version of antiSMASH available of which a screenshot is provided below:</p>
+<p><img alt="alt text" src="../img/antiSMASHentrypage.png" /></p>
+<h1 id="registering-your-plantismash-job">Registering your plantiSMASH job<a class="headerlink" href="#registering-your-plantismash-job" title="Permanent link">#</a></h1>
+<p>Please make sure that if you have fungal or plant sequence data that you click on the appropriate tab in 
+the top bar as some settings are dedicated to either bacterial or fungal data and to upload plant sequences
+you are redirected to PlantiSmash. </p>
+<p>In case you would like to get an email alert upon completion of your job you can optionally 
+provide your email address in the "Notification settings" panel. You will then receive an email 
+with a link to your completed job once it finished okay or if any error would have unfortunately occurred. 
+Please note that if you did not provide an email address, you should bookmark the link to the job submission page, 
+as otherwise you will not be able to access the results anymore.</p>
+<p><img alt="alt text" src="../img/notifications.png" /></p>
+<h1 id="plantismash-input-data">plantiSMASH input data<a class="headerlink" href="#plantismash-input-data" title="Permanent link">#</a></h1>
+<p>The ideal input for antiSMASH is an annotated nucleotide file in Genbank format
+or EMBL format. You can either upload a local GenBank/EMBL file manually, or simply
+enter the GenBank/RefSeq accession number of your sequence for plantiSMASH to
+upload it. You can toggle the option in the "Data input" panel where default is the accession number 
+entry where antiSMASH will attempt to download the data directly from NCBI.</p>
+<p><img alt="alt text" src="../img/datatype.png" /></p>
+<p>In case no gene annotations are available for your sequence, we recommend running your sequence
+through an annotation pipeline like RAST to obtain GBK/EMBL files with
+high-quality annotations.
+Alternatively, you can provide a FASTA file containing a single sequence. In that case, 
+antiSMASH will generate a preliminary annotation using Prodigal, and use that to
+run the rest of the analysis. You can also provide gene annotations in GFF3
+format.</p>
+<p>In any case, it is very important that input files are properly formatted. If you are creating your
+GBK/EMBL/FASTA file manually, be sure to do so in a plain text editor like
+Notepad or Emacs, and saving your files as "All files (<em>.</em>)", ending with the
+correct extension (for example ".fasta", ".gbk", or ".embl".</p>
+<h1 id="plantismash-default-and-extra-features">plantiSMASH default and extra features<a class="headerlink" href="#plantismash-default-and-extra-features" title="Permanent link">#</a></h1>
+<p>Before pressing the submission button, you will have to indicate which antiSMASH features 
+you like to run. </p>
+<h2 id="default-plantismash-features">Default plantiSMASH features<a class="headerlink" href="#default-plantismash-features" title="Permanent link">#</a></h2>
+<p>The following options are run by default if you do not toggle them off as can be seen in the 
+screenshot from the "Extra features" panel:</p>
+<p><img alt="alt text" src="../img/parameters.png" /></p>
+<p><strong>KnownClusterBlast analysis</strong>: the identified clusters are searched against the <a href="https://mibig.secondarymetabolites.org">MIBiG repository</a>. 
+MIBiG is a hand curated data collection of biosynthetic gene clusters, which have been experimentally characterized.</p>
+<h2 id="advanced-plantismash-features">Advanced plantiSMASH features<a class="headerlink" href="#advanced-plantismash-features" title="Permanent link">#</a></h2>
+<p>As can be seen in the screenshot above, all features can be easily toggled off or on in one click on 
+the top of the "Extra features" panel. The following three features are off by default and are considered to be useful for 
+advanced users or in case interesting biosynthetic gene clusters were found that warrant further detailed analysis.</p>
+<p><strong>ClusterBlast analysis</strong>: the identified clusters are searched against a comprehensive gene cluster database and 
+similar clusters are identified. The algorithm used here is inspired by <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3670737/">MultiGeneBlast</a>. 
+It runs BlastP using each amino acid sequence from a detected gene cluster as a query on
+a large database of predicted protein sequences from secondary metabolite
+biosynthetic gene clusters, and pools the results to identify the gene clusters
+that are most homologous to the gene cluster that was detected in your query
+nucleotide sequence.
+Enabling this option will increase the runtime of a submission.</p>
+<p><strong>Cluster Pfam analysis</strong>: each gene product encoded in the detected BGCs is analyzed against <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4702930/">the PFAM database</a>. 
+Hits are annotated in the final Genbank/EMBL files that can be downloaded after the analysis is finished. 
+Please note that these results are not displayed on the antiSMASH HTML results page but they are present in the results genbank file that can be downloaded. 
+Enabling this option will increase the runtime of a submission.</p>
+<p><strong>Pfam-based GO term annotation</strong>: this option annotates the results of the Cluster Pfam analysis, described above, with <a href="http://www.geneontology.org">GO term annotations</a>.
+These results are displayed within the Pfam domains section of the antiSMASH HTML results, by emphasising the borders of the relevant domains.
+See <a href="../understanding_output/results">Understanding the output</a> for instructions on how to download the results.</p>
               
             </div>
           </div>
@@ -139,6 +206,10 @@
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
+      <span><a href="../intro/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../understanding_output/regions/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>
