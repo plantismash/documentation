@@ -3,7 +3,6 @@ nav:
     - Home: index.md
     - Using PlantiSMASH:
         - Introduction: intro.md
-        - Submitting jobs on the website: website_submission.md
         - Understanding the output:
             - Region concept: understanding_output/regions.md
             - Overview page: understanding_output/overview.md
@@ -31,6 +30,9 @@ markdown_extensions:
     - pymdownx.superfences # Ensures proper code block rendering
 plugins:
   - search
+  - git-revision-date-localized:
+      type: iso_date
+      fallback_to_build_date: true
 extra_css: 
   - css/extra.css 
 extra: 
