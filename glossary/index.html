@@ -81,6 +81,8 @@
               <ul>
                   <li class="toctree-l1"><a class="reference internal" href="../changelog/2.0/">Version 2.0</a>
                   </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../changelog/1.0/">Version 1.0</a>
+                  </li>
               </ul>
               <ul>
                 <li class="toctree-l1"><a class="reference internal" href="../faq/">FAQ</a>
@@ -89,7 +91,15 @@
               <ul class="current">
                 <li class="toctree-l1 current"><a class="reference internal current" href="#">Glossary</a>
     <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#current-types">Current Types</a>
+    <li class="toctree-l2"><a class="reference internal" href="#supported-cluster-types">Supported Cluster Types</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#generic-domains-used-in-version-1-vs-version-2">Generic Domains Used in Version 1 vs Version 2</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#generic-domains-in-version-1">Generic Domains in Version 1</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#additional-generic-domains-in-version-2">Additional Generic Domains in Version 2</a>
+    </li>
+        </ul>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#deprecated-or-merged-types">Deprecated or Merged Types</a>
     </li>
@@ -129,105 +139,119 @@
 <p>plantiSMASH uses some abbreviations internally and in outputs to refer to the different
 types of secondary metabolite clusters detected.</p>
 <p>Cluster rules and associated HMM profiles are available in the <a href="https://github.com/plantismash/plantismash/">plantiSMASH GitHub repository</a>. </p>
-<h2 id="current-types">Current Types<a class="headerlink" href="#current-types" title="Permanent link">#</a></h2>
+<h2 id="supported-cluster-types">Supported Cluster Types<a class="headerlink" href="#supported-cluster-types" title="Permanent link">#</a></h2>
+<p>For an overview of the supported cluster types across versions you can check the <a href="../changelog/2.0/">changelog</a>. </p>
 <table>
 <thead>
 <tr>
-<th>Putative cluster type</th>
-<th>Characterized by the presence of</th>
-<th>Added</th>
-<th>Last updated</th>
-<th>Detection Rule Updates</th>
+<th>Cluster Type</th>
+<th>Min. Generic Domains (v1 → v2)</th>
+<th>Special Domains (v1 → v2)</th>
+<th>Version Added</th>
+<th>Rule Changes</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><strong>alkaloid</strong></td>
-<td>Bet_v_1, Cu_amine_oxid, Str_synth, BBE, Orn_DAP_Arg_deC, Pyridoxal_deC enzymes.</td>
-<td>1.0</td>
-<td>2.0</td>
-<td><strong>Added:</strong> BBE, Orn_DAP_Arg_deC, Pyridoxal_deC</td>
-</tr>
-<tr>
-<td><strong>cyclopeptide</strong></td>
-<td>BURP enzymes and putative peptide precursor repeat sequence.</td>
-<td>2.0</td>
-<td>2.0</td>
-<td>No changes</td>
-</tr>
-<tr>
-<td><strong>fatty acid</strong></td>
-<td>AMP-binding, Transferase.</td>
-<td>2.0</td>
-<td>2.0</td>
-<td><strong>Added alternative detection rules:</strong> FA_desaturase, FA_desaturase_2, FA_hydroxylase, CER1-like_C</td>
-</tr>
-<tr>
-<td><strong>lignan</strong></td>
-<td>Dirigent enzyme.</td>
-<td>1.0</td>
-<td>1.0</td>
-<td>No changes</td>
-</tr>
-<tr>
-<td><strong>mate</strong></td>
-<td>MatE enzymes.</td>
-<td>2.0</td>
-<td>2.0</td>
-<td>No changes</td>
-</tr>
-<tr>
-<td><strong>phenolamide</strong></td>
-<td>Transferase, Pyridoxal_deC enzymes or Transferase, Orn_DAP_Arg_deC, Orn_Arg_deC_N enzymes.</td>
-<td>2.0</td>
-<td>2.0</td>
-<td><strong>Added alternative detection rules:</strong> Orn_DAP_Arg_deC, Orn_Arg_deC_N</td>
-</tr>
-<tr>
 <td><strong>plant</strong>*</td>
-<td>Minimum of 4 core enzyme domains from the full list.</td>
-<td>1.0</td>
-<td>2.0</td>
-<td></td>
-</tr>
-<tr>
-<td><strong>polyketide</strong></td>
-<td>AMP-binding and Chal_sti_synt enzymes.</td>
-<td>1.0</td>
-<td>2.0</td>
-<td><strong>Now allows multiple detection rules:</strong> AMP-binding + Thr_dehydrat_C OR AMP-binding + Chal_sti_synt_C/N</td>
-</tr>
-<tr>
-<td><strong>saccharide</strong></td>
-<td>Glycosyl transferases (1,2,28), UDPGT, Glyco_hydro, Cellulose_synt enzymes.</td>
-<td>1.0</td>
-<td>2.0</td>
-<td><strong>Added:</strong> Glyco_hydro_1, Cellulose_synt</td>
-</tr>
-<tr>
-<td><strong>sesterpene</strong></td>
-<td>Terpene_synth_C, polyprenyl_synt.</td>
-<td>2.0</td>
-<td>2.0</td>
-<td>No changes</td>
-</tr>
-<tr>
-<td><strong>strictosidine-like</strong></td>
-<td>Str_synth, Pyridoxal_deC enzymes.</td>
-<td>2.0</td>
-<td>2.0</td>
-<td>No changes</td>
+<td>4 → 4</td>
+<td>– → –</td>
+<td>v1</td>
+<td><strong>Expanded generic domain list</strong>: added <code>NAD_binding_4</code>, <code>FAE1_CUT1_RppA</code>, <code>HAD_RAM2_N</code>, <code>Orn_DAP_Arg_deC</code>, <code>Pyridoxal_deC</code>, <code>BBE</code>, <code>FA_hydroxylase</code>, <code>CER1-like_C</code>, <code>ECH_2</code>, <code>Oxidored_FMN</code>, <code>3Beta_HSD</code>, <code>ADH_N</code>, <code>ADH_N_2</code>, <code>Abhydrolase_3</code>, <code>Aldo_ket_red</code>, <code>Methyltransf_11</code>, <code>TPMT</code>, <code>DAHP_synth_1</code>, <code>DAHP_synth_2</code></td>
 </tr>
 <tr>
 <td><strong>terpene</strong></td>
-<td>Terpene_synth, Prenyltrans, SQHop_cyclase, PRISE enzymes.</td>
-<td>1.0</td>
-<td>1.0</td>
+<td>3 → 3</td>
+<td>Same (multi-domain list)</td>
+<td>v1</td>
 <td>No changes</td>
+</tr>
+<tr>
+<td><strong>saccharide</strong></td>
+<td>3 → 3</td>
+<td><code>Glycos_transf_1/2/28</code>, <code>UDPGT</code>, <code>UDPGT_2</code> → + <code>Glyco_hydro_1</code>, <code>Cellulose_synt</code></td>
+<td>v1</td>
+<td><strong>Expanded special domains</strong></td>
+</tr>
+<tr>
+<td><strong>lignan</strong></td>
+<td>3 → 3</td>
+<td><code>Dirigent</code> → <code>Dirigent</code></td>
+<td>v1</td>
+<td>No changes</td>
+</tr>
+<tr>
+<td><strong>alkaloid</strong></td>
+<td>3 → 3</td>
+<td><code>Bet_v_1</code>, <code>Cu_amine_oxid</code>, <code>Str_synth</code> → + <code>BBE</code>, <code>Orn_DAP_Arg_deC</code>, <code>Pyridoxal_deC</code></td>
+<td>v1</td>
+<td><strong>Expanded rule logic</strong> (OR logic)</td>
+</tr>
+<tr>
+<td><strong>polyketide</strong></td>
+<td>3 → 3</td>
+<td><code>Chal_sti_synt_C</code>, <code>Chal_sti_synt_N</code> → + <code>AMP-binding</code>, <code>Thr_dehydrat_C</code> (alternative rules)</td>
+<td>v1</td>
+<td><strong>Multiple alternative rules added</strong></td>
+</tr>
+<tr>
+<td><strong>sesterterpene</strong></td>
+<td>2 → 2</td>
+<td>Same</td>
+<td>v1</td>
+<td>No changes</td>
+</tr>
+<tr>
+<td><strong>cyclopeptide</strong></td>
+<td>– → –</td>
+<td><code>BURP</code></td>
+<td>v2</td>
+<td><strong>New rule</strong></td>
+</tr>
+<tr>
+<td><strong>fatty_acid</strong></td>
+<td>– → 3</td>
+<td>– → <code>FA_desaturase</code>, <code>FA_desaturase_2</code>, <code>FA_hydroxylase</code>, <code>CER1-like_C</code>, <code>Transferase</code>, <code>ECH_2</code>, <code>AMP-binding</code></td>
+<td>v2</td>
+<td><strong>New rule</strong></td>
+</tr>
+<tr>
+<td><strong>strictosidine_like</strong></td>
+<td>– → 2</td>
+<td>– → <code>Str_synth</code>, <code>Pyridoxal_deC</code></td>
+<td>v2</td>
+<td><strong>New rule</strong></td>
+</tr>
+<tr>
+<td><strong>phenolamide</strong></td>
+<td>– → 2</td>
+<td>– → <code>Transferase</code>, <code>Pyridoxal_deC</code>, <code>Orn_DAP_Arg_deC</code>, <code>Orn_Arg_deC_N</code></td>
+<td>v2</td>
+<td><strong>New rule with OR logic</strong></td>
+</tr>
+<tr>
+<td><strong>MatE</strong></td>
+<td>– → 3</td>
+<td>– → <code>MatE</code></td>
+<td>v2</td>
+<td><strong>New rule</strong></td>
+</tr>
+<tr>
+<td><strong>transporter</strong></td>
+<td>– → 3</td>
+<td>– → <code>LTP_2</code>, <code>ABC2_membrane</code>, <code>ABC_tran</code></td>
+<td>v2</td>
+<td><strong>New rule</strong></td>
 </tr>
 </tbody>
 </table>
 <p>*Putative / uncategorized plant biosynthetic cluster.</p>
+<p>-- </p>
+<h2 id="generic-domains-used-in-version-1-vs-version-2">Generic Domains Used in Version 1 vs Version 2<a class="headerlink" href="#generic-domains-used-in-version-1-vs-version-2" title="Permanent link">#</a></h2>
+<h3 id="generic-domains-in-version-1">Generic Domains in Version 1<a class="headerlink" href="#generic-domains-in-version-1" title="Permanent link">#</a></h3>
+<p><code>cMT</code>, <code>nMT</code>, <code>oMT</code>, <code>adh_short</code>, <code>Chal_sti_synt_C</code>, <code>Chal_sti_synt_N</code>, <code>COesterase</code>, <code>UDPGT</code>, <code>Glyco_transf_28</code>, <code>Glycos_transf_1</code>, <code>Glycos_transf_2</code>, <code>Lycopene_cycl</code>, <code>NAD_binding_1</code>, <code>p450</code>, <code>SQHop_cyclase_C</code>, <code>SQHop_cyclase_N</code>, <code>Prenyltrans</code>, <code>Terpene_synth_C</code>, <code>Terpene_synth</code>, <code>Transferase</code>, <code>Aminotran_1_2</code>, <code>AMP-binding</code>, <code>DIOX_N</code>, <code>Dirigent</code>, <code>Bet_v_1</code>, <code>Cu_amine_oxid</code>, <code>Str_synth</code>, <code>Trp_syntA</code>, <code>His_biosynth</code>, <code>adh_short_C2</code>, <code>Peptidase_S10</code>, <code>Prenyltransf</code>, <code>Epimerase</code>, <code>2OG-FeII_Oxy</code>, <code>Aminotran_3</code>, <code>Methyltransf_2</code>, <code>Methyltransf_3</code>, <code>Methyltransf_7</code>, <code>PRISE</code>, <code>Cellulose_synt</code>, <code>Chalcone</code>, <code>ERG4_ERG24</code>, <code>FA_desaturase</code>, <code>FA_desaturase_2</code>, <code>Methyltransf_11</code>, <code>polyprenyl_synt</code>, <code>SE</code>, <code>SQS_PSY</code>, <code>TPMT</code>, <code>UbiA</code>, <code>Lipoxygenase</code>, <code>Lyase_aromatic</code>, <code>HMGL-like</code>, <code>Chalcone_3</code>, <code>Chalcone_2</code>, <code>Acetyltransf_1</code>, <code>UDPGT_2</code>, <code>GMC_oxred_N</code>, <code>GMC_oxred_C</code>, <code>Amino_oxidase</code>, <code>DAHP_synth_1</code>, <code>DAHP_synth_2</code></p>
+<h3 id="additional-generic-domains-in-version-2">Additional Generic Domains in Version 2<a class="headerlink" href="#additional-generic-domains-in-version-2" title="Permanent link">#</a></h3>
+<p><code>NAD_binding_4</code>, <code>FAE1_CUT1_RppA</code>, <code>HAD_RAM2_N</code>, <code>Orn_DAP_Arg_deC</code>, <code>Pyridoxal_deC</code>, <code>BBE</code>, <code>FA_hydroxylase</code>, <code>CER1-like_C</code>, <code>ECH_2</code>, <code>Oxidored_FMN</code>, <code>3Beta_HSD</code>, <code>ADH_N</code>, <code>ADH_N_2</code>, <code>Abhydrolase_3</code>, <code>Aldo_ket_red</code></p>
 <hr />
 <h2 id="deprecated-or-merged-types"><strong>Deprecated or Merged Types</strong><a class="headerlink" href="#deprecated-or-merged-types" title="Permanent link">#</a></h2>
 <table>
