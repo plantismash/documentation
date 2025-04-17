@@ -17,6 +17,7 @@ nav:
         - Starting command line runs: command_line.md
     - Change Log:
         - Version 2.0: changelog/2.0.md
+        - Version 1.0: changelog/1.0.md
     - FAQ: faq.md
     - Glossary: glossary.md
     - About: about.md

@@ -19,7 +19,7 @@ plantiSMASH is powered by several open-source tools:
 - [GraPhlAn](https://huttenhower.sph.harvard.edu/graphlan/)
 
 
-# plantiSMASH 2.0 contributors 
+## plantiSMASH 2.0 contributors 
 
 plantiSMASH version 2.0 is the product of a collaborative effort between:
 
@@ -30,7 +30,7 @@ plantiSMASH version 2.0 is the product of a collaborative effort between:
   
 Supported by the Graduate School for Experimental Plant Sciences (EPS) and Vidi Grant VI.Vidi.213.183 from The Netherlands Organization for Scientific Research (NWO).
 
-# plantiSMASH 1.0 contributors 
+## plantiSMASH 1.0 contributors 
 
 plantiSMASH version 1.0 was the product of a collaborative effort between:
 
@@ -49,7 +49,7 @@ the joint Engineering and Physical Sciences Research Council/BBSRC-funded
 OpenPlant Synthetic Biology Research Centre grant BB/L014130/1,  
 and a National Institutes of Health Genome to Natural Products Network award U101GM110699.
 
-# How to cite 
+## How to cite 
 
 If you have found plantiSMASH useful, please cite:
 

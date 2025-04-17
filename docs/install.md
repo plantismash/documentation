@@ -1,8 +1,8 @@
-### Download plantiSMASH Standalone
+# Download plantiSMASH Standalone
 
 Stand-alone versions of plantiSMASH are available through **[our GitHub page](https://github.com/plantismash/plantismash)**.
 
-#### Current Release
+## Current Release
 
 The current standalone release is **[plantiSMASH 2.0-beta](https://github.com/plantismash/plantismash/tree/dev)** (*December 16th, 2024*).
 
