@@ -153,75 +153,71 @@
 <li>Facilitates hypotheses about coordinated gene regulation within clusters.</li>
 </ul>
 <h4>Supported cluster types </h4>
+
 <h3 id="supported-cluster-types-version-2">Supported Cluster Types (version 2)<a class="headerlink" href="#supported-cluster-types-version-2" title="Permanent link">#</a></h3>
 <table>
 <thead>
 <tr>
 <th>Rule</th>
 <th>Min. Generic Domains*</th>
-<th>Special Domains Required</th>
+<th>Special Domains Required¹</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>MatE</td>
-<td>3</td>
-<td>MatE</td>
-</tr>
-<tr>
 <td>alkaloid</td>
 <td>3</td>
-<td>Bet_v_1, Cu_amine_oxid, Str_synth, BBE, Orn_DAP_Arg_deC, Pyridoxal_deC</td>
+<td>At least one of: <code>Bet_v_1</code>, <code>Cu_amine_oxid</code>, <code>Str_synth</code>, <code>BBE</code>, <code>Orn_DAP_Arg_deC</code>, <code>Pyridoxal_deC</code></td>
 </tr>
 <tr>
 <td>fatty_acid</td>
 <td>3</td>
-<td>FA_desaturase, FA_desaturase_2, FA_hydroxylase, CER1-like_C, Transferase, ECH_2, AMP-binding</td>
+<td>At least one of: <code>FA_desaturase</code>, <code>FA_desaturase_2</code>, <code>FA_hydroxylase</code>, <code>CER1-like_C</code> <br> OR <code>Transferase</code> + <code>ECH_2</code> <br> OR <code>Transferase</code> + <code>AMP-binding</code></td>
 </tr>
 <tr>
 <td>lignan</td>
 <td>3</td>
-<td>Dirigent</td>
+<td><code>Dirigent</code> (required)</td>
 </tr>
 <tr>
 <td>phenolamide</td>
 <td>2</td>
-<td>Transferase, Pyridoxal_deC, Orn_DAP_Arg_deC, Orn_Arg_deC_N</td>
+<td>At least one of: <code>Transferase</code>, <code>Pyridoxal_deC</code> <br> OR <code>Orn_DAP_Arg_deC</code>, <code>Orn_Arg_deC_N</code></td>
 </tr>
 <tr>
 <td>plant</td>
 <td>4</td>
-<td>None</td>
+<td>–</td>
 </tr>
 <tr>
 <td>polyketide</td>
 <td>3</td>
-<td>Chal_sti_synt_C, Chal_sti_synt_N, AMP-binding, Thr_dehydrat_C</td>
+<td>At least one of: <code>Chal_sti_synt_C</code>, <code>Chal_sti_synt_N</code> <br> OR <code>AMP-binding</code> + <code>Thr_dehydrat_C</code></td>
 </tr>
 <tr>
 <td>saccharide</td>
 <td>3</td>
-<td>Glycos_transf_1, Glycos_transf_2, Glycos_transf_28, UDPGT, UDPGT_2, Glyco_hydro_1, Cellulose_synt</td>
+<td>At least one of: <code>Glycos_transf_1</code>, <code>Glycos_transf_2</code>, <code>Glycos_transf_28</code>, <code>UDPGT</code>, <code>UDPGT_2</code>, <code>Glyco_hydro_1</code>, <code>Cellulose_synt</code></td>
 </tr>
 <tr>
 <td>sesterterpene</td>
 <td>2</td>
-<td>Terpene_synth_C, polyprenyl_synt</td>
+<td><code>Terpene_synth_C</code> + <code>polyprenyl_synt</code> (both required)</td>
 </tr>
 <tr>
 <td>strictosidine_like</td>
 <td>2</td>
-<td>Str_synth, Pyridoxal_deC</td>
+<td><code>Str_synth</code> + <code>Pyridoxal_deC</code> (both required)</td>
 </tr>
 <tr>
 <td>terpene</td>
 <td>3</td>
-<td>Terpene_synth, Terpene_synth_C, Prenyltrans, SQHop_cyclase_C, SQHop_cyclase_N, PRISE</td>
+<td>At least one of: <code>Terpene_synth</code>, <code>Terpene_synth_C</code>, <code>Prenyltrans</code>, <code>SQHop_cyclase_C</code>, <code>SQHop_cyclase_N</code>, <code>PRISE</code></td>
 </tr>
 <tr>
 <td>transporter</td>
 <td>3</td>
-<td>LTP_2, ABC2_membrane, ABC_tran</td>
+<td>At least one of: <code>LTP_2</code>, <code>ABC2_membrane</code>, <code>ABC_tran</code>, <code>MatE</code></td>
 </tr>
 </tbody>
 </table>
