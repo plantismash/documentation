@@ -48,24 +48,16 @@
               <ul>
                   <li class="toctree-l1"><a class="reference internal" href="../intro/">Introduction</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" >Understanding the output</a>
-    <ul>
-                <li class="toctree-l2"><a class="reference internal" href="../website_submission/">Submitting jobs on the webserver</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../understanding_output/regions/">Region concept</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../understanding_output/overview/">Overview page</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../understanding_output/results/">Results page</a>
-                </li>
-    </ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../website_submission/">Submitting jobs on the webserver</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../understanding_output/overview/">Results page</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../understanding_output/regions/">Region concept</a>
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Module-specific information</span></p>
               <ul>
                   <li class="toctree-l1"><a class="reference internal" href="../modules/clusterrules/">BGC detection</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../modules/clusterblast/">CLusterBLAST</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../modules/tfbs/">TFBS Finder</a>
                   </li>
@@ -95,6 +87,10 @@
               <ul class="current">
                 <li class="toctree-l1 current"><a class="reference internal current" href="#">About</a>
     <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#news">News</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#dependencies">Dependencies</a>
+    </li>
     <li class="toctree-l2"><a class="reference internal" href="#plantismash-20-contributors">plantiSMASH 2.0 contributors</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#plantismash-10-contributors">plantiSMASH 1.0 contributors</a>
@@ -129,6 +125,26 @@
               
                 <h1 id="about-plantismash">About plantiSMASH<a class="headerlink" href="#about-plantismash" title="Permanent link">#</a></h1>
 <p>plantiSMASH allows the rapid genome-wide identification, annotation, and analysis of specialized metabolite biosynthetic gene clusters (BGCs) across the plant kingdom. It is a specialized extension of the widely used <a href="https://antismash.secondarymetabolites.org/#!/start">antiSMASH</a> tool, tailored specifically to target plant genomes.</p>
+<h2 id="news">News<a class="headerlink" href="#news" title="Permanent link">#</a></h2>
+<p>Version <a href="https://github.com/plantismash/plantismash/tree/dev"><strong>2.0-beta</strong></a> of plantiSMASH is live now!<br />
+plantiSMASH is an extension of the widely used tool antiSMASH, now optimized for and made to work on plant genomes.<br />
+plantiSMASH version 2.0-beta features a range of updates and improvements in the areas of gene cluster identification, homology detection, and substrate prediction:</p>
+<p>plantiSMASH provides:</p>
+<ul>
+<li>Specific library of pHMM models and completely novel cluster calling logic designed to work on plant genomes</li>
+<li>Specific plant clusterblast database from precalculated plant biosynthetic gene clusters</li>
+<li>Specific training model for gene finding using glimmerHMM</li>
+<li>Homology based metabolic modeling</li>
+<li>Coexpression analysis and html-based visualization on detected biosynthetic gene clusters with the CoExpress module</li>
+</ul>
+<p>To top it off, these are the added features of plantiSMASH ver 2.0-beta:</p>
+<ul>
+<li>Updated library of pHMM models and the number of detection rules increased from 6 to 12, including 3 rules being updated.</li>
+<li>Updated plant clusterblast database with precalculated plant biosynthetic gene clusters for 382 NCBI plant genomes.</li>
+<li>Updated specific module for detection of repeats in BURP domains for candidate cyclopeptide BGCs.</li>
+<li>Implemented prediction of substrate specificities of enzyme subfamilies for cellulose synthases, UDP-glucuronosyltransferases, short-chain dehydrogenases, and oxidosqualene cyclases.</li>
+</ul>
+<h2 id="dependencies">Dependencies<a class="headerlink" href="#dependencies" title="Permanent link">#</a></h2>
 <p>plantiSMASH is powered by several open-source tools:</p>
 <ul>
 <li><a href="http://blast.ncbi.nlm.nih.gov/Blast.cgi?CMD=Web&amp;PAGE_TYPE=BlastDocs&amp;DOC_TYPE=Download">NCBI BLAST+</a></li>

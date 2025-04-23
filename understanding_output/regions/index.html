@@ -48,40 +48,32 @@
               <ul class="current">
                   <li class="toctree-l1"><a class="reference internal" href="../../intro/">Introduction</a>
                   </li>
-                  <li class="toctree-l1 current"><a class="reference internal current" >Understanding the output</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../website_submission/">Submitting jobs on the webserver</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../overview/">Results page</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Region concept</a>
     <ul class="current">
-                <li class="toctree-l2"><a class="reference internal" href="../../website_submission/">Submitting jobs on the webserver</a>
-                </li>
-                <li class="toctree-l2 current"><a class="reference internal current" href="#">Region concept</a>
-    <ul class="current">
-    <li class="toctree-l3"><a class="reference internal" href="#how-are-antismash-regions-defined">How are antiSMASH regions defined?</a>
+    <li class="toctree-l2"><a class="reference internal" href="#how-are-antismash-regions-defined">How are antiSMASH regions defined?</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#candidate-cluster-types">Candidate cluster types</a>
+    <li class="toctree-l2"><a class="reference internal" href="#candidate-cluster-types">Candidate cluster types</a>
         <ul>
-    <li class="toctree-l4"><a class="reference internal" href="#chemical-hybrid">Chemical hybrid</a>
+    <li class="toctree-l3"><a class="reference internal" href="#chemical-hybrid">Chemical hybrid</a>
     </li>
-    <li class="toctree-l4"><a class="reference internal" href="#interleaved">Interleaved</a>
+    <li class="toctree-l3"><a class="reference internal" href="#interleaved">Interleaved</a>
     </li>
-    <li class="toctree-l4"><a class="reference internal" href="#neighbouring">Neighbouring</a>
+    <li class="toctree-l3"><a class="reference internal" href="#neighbouring">Neighbouring</a>
     </li>
-    <li class="toctree-l4"><a class="reference internal" href="#single">Single</a>
+    <li class="toctree-l3"><a class="reference internal" href="#single">Single</a>
     </li>
         </ul>
     </li>
-    </ul>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../overview/">Overview page</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../results/">Results page</a>
-                </li>
     </ul>
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Module-specific information</span></p>
               <ul>
                   <li class="toctree-l1"><a class="reference internal" href="../../modules/clusterrules/">BGC detection</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../modules/clusterblast/">CLusterBLAST</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../../modules/tfbs/">TFBS Finder</a>
                   </li>
@@ -127,7 +119,6 @@
   <ul class="wy-breadcrumbs">
     <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
           <li class="breadcrumb-item">Using PlantiSMASH</li>
-          <li class="breadcrumb-item">Understanding the output</li>
       <li class="breadcrumb-item active">Region concept</li>
     <li class="wy-breadcrumbs-aside">
     </li>
@@ -146,15 +137,15 @@ In antiSMASH5, the display of gene clusters change to reflect the fact that the 
 In a second step, pre-defined cluster rules are employed to define individual <em>protoclusters</em> encoded in the region.
 These make up a <em>core</em>, which is extended by its <em>neighbourhood</em>, which constiutes of genes encoded up- and downstream of the <em>core</em>.</p>
 <p>Here is an example of a rule for detecting a protocluster for a type I PKS:</p>
-<p><img alt="Example cluster rule" src="./assets/images/clusterrules.png" /></p>
+<p><img alt="Example cluster rule" src="../../assets/images/clusterrules.png" /></p>
 <p>Whenever antiSMASH finds a gene coding for a protein that has as PKS_AT domain and a PKS_KS domain of various sub-types, a new “Type I PKS <em>protocluster</em>” feature is generated within the region; this feature comprises the <em>core</em> gene-product(s) that trigger the rule (i.e. the PKS encoding genes and extends the <em>neighborhood</em> to the left and right of the core genes by 20 kb to the left and right (as defined by the EXTENT parameter in the rule definition).
 The values for the different cluster types are empirically determined and generally tend to overpredict, i.e. included also adjacent genes.
 After the <em>protocluster</em> features are assigned (note: there can be multiple protocluster features within a single <em>region</em>), they are checked for overlaps (as defined by the CUTOFF parameter) and are grouped into several types of <em>candidate clusters</em> to reflect the observation that many BGCs actually comprise several classes of biosynthetic machinery. For example glycopeptides like vancomycin or balhimycin (shown) are synthesized via NRPS, but also contain a type III PKS as a precursor pathway.</p>
-<p><img alt="Balhimycin biosynthetic gene cluster" src="./assets/images/bal-cluster.png" /></p>
+<p><img alt="Balhimycin biosynthetic gene cluster" src="../../assets/images/bal-cluster.png" /></p>
 <p>Thus, the displayed region contains the <code>NRPS</code> <em>protocluster</em> (green bar) and a <code>T3PKS</code> <em>protocluster</em> (yellow bar).
 As their neighbourhoods overlap, they are assigned to a <em>candidate cluster</em>.</p>
 <h3 id="candidate-cluster-types">Candidate cluster types<a class="headerlink" href="#candidate-cluster-types" title="Permanent link">#</a></h3>
-<p><img alt="Figure candidate clusters" src="./assets/images/regionLogic.png" /></p>
+<p><img alt="Figure candidate clusters" src="../../assets/images/regionLogic.png" /></p>
 <h4 id="chemical-hybrid">Chemical hybrid<a class="headerlink" href="#chemical-hybrid" title="Permanent link">#</a></h4>
 <p>These candidate clusters contains protoclusters which share cluster-defining CDS/genes/gene products.
 They will also include protoclusters within that shared range that do
@@ -204,10 +195,10 @@ For example, both protoclusters in case <strong>C</strong> will have an independ
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../../website_submission/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../overview/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="../overview/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../../modules/clusterrules/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>

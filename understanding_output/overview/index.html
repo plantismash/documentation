@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
-    <title>Overview page - PlantiSMASH Documentation</title>
+    <title>Results page - PlantiSMASH Documentation</title>
     <link rel="stylesheet" href="../../css/theme.css" />
     <link rel="stylesheet" href="../../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
@@ -13,7 +13,7 @@
     
       <script>
         // Current page data
-        var mkdocs_page_name = "Overview page";
+        var mkdocs_page_name = "Results page";
         var mkdocs_page_input_path = "understanding_output/overview.md";
         var mkdocs_page_url = null;
       </script>
@@ -48,26 +48,42 @@
               <ul class="current">
                   <li class="toctree-l1"><a class="reference internal" href="../../intro/">Introduction</a>
                   </li>
-                  <li class="toctree-l1 current"><a class="reference internal current" >Understanding the output</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../website_submission/">Submitting jobs on the webserver</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Results page</a>
     <ul class="current">
-                <li class="toctree-l2"><a class="reference internal" href="../../website_submission/">Submitting jobs on the webserver</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../regions/">Region concept</a>
-                </li>
-                <li class="toctree-l2 current"><a class="reference internal current" href="#">Overview page</a>
-    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#clusterblast">ClusterBLAST</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#ranking-system">Ranking system</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#similarity-percentage">Similarity percentage</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#example-1-low-similarity-good-match">Example 1: low similarity, good match</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#example-2-perfect-similarity-poor-match">Example 2: perfect similarity, poor match</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#example-3-high-similarity-poor-match">Example 3: high similarity, poor match</a>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#knownclusterblast">KnownClusterBLAST</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#coexpression-analysis">Coexpression analysis</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#subgroup-identification-module">Subgroup identification module</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#downloading-the-results">Downloading the results</a>
+    </li>
     </ul>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../results/">Results page</a>
-                </li>
-    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../regions/">Region concept</a>
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Module-specific information</span></p>
               <ul>
                   <li class="toctree-l1"><a class="reference internal" href="../../modules/clusterrules/">BGC detection</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../modules/clusterblast/">CLusterBLAST</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../../modules/tfbs/">TFBS Finder</a>
                   </li>
@@ -113,8 +129,7 @@
   <ul class="wy-breadcrumbs">
     <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
           <li class="breadcrumb-item">Using PlantiSMASH</li>
-          <li class="breadcrumb-item">Understanding the output</li>
-      <li class="breadcrumb-item active">Overview page</li>
+      <li class="breadcrumb-item active">Results page</li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
@@ -123,34 +138,90 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h2 id="overview-page">Overview page<a class="headerlink" href="#overview-page" title="Permanent link">#</a></h2>
-<p>The overview page contains a summary of all regions found in all records/contigs within the input given to antiSMASH.</p>
+                <h1 id="results-overview-page">Results overview page<a class="headerlink" href="#results-overview-page" title="Permanent link">#</a></h1>
+<p>The output of the plantiSMASH analysis pipeline is organized in an interactive HTML page with SVG graphics.  </p>
+<p>Different parts of the analysis are displayed in different panels for every gene cluster. See the<br />
+<a href="https://plantismash.bioinformatics.nl/precalc/v2/Arabidopsis_thaliana_GCF_000001735.4/index.html">example output</a> from <em>Arabidopsis thaliana</em> or other species in the <a href="https://plantismash.bioinformatics.nl/precalc/v2/">precalculated results page</a>.</p>
+<p>Initially, a list of identified clusters is displayed in the results page. A gene cluster can be selected for viewing by clicking its number (gene clusters are numbered in the order in which they appear on the input nucleotide sequence) in the "Select Gene Cluster" panel just below the top banner or by clicking on the colored "Cluster XX" boxes. A click on "Overview" brings you back to the overview list.
+Gene cluster buttons are color-coded by predicted secondary metabolite type.</p>
+<p><img alt="Output Example" src="../../assets/images/output_example.png" /></p>
+<p>In the upper panel, <code>Gene cluster description</code>, information is given about each gene cluster that was detected. In the upper line, the biosynthetic type and location of the gene cluster are displayed. Underneath this title line, all genes present in a detected gene cluster are outlined.</p>
+<p>Clicking the <code>Overview</code> button will bring you back to the overview of predicted clusters.</p>
 <p><img alt="Region overview" src="../../assets/images/cluster_overview.png" /></p>
-<p>At the top left of the page is the antiSMASH version information (<strong>1</strong>).
-Direct comparisons between antiSMASH results should use the same version for consistency, as results can change between versions.</p>
+<p>At the top left of the page is the plantiSMASH <code>Version</code> information.Direct comparisons between plantiSMASH results should use the same version for consistency, as results can change between versions.</p>
+<p>Hovering over a gene with the mouse will prompt the gene name to be displayed above the gene. Clicking the gene will provide more information on the gene: its annotation, its sequence similarity with other genes in the cluster, its location, and cross-links specific to that gene.</p>
+<p>The last two columns containing comparisons to the MiBIG database will only be shown if antiSMASH was run with the <a href="#knownclusterblast">KnownClusterBlast</a> option.</p>
+<p>Genes are color-coded by their assigned enzymatic protein domain profile, which will be listed in the <code>Legend</code>. Additionally, genes will also be categorized by its predicted function, which will be displayed as different color borders.</p>
+<p><img alt="Cluster legend" src="../../assets/images/cluster_legend.png" /></p>
+<h2 id="clusterblast">ClusterBLAST<a class="headerlink" href="#clusterblast" title="Permanent link">#</a></h2>
+<p>If you enabled Gene Cluster Comparative Analysis (ClusterBlast), this panel will display the top ten plant gene clusters from the <code>plantiSMASH ClusterBLAST database</code> that are most similar to a detected gene cluster, visually aligned to it. The drop-down selection menu can be used to browse through the gene clusters. Genes with the same colour are putative homologs based on significant Blast (Diamond) hits between them.</p>
+<p>The <code>plantiSMASH ClusterBLAST database</code> is defined with a minimum of 2 domains needed from the BGC rules. </p>
+<p><img alt="ClusterBLAST output thalianol" src="../../assets/images/clusterblast_output.png" /></p>
+<p>Genes with matching colours are interrelated.
+Percentage identity values per hit are shown when clicking the gene in question,
+with a minimum percentage identity between genes of 30%.</p>
+<p>It is normal to have multiple genes hitting for some types of genes. </p>
+<h3 id="ranking-system">Ranking system<a class="headerlink" href="#ranking-system" title="Permanent link">#</a></h3>
+<p>Reference areas are sorted first based on an empirical similarity score <code>S = h + H + s + S + B</code>, in which:
+- <code>h</code> is the number of query genes with a significant hit
+- <code>H</code> is the number of core query genes with a significant hit
+- <code>s</code> is the number of gene pairs with conserved synteny
+- <code>S</code> is the number of gene pairs with conserved synteny involving a core gene
+- and <code>B</code> is a core gene bonus</p>
+<p>If the similarity scores are equal, the hits are subsequently ranked based on
+the cumulative BlastP bit scores between the gene clusters.</p>
+<h3 id="similarity-percentage">Similarity percentage<a class="headerlink" href="#similarity-percentage" title="Permanent link">#</a></h3>
+<p>Similarity in the description, e.g. <code>87% of genes show similarity</code>,
+is the percentage of genes within the reference that have a hit to any genes in the query.</p>
+<p>As gene hits are not required to be 100% identity and query genes may hit multiple reference genes,
+this total similarity percentage is no guarantee that the region is exactly the same.
+In the case of KnownClusterBlast, this also means that there is no guarantee that the compound(s) recorded for that MIBiG entry will be produce by the region.</p>
+<p>Even if 100% of genes have a hit for a reference, it may be less relevant than a lower similarity.
+Some cluster types, e.g. NRPS clusters, may only need a few aminos changed in gene translations to have a completely different product.</p>
+<p>In all cases, manual verification is required before assuming that the region produces the same compound as the reference.</p>
+<h4 id="example-1-low-similarity-good-match">Example 1: low similarity, good match<a class="headerlink" href="#example-1-low-similarity-good-match" title="Permanent link">#</a></h4>
+<p>Reference area <code>R</code> has 70% of genes showing similarity to the query region <code>Q</code>.
+All genes with hits are very high identity in their hits, at 95% or higher.</p>
+<p>The missing genes from <code>R</code> are all at one end of the reference area.
+These genes are also present in the genome antiSMASH was run on,
+but are outside <code>Q</code> due to the size of <code>R</code> being exceptionally large.</p>
+<p>After manually checking these extra genes and seeing that they're similar to the missing genes,
+it's much, much more likely that the genome matches the reference.</p>
+<h4 id="example-2-perfect-similarity-poor-match">Example 2: perfect similarity, poor match<a class="headerlink" href="#example-2-perfect-similarity-poor-match" title="Permanent link">#</a></h4>
+<p>Reference area <code>R</code> has 100% of genes showing similarity to the query region <code>Q</code>.
+None of the genes have a percentage identity in individual hits greater than 60%.</p>
+<p>While it is still possible that <code>Q</code> produces the same compound as <code>R</code>,
+it will depend a great deal on the type of cluster and exactly which parts of the genes are similar.</p>
+<h4 id="example-3-high-similarity-poor-match">Example 3: high similarity, poor match<a class="headerlink" href="#example-3-high-similarity-poor-match" title="Permanent link">#</a></h4>
+<p>Reference area <code>R</code> has very high (but not 100%) similarity, with all but one gene in <code>R</code> having similarity to genes in the query region <code>Q</code>.
+All of the matching genes have very high identity in their hits.</p>
+<p>The gene in <code>R</code> that is missing in <code>Q</code> should be in the middle of <code>Q</code> and is a core gene responsible for the scaffold of the compound.</p>
+<p>While it is still possible that <code>Q</code> produces the same compound as <code>R</code>, due to the functionality being present elsewhere, but it is much less likely.</p>
+<h2 id="knownclusterblast">KnownClusterBLAST<a class="headerlink" href="#knownclusterblast" title="Permanent link">#</a></h2>
+<p>Shows clusters from MIBiG that are similar to the current region</p>
+<p><img alt="KnownClusterBLAST  thalianol" src="../../assets/images/knownclusters.png" /></p>
+<h2 id="coexpression-analysis">Coexpression analysis<a class="headerlink" href="#coexpression-analysis" title="Permanent link">#</a></h2>
+<p>If coexpression data was provided (through either a .soft or .csv file), this panel will show expression information through both a hierarchically clustered heatmap and a coexpression network (see below).</p>
+<p><img alt="Coexpression header" src="../../assets/images/image008.png" />
+<img alt="Coexpression heatmap 1" src="../../assets/images/image010.png" />
+<img alt="Coexpression heatmap 2" src="../../assets/images/image012.png" /></p>
+<p>You can choose to show either expression fluctuation (the rate of which expression level of a gene changes between samples), color-coded from white to black; or expression intensity (expression level of a gene related to the sample value distribution), color coded from yellow to red.</p>
+<p><img alt="Coexpression network" src="../../assets/images/image014.png" /></p>
+<p>In the correlation network graph, you can see how genes within the cluster (box-shaped nodes) interact with each other, and with other genes in other clusters (ellipse-shaped nodes with solid edges and the corresponding cluster number inside) or anywhere else on the genome (ellipse-shaped nodes with dashed edges).</p>
+<p><img alt="Coexpression 1" src="../../assets/images/coex_relations.png" /></p>
+<p>Additionally, by enabling the coexpression analysis, you will also get a Hiveplot overview of significant cluster-cluster interactions detected in the selected transcriptomics dataset. This can be accessed in the cluster overview screen.</p>
+<h2 id="subgroup-identification-module">Subgroup identification module<a class="headerlink" href="#subgroup-identification-module" title="Permanent link">#</a></h2>
+<p>plantiSMASH predicts substrate specificities of enzyme subfamilies for cellulose synthases, UDP-glucuronosyltransferases, short-chain dehydrogenases, and oxidosqualene cyclases, using pplacer and hmmer. The phylogenetic placement tool pplacer is used to place the target protein sequence on a precomputed reference tree. If the other members under the target parent node belong to the same subgroup, the target is considered to belong to the subgroup. In addition, GraPhlAn (Graphical Phylogenetic Analysis) is used to generate a tree image of the placement result. The HMM of each subgroup used by hmmer scan is made based on the full-length protein sequences of members in the subgroup. HMMs find matches based on the conserved positions of subgroup members, so they are also an efficient and simple method to identify subgroups of targets, especially those sequences with big differences. When the subgroup represented by the HMM with the highest match bitscore is consistent with the results from pplacer, it will be reported on the overview page that the target may have the same substrate type as those members of the subgroup. If it belongs to the product type that is predicted by the existence of core enzymes, it is specifically marked with * . For situations where the results of these two tools are inconsistent, or the target is not placed in a subgroup, users need to make their judgment based on results shown on the webpage of each cluster.</p>
+<p><img alt="Coexpression 1" src="../../assets/images/subgroup.png" /></p>
+<h2 id="downloading-the-results">Downloading the results<a class="headerlink" href="#downloading-the-results" title="Permanent link">#</a></h2>
 <p>At the top right of the page are ancillary links that may be useful.
 <code>Download</code> allows you to download various parts of the results.
-<code>About</code> links to information about antiSMASH (including publications).
+<code>About</code> links to information about plantiSMASH.
 <code>Help</code> links to these documentation pages.
-Finally, <code>Contact</code> links to a page with a form to send feedback or questions to the antiSMASH developers.</p>
-<p>Under the top bar are region buttons (<strong>2</strong>).
-These buttons are visible on all antiSMASH HTML pagesand can be used to quickly jump between regions.
-If a region is being viewed, the matching button for that region will be highlighted.
-Region buttons are in the form <code>X.Y</code>. For example, <code>5.7</code> would be the seventh region within the fifth record.
-Region buttons are color coded by predicted secondary metabolite type.
-Clicking the <code>Overview</code> button will bring you back to this page.</p>
-<p>Under these buttons are a summary of each record, each starting the name of the record (<strong>3</strong>) as given in the input file.
-At the top of the summary is an image (<strong>4</strong>) showing where the regions are located in the record.
-Following that is a table with a summary of each region found in the record, with each row (<strong>5</strong>) having the following fields:</p>
-<ul>
-<li><strong>Region</strong>: the region number</li>
-<li><strong>Type</strong>: the product types as detected by antiSMASH (clicking the types will take you to their description in these help pages)</li>
-<li><strong>From</strong>, <strong>To</strong>: the location of the region (in nucleotides)</li>
-<li><strong>Most similar known cluster</strong>: the closest compound from the MiBIG database (clicking this will take you to the MiBIG entry), along with its type (e.g. <code>t1pks+t3pks</code>)</li>
-<li><strong>Similarity</strong>: a percentage of genes within the closest known compound that have a significant BLAST hit to genes within the current region</li>
-</ul>
-<p>The last two columns containing comparisons to the MiBIG database will only be shown if antiSMASH was run with the <a href="/modules/clusterblast/">KnownClusterBlast</a> option.</p>
-<p>Clicking anywhere in the row that is not already an external link will take you to the detailed results for that region.</p>
+Finally, <code>Contact</code> links to a page with a form to send feedback or questions to the plantiSMASH developers.</p>
+<p><img alt="Download options" src="../../assets/images/download_options.png" /></p>
+<p>The downward-pointing arrow will open a menu offering to download the complete set of results from the antiSMASH run, a summary Excel file and to the summary EMBL/GenBank output file. The EMBL/GenBank file can be viewed in a genome browser such as <a href="https://www.sanger.ac.uk/tool/artemis/">Artemis</a>.</p>
+<p><strong>Results on the public webserver are only kept for ONE month and will be deleted afterwards. It is highly recommended that you download the full result set before they expire.</strong></p>
               
             </div>
           </div>
@@ -174,10 +245,10 @@ Following that is a table with a summary of each region found in the record, wit
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../regions/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../../website_submission/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="../results/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../regions/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>
