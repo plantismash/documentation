@@ -91,8 +91,8 @@ These results are displayed within the Pfam domains section of the antiSMASH HTM
 See [Understanding the output](./understanding_output/results.md) for instructions on how to download the results.
 
 
-[Fig1]:img/antiSMASHentrypage.png
-[Fig2]:img/notifications.png
-[Fig3]:img/datatype.png
-[Fig4]:img/parameters.png
+[Fig1]:/assets/images/antiSMASHentrypage.png
+[Fig2]:/assets/images/notifications.png
+[Fig3]:/assets/images/datatype.png
+[Fig4]:/assets/images/parameters.png
 

@@ -1,6 +1,6 @@
 # Region Results page
 
-![Region display](/img/region_display.png)
+![Region display](../assets/images/region_display.png)
 
 In the upper panel, "Gene cluster description", information is given about each
 gene cluster that was detected. In the upper line, the biosynthetic type and
@@ -16,7 +16,7 @@ be displayed above the gene.
 
 ### Gene details
 
-![Gene details display](/img/gene_details.png)
+![Gene details display](../assets/images/gene_details.png)
 
 Clicking the gene will provide more information on
 the gene: identifiers, existing product annotation,
@@ -32,7 +32,7 @@ Individual prediction tools will add tabs here to provide their results.
 
 ### Detailed annotation for PKS/NRPS domains
 
-![Region display](/img/DetailedDomainAnnotation.png)
+![Region display](../assets/images/DetailedDomainAnnotation.png)
 
 
 For predicted modular polyketide
@@ -41,7 +41,7 @@ find the domain annotations and any modules that are detected.
 
 The module overlays can be hidden by enabling the "Show module domains" option.
 
-![Domain display hiding modules](/img/DetailedDomainAnnotation_hidden.png)
+![Domain display hiding modules](../assets/images/DetailedDomainAnnotation_hidden.png)
 
 Clicking on a domain will display more
 information, such as the name of the detected domain, its
@@ -65,7 +65,7 @@ The [Transcription Factor Binding Sites](/modules/tfbs.md) tab is explained on [
 
 ### Prediction of putative core sturctures
 
-![Structure Prediction](/img/StructurePrediction.png)
+![Structure Prediction](../assets/images/StructurePrediction.png)
 
 In the upper side panel
 on the right. "Predicted core structure", a rough prediction of the overall
@@ -87,7 +87,7 @@ A chemical structure is displayed for NRPS and Type I PKS metabolites, which is 
 
 ### Downloading results
 
-![Main menu](/img/download_results.png)
+![Main menu](../assets/images/download_results.png)
 
 In the upper right, a small list of buttons offers further functionality. The
 question-mark button will get you to this help page. The exclamation-mark button
