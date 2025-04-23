@@ -3,14 +3,11 @@ nav:
     - Home: index.md
     - Using PlantiSMASH:
         - Introduction: intro.md
-        - Understanding the output:
-            - Submitting jobs on the webserver: website_submission.md
-            - Region concept: understanding_output/regions.md
-            - Overview page: understanding_output/overview.md
-            - Results page: understanding_output/results.md
+        - Submitting jobs on the webserver: website_submission.md
+        - Results page: understanding_output/overview.md
+        - Region concept: understanding_output/regions.md
     - Module-specific information:
         - BGC detection: modules/clusterrules.md
-        - CLusterBLAST: modules/clusterblast.md
         - TFBS Finder: modules/tfbs.md
     - Local Installation:
         - Installation: install.md

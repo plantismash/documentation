@@ -8,13 +8,16 @@ Welcome to the documentation of **plantiSMASH**.
 
 The easiest way to get started with plantiSMASH is to use [the public webserver](https://plantismash.bioinformatics.nl/).
 
-See the *Using plantiSMASH* section of this documentation for more information on how to [submit antiSMASH jobs](website_submission.md)
-and [interpret the HTML output](understanding_output/index.md).
-
-The [Glossary](glossary.md) explains some of the abbreviations used in plantiSMASH and also provides an overview of the biosynthetic classes that antiSMASH can detect.
+The [Glossary](glossary.md) explains some of the abbreviations used in plantiSMASH and also provides an overview of the biosynthetic classes that plantiSMASH can detect.
 
 Frequently occurring questions can be found in the [FAQ](faq.md) section.
 Please consult the FAQs before raising an [Issue](https://github.com/plantismash/plantismash/issues) on the antiSMASH GitHub page.
+
+For more details on how to use plantiSMASH, see our Springer's Protocols book chapter:
+   
+[Kautsar, S. A., Duran, H. G. S., & Medema, M. H. (2018).
+ *Genomic identification and analysis of specialized metabolite biosynthetic gene clusters in plants using PlantiSMASH.* 
+ In Plant Chemical Genomics (pp. 173-188). Humana Press, New York, NY.](https://link.springer.com/protocol/10.1007/978-1-4939-7874-8_15) 
 
 
 ### How to Use plantiSMASH - Local Installation

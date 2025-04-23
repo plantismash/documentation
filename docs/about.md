@@ -2,6 +2,29 @@
 
 plantiSMASH allows the rapid genome-wide identification, annotation, and analysis of specialized metabolite biosynthetic gene clusters (BGCs) across the plant kingdom. It is a specialized extension of the widely used [antiSMASH](https://antismash.secondarymetabolites.org/#!/start) tool, tailored specifically to target plant genomes.
 
+## News
+
+Version [**2.0-beta**](https://github.com/plantismash/plantismash/tree/dev) of plantiSMASH is live now!  
+plantiSMASH is an extension of the widely used tool antiSMASH, now optimized for and made to work on plant genomes.  
+plantiSMASH version 2.0-beta features a range of updates and improvements in the areas of gene cluster identification, homology detection, and substrate prediction:
+
+plantiSMASH provides:
+
+- Specific library of pHMM models and completely novel cluster calling logic designed to work on plant genomes
+- Specific plant clusterblast database from precalculated plant biosynthetic gene clusters
+- Specific training model for gene finding using glimmerHMM
+- Homology based metabolic modeling
+- Coexpression analysis and html-based visualization on detected biosynthetic gene clusters with the CoExpress module
+
+To top it off, these are the added features of plantiSMASH ver 2.0-beta:
+
+- Updated library of pHMM models and the number of detection rules increased from 6 to 12, including 3 rules being updated.
+- Updated plant clusterblast database with precalculated plant biosynthetic gene clusters for 382 NCBI plant genomes.
+- Updated specific module for detection of repeats in BURP domains for candidate cyclopeptide BGCs.
+- Implemented prediction of substrate specificities of enzyme subfamilies for cellulose synthases, UDP-glucuronosyltransferases, short-chain dehydrogenases, and oxidosqualene cyclases.
+
+
+## Dependencies 
 plantiSMASH is powered by several open-source tools:
 
 - [NCBI BLAST+](http://blast.ncbi.nlm.nih.gov/Blast.cgi?CMD=Web&PAGE_TYPE=BlastDocs&DOC_TYPE=Download)

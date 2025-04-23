@@ -1,35 +1,141 @@
-## Overview page
+# Results overview page
 
-The overview page contains a summary of all regions found in all records/contigs within the input given to antiSMASH.
+The output of the plantiSMASH analysis pipeline is organized in an interactive HTML page with SVG graphics.  
+
+Different parts of the analysis are displayed in different panels for every gene cluster. See the  
+[example output](https://plantismash.bioinformatics.nl/precalc/v2/Arabidopsis_thaliana_GCF_000001735.4/index.html) from *Arabidopsis thaliana* or other species in the [precalculated results page](https://plantismash.bioinformatics.nl/precalc/v2/).
+
+Initially, a list of identified clusters is displayed in the results page. A gene cluster can be selected for viewing by clicking its number (gene clusters are numbered in the order in which they appear on the input nucleotide sequence) in the "Select Gene Cluster" panel just below the top banner or by clicking on the colored "Cluster XX" boxes. A click on "Overview" brings you back to the overview list.
+Gene cluster buttons are color-coded by predicted secondary metabolite type.
+
+![Output Example](../assets/images/output_example.png)
+
+In the upper panel, `Gene cluster description`, information is given about each gene cluster that was detected. In the upper line, the biosynthetic type and location of the gene cluster are displayed. Underneath this title line, all genes present in a detected gene cluster are outlined.
+
+Clicking the `Overview` button will bring you back to the overview of predicted clusters.
 
 ![Region overview](../assets/images/cluster_overview.png)
 
-At the top left of the page is the antiSMASH version information (**1**).
-Direct comparisons between antiSMASH results should use the same version for consistency, as results can change between versions.
+At the top left of the page is the plantiSMASH `Version` information.Direct comparisons between plantiSMASH results should use the same version for consistency, as results can change between versions.
+
+Hovering over a gene with the mouse will prompt the gene name to be displayed above the gene. Clicking the gene will provide more information on the gene: its annotation, its sequence similarity with other genes in the cluster, its location, and cross-links specific to that gene.
+
+
+The last two columns containing comparisons to the MiBIG database will only be shown if antiSMASH was run with the [KnownClusterBlast](#knownclusterblast) option.
+
+Genes are color-coded by their assigned enzymatic protein domain profile, which will be listed in the `Legend`. Additionally, genes will also be categorized by its predicted function, which will be displayed as different color borders.
+
+![Cluster legend](../assets/images/cluster_legend.png)
+
+
+
+## ClusterBLAST 
+
+If you enabled Gene Cluster Comparative Analysis (ClusterBlast), this panel will display the top ten plant gene clusters from the `plantiSMASH ClusterBLAST database` that are most similar to a detected gene cluster, visually aligned to it. The drop-down selection menu can be used to browse through the gene clusters. Genes with the same colour are putative homologs based on significant Blast (Diamond) hits between them.
+
+The `plantiSMASH ClusterBLAST database` is defined with a minimum of 2 domains needed from the BGC rules. 
+
+![ClusterBLAST output thalianol](../assets/images/clusterblast_output.png)
+
+Genes with matching colours are interrelated.
+Percentage identity values per hit are shown when clicking the gene in question,
+with a minimum percentage identity between genes of 30%.
+
+It is normal to have multiple genes hitting for some types of genes. 
+
+### Ranking system
+
+Reference areas are sorted first based on an empirical similarity score `S = h + H + s + S + B`, in which:
+- `h` is the number of query genes with a significant hit
+- `H` is the number of core query genes with a significant hit
+- `s` is the number of gene pairs with conserved synteny
+- `S` is the number of gene pairs with conserved synteny involving a core gene
+- and `B` is a core gene bonus
+
+If the similarity scores are equal, the hits are subsequently ranked based on
+the cumulative BlastP bit scores between the gene clusters.
+
+### Similarity percentage
+
+Similarity in the description, e.g. `87% of genes show similarity`,
+is the percentage of genes within the reference that have a hit to any genes in the query.
+
+As gene hits are not required to be 100% identity and query genes may hit multiple reference genes,
+this total similarity percentage is no guarantee that the region is exactly the same.
+In the case of KnownClusterBlast, this also means that there is no guarantee that the compound(s) recorded for that MIBiG entry will be produce by the region.
+
+Even if 100% of genes have a hit for a reference, it may be less relevant than a lower similarity.
+Some cluster types, e.g. NRPS clusters, may only need a few aminos changed in gene translations to have a completely different product.
+
+In all cases, manual verification is required before assuming that the region produces the same compound as the reference.
+
+#### Example 1: low similarity, good match
+Reference area `R` has 70% of genes showing similarity to the query region `Q`.
+All genes with hits are very high identity in their hits, at 95% or higher.
+
+The missing genes from `R` are all at one end of the reference area.
+These genes are also present in the genome antiSMASH was run on,
+but are outside `Q` due to the size of `R` being exceptionally large.
+
+After manually checking these extra genes and seeing that they're similar to the missing genes,
+it's much, much more likely that the genome matches the reference.
+
+#### Example 2: perfect similarity, poor match
+Reference area `R` has 100% of genes showing similarity to the query region `Q`.
+None of the genes have a percentage identity in individual hits greater than 60%.
+
+While it is still possible that `Q` produces the same compound as `R`,
+it will depend a great deal on the type of cluster and exactly which parts of the genes are similar.
+
+#### Example 3: high similarity, poor match
+Reference area `R` has very high (but not 100%) similarity, with all but one gene in `R` having similarity to genes in the query region `Q`.
+All of the matching genes have very high identity in their hits.
+
+The gene in `R` that is missing in `Q` should be in the middle of `Q` and is a core gene responsible for the scaffold of the compound.
+
+While it is still possible that `Q` produces the same compound as `R`, due to the functionality being present elsewhere, but it is much less likely.
+
+## KnownClusterBLAST 
+
+Shows clusters from MIBiG that are similar to the current region
+
+![KnownClusterBLAST  thalianol](../assets/images/knownclusters.png)
+
+## Coexpression analysis 
+
+If coexpression data was provided (through either a .soft or .csv file), this panel will show expression information through both a hierarchically clustered heatmap and a coexpression network (see below).
+
+![Coexpression header](../assets/images/image008.png)
+![Coexpression heatmap 1](../assets/images/image010.png)
+![Coexpression heatmap 2](../assets/images/image012.png)
+
+You can choose to show either expression fluctuation (the rate of which expression level of a gene changes between samples), color-coded from white to black; or expression intensity (expression level of a gene related to the sample value distribution), color coded from yellow to red.
+
+![Coexpression network](../assets/images/image014.png)
+
+In the correlation network graph, you can see how genes within the cluster (box-shaped nodes) interact with each other, and with other genes in other clusters (ellipse-shaped nodes with solid edges and the corresponding cluster number inside) or anywhere else on the genome (ellipse-shaped nodes with dashed edges).
+
+![Coexpression 1](../assets/images/coex_relations.png)
+
+Additionally, by enabling the coexpression analysis, you will also get a Hiveplot overview of significant cluster-cluster interactions detected in the selected transcriptomics dataset. This can be accessed in the cluster overview screen.
+
+## Subgroup identification module
+
+plantiSMASH predicts substrate specificities of enzyme subfamilies for cellulose synthases, UDP-glucuronosyltransferases, short-chain dehydrogenases, and oxidosqualene cyclases, using pplacer and hmmer. The phylogenetic placement tool pplacer is used to place the target protein sequence on a precomputed reference tree. If the other members under the target parent node belong to the same subgroup, the target is considered to belong to the subgroup. In addition, GraPhlAn (Graphical Phylogenetic Analysis) is used to generate a tree image of the placement result. The HMM of each subgroup used by hmmer scan is made based on the full-length protein sequences of members in the subgroup. HMMs find matches based on the conserved positions of subgroup members, so they are also an efficient and simple method to identify subgroups of targets, especially those sequences with big differences. When the subgroup represented by the HMM with the highest match bitscore is consistent with the results from pplacer, it will be reported on the overview page that the target may have the same substrate type as those members of the subgroup. If it belongs to the product type that is predicted by the existence of core enzymes, it is specifically marked with * . For situations where the results of these two tools are inconsistent, or the target is not placed in a subgroup, users need to make their judgment based on results shown on the webpage of each cluster.
+
+![Coexpression 1](../assets/images/subgroup.png)
+
+## Downloading the results 
 
 At the top right of the page are ancillary links that may be useful.
 `Download` allows you to download various parts of the results.
-`About` links to information about antiSMASH (including publications).
+`About` links to information about plantiSMASH.
 `Help` links to these documentation pages.
-Finally, `Contact` links to a page with a form to send feedback or questions to the antiSMASH developers.
+Finally, `Contact` links to a page with a form to send feedback or questions to the plantiSMASH developers.
 
-Under the top bar are region buttons (**2**).
-These buttons are visible on all antiSMASH HTML pagesand can be used to quickly jump between regions.
-If a region is being viewed, the matching button for that region will be highlighted.
-Region buttons are in the form `X.Y`. For example, `5.7` would be the seventh region within the fifth record.
-Region buttons are color coded by predicted secondary metabolite type.
-Clicking the `Overview` button will bring you back to this page.
+![Download options](../assets/images/download_options.png)
 
-Under these buttons are a summary of each record, each starting the name of the record (**3**) as given in the input file.
-At the top of the summary is an image (**4**) showing where the regions are located in the record.
-Following that is a table with a summary of each region found in the record, with each row (**5**) having the following fields:
+The downward-pointing arrow will open a menu offering to download the complete set of results from the antiSMASH run, a summary Excel file and to the summary EMBL/GenBank output file. The EMBL/GenBank file can be viewed in a genome browser such as [Artemis](https://www.sanger.ac.uk/tool/artemis/).
 
-* **Region**: the region number
-* **Type**: the product types as detected by antiSMASH (clicking the types will take you to their description in these help pages)
-* **From**, **To**: the location of the region (in nucleotides)
-* **Most similar known cluster**: the closest compound from the MiBIG database (clicking this will take you to the MiBIG entry), along with its type (e.g. `t1pks+t3pks`)
-* **Similarity**: a percentage of genes within the closest known compound that have a significant BLAST hit to genes within the current region
 
-The last two columns containing comparisons to the MiBIG database will only be shown if antiSMASH was run with the [KnownClusterBlast](/modules/clusterblast/) option.
-
-Clicking anywhere in the row that is not already an external link will take you to the detailed results for that region.
+**Results on the public webserver are only kept for ONE month and will be deleted afterwards. It is highly recommended that you download the full result set before they expire.**
