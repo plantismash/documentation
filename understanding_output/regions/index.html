@@ -146,15 +146,15 @@ In antiSMASH5, the display of gene clusters change to reflect the fact that the 
 In a second step, pre-defined cluster rules are employed to define individual <em>protoclusters</em> encoded in the region.
 These make up a <em>core</em>, which is extended by its <em>neighbourhood</em>, which constiutes of genes encoded up- and downstream of the <em>core</em>.</p>
 <p>Here is an example of a rule for detecting a protocluster for a type I PKS:</p>
-<p><img alt="Example cluster rule" src="/img/clusterrules.png" /></p>
+<p><img alt="Example cluster rule" src="./assets/images/clusterrules.png" /></p>
 <p>Whenever antiSMASH finds a gene coding for a protein that has as PKS_AT domain and a PKS_KS domain of various sub-types, a new “Type I PKS <em>protocluster</em>” feature is generated within the region; this feature comprises the <em>core</em> gene-product(s) that trigger the rule (i.e. the PKS encoding genes and extends the <em>neighborhood</em> to the left and right of the core genes by 20 kb to the left and right (as defined by the EXTENT parameter in the rule definition).
 The values for the different cluster types are empirically determined and generally tend to overpredict, i.e. included also adjacent genes.
 After the <em>protocluster</em> features are assigned (note: there can be multiple protocluster features within a single <em>region</em>), they are checked for overlaps (as defined by the CUTOFF parameter) and are grouped into several types of <em>candidate clusters</em> to reflect the observation that many BGCs actually comprise several classes of biosynthetic machinery. For example glycopeptides like vancomycin or balhimycin (shown) are synthesized via NRPS, but also contain a type III PKS as a precursor pathway.</p>
-<p><img alt="Balhimycin biosynthetic gene cluster" src="/img/bal-cluster.png" /></p>
+<p><img alt="Balhimycin biosynthetic gene cluster" src="./assets/images/bal-cluster.png" /></p>
 <p>Thus, the displayed region contains the <code>NRPS</code> <em>protocluster</em> (green bar) and a <code>T3PKS</code> <em>protocluster</em> (yellow bar).
 As their neighbourhoods overlap, they are assigned to a <em>candidate cluster</em>.</p>
 <h3 id="candidate-cluster-types">Candidate cluster types<a class="headerlink" href="#candidate-cluster-types" title="Permanent link">#</a></h3>
-<p><img alt="Figure candidate clusters" src="/img/regionLogic.png" /></p>
+<p><img alt="Figure candidate clusters" src="./assets/images/regionLogic.png" /></p>
 <h4 id="chemical-hybrid">Chemical hybrid<a class="headerlink" href="#chemical-hybrid" title="Permanent link">#</a></h4>
 <p>These candidate clusters contains protoclusters which share cluster-defining CDS/genes/gene products.
 They will also include protoclusters within that shared range that do
