@@ -46,7 +46,7 @@ format.
 In any case, it is very important that input files are properly formatted. If you are creating your
 GBK/EMBL/FASTA file manually, be sure to do so in a plain text editor like
 Notepad or Emacs, and saving your files as "All files (*.*)", ending with the
-correct extension (for example ".fasta", ".gbk", or ".embl".
+correct extension (for example ".fasta", ".gbk", or ".embl".)
 
 plantiSMASH default and extra features
 ====================================
@@ -88,7 +88,7 @@ Enabling this option will increase the runtime of a submission.
 
 **Pfam-based GO term annotation**: this option annotates the results of the Cluster Pfam analysis, described above, with [GO term annotations](http://www.geneontology.org).
 These results are displayed within the Pfam domains section of the antiSMASH HTML results, by emphasising the borders of the relevant domains.
-See [Understanding the output](../understanding_output/results) for instructions on how to download the results.
+See [Understanding the output](./understanding_output/results.md) for instructions on how to download the results.
 
 
 [Fig1]:img/antiSMASHentrypage.png

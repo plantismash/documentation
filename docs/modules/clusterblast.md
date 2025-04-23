@@ -3,12 +3,12 @@
 There are three modes of the ClusterBlast alogorithm, all of which use the same
 algorithm and results visualisation, varying only in reference dataset:
 
-* **ClusterBlast**: shows regions from the antiSMASH Database that are similar to the current region
+* **ClusterBlast**: shows regions from the antiSMASH Database that are similar to the current region. The clusterblast database is defined with a minimum of 2 domains needed from the BGC rules. 
 * **KnownClusterBlast**: shows clusters from MIBiG that are similar to the current region
 * **SubClusterBlast**: shows sub-cluster units related to the current region
 
 ## Interpreting results
-![KnownClusterBlast/MIBiG example](/img/knownclusterblast.png)
+![KnownClusterBlast/MIBiG example](./assets/images/knownclusterblast.png)
 
 Genes with matching colours are interrelated.
 Percentage identity values per hit are shown when clicking the gene in question,
