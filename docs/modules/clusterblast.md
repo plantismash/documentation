@@ -8,7 +8,7 @@ algorithm and results visualisation, varying only in reference dataset:
 * **SubClusterBlast**: shows sub-cluster units related to the current region
 
 ## Interpreting results
-![KnownClusterBlast/MIBiG example](./assets/images/knownclusterblast.png)
+![KnownClusterBlast/MIBiG example](../assets/images/knownclusterblast.png)
 
 Genes with matching colours are interrelated.
 Percentage identity values per hit are shown when clicking the gene in question,
