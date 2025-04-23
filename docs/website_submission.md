@@ -1,5 +1,4 @@
-Setting up your plantiSMASH job
-=============================
+# Setting up your plantiSMASH job
 
 This page describes all relevant steps to get to interpretable plantiSMASH output using the web server. 
 It covers everything from the correct input data to what all settings and parameters mean. 
@@ -9,7 +8,6 @@ version of plantiSMASH available of which a screenshot is provided below:
 ![alt text][Fig1]
 
 ## Registering your plantiSMASH job
-===========================
 
 In case you would like to get an email alert upon completion of your job you can optionally 
 provide your email address in the "Notification settings" panel. You will then receive an email 
@@ -21,7 +19,6 @@ as otherwise you will not be able to access the results anymore.
 
 
 ## plantiSMASH input data
-====================
 
 The ideal input for plantiSMASH is an annotated nucleotide file in Genbank format or EMBL format.  
 You can either upload a GenBank/EMBL file manually, or enter the GenBank/RefSeq accession number of your sequence for plantiSMASH to upload it.  
@@ -90,9 +87,9 @@ These results are displayed within the Pfam domains section of the plantiSMASH H
 See [Understanding the output](./understanding_output/results.md) for instructions on how to download the results.
 
 
-[Fig1]:/assets/images/plantiSMASHentrypage.png
-[Fig2]:/assets/images/notifications.png
-[Fig3]:/assets/images/datatype.png
-[Fig4]:/assets/images/parameters.png
-[Fig5]:/assets/images/coexpress_format.png
+[Fig1]:./assets/images/plantiSMASHentrypage.png
+[Fig2]:./assets/images/notifications.png
+[Fig3]:./assets/images/datatype.png
+[Fig4]:./assets/images/parameters.png
+[Fig5]:./assets/images/coexpress_format.png
 
