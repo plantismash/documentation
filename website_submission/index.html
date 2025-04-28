@@ -50,6 +50,8 @@
                   </li>
                   <li class="toctree-l1 current"><a class="reference internal current" href="#">Submitting jobs on the webserver</a>
     <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#plantismash-database-of-precalculated-results">PlantiSMASH database of precalculated results</a>
+    </li>
     <li class="toctree-l2"><a class="reference internal" href="#registering-your-plantismash-job">Registering your plantiSMASH job</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#plantismash-input-data">plantiSMASH input data</a>
@@ -74,12 +76,27 @@
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../understanding_output/regions/">Region concept</a>
                   </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../understanding_output/database/">PlantiSMASH database</a>
+                  </li>
               </ul>
-              <p class="caption"><span class="caption-text">Module-specific information</span></p>
+              <p class="caption"><span class="caption-text">Generic modules</span></p>
               <ul>
                   <li class="toctree-l1"><a class="reference internal" href="../modules/clusterrules/">BGC detection</a>
                   </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../modules/clusterblast/">ClusterBLAST</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../modules/knownclusterblast/">KnownClusterBLAST</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../modules/coexpress/">Coexpress</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../modules/subgroup/">Subgroup Finder</a>
+                  </li>
                   <li class="toctree-l1"><a class="reference internal" href="../modules/tfbs/">TFBS Finder</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Specific modules</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../modules/cyclopeptides/">Cyclopeptide Finder</a>
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Local Installation</span></p>
@@ -91,6 +108,8 @@
               </ul>
               <p class="caption"><span class="caption-text">Change Log</span></p>
               <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../changelog/">Overview</a>
+                  </li>
                   <li class="toctree-l1"><a class="reference internal" href="../changelog/2.0/">Version 2.0</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../changelog/1.0/">Version 1.0</a>
@@ -138,6 +157,8 @@ It covers everything from the correct input data to what all settings and parame
 <a href="https://plantismash.bioinformatics.nl/">Here</a> is the latest stable bacterial
 version of plantiSMASH available of which a screenshot is provided below:</p>
 <p><img alt="alt text" src="../assets/images/plantiSMASHentrypage.png" /></p>
+<h2 id="plantismash-database-of-precalculated-results">PlantiSMASH database of precalculated results<a class="headerlink" href="#plantismash-database-of-precalculated-results" title="Permanent link">#</a></h2>
+<p>Before submitting your plantiSMASH job, check if the results for your genome are already available in the precalculated results on the <a href="../understanding_output/database/">plantiSMASH database</a>. </p>
 <h2 id="registering-your-plantismash-job">Registering your plantiSMASH job<a class="headerlink" href="#registering-your-plantismash-job" title="Permanent link">#</a></h2>
 <p>In case you would like to get an email alert upon completion of your job you can optionally 
 provide your email address in the "Notification settings" panel. You will then receive an email 
@@ -190,8 +211,8 @@ You can supply one or more additional file(s) either in <a href="https://www.ncb
 <h4 id="subgroup-identification"><strong>Subgroup identification</strong><a class="headerlink" href="#subgroup-identification" title="Permanent link">#</a></h4>
 <p>plantiSMASH predicts substrate specificities of enzyme subfamilies for cellulose synthases, UDP-glucuronosyltransferases, short-chain dehydrogenases, and oxidosqualene cyclases, using <a href="https://github.com/matsen/pplacer">pplacer</a> and hmmer. The phylogenetic placement tool pplacer is used to place the target protein sequence on a precomputed reference tree. If the other members under the target parent node belong to the same subgroup, the target is considered to belong to the subgroup. In addition, <a href="https://huttenhower.sph.harvard.edu/graphlan/">GraPhlAn</a>(Graphical Phylogenetic Analysis) is used to generate a tree image of the placement result. The HMM of each subgroup used by hmmer scan is made based on the full-length protein sequences of members in the subgroup. HMMs find matches based on the conserved positions of subgroup members, so they are also an efficient and simple method to identify subgroups of targets, especially those sequences with big differences. When the subgroup represented by the HMM with the highest match bitscore is consistent with the results from pplacer, it will be reported on the overview page that the target may have the same substrate type as those members of the subgroup. </p>
 <h4 id="tfbs-detection"><strong>TFBS Detection</strong><a class="headerlink" href="#tfbs-detection" title="Permanent link">#</a></h4>
-<p>These results are displayed within the Pfam domains section of the plantiSMASH HTML results, by emphasising the borders of the relevant domains.
-See <a href="./understanding_output/results.md">Understanding the output</a> for instructions on how to download the results.</p>
+<p>These results are displayed within the Pfam domains section of the plantiSMASH HTML results, by emphasising the borders of the relevant domains.</p>
+<p>See <a href="../understanding_output/overview/#downloading-the-results">Understanding the output</a> for instructions on how to download the results.</p>
               
             </div>
           </div>

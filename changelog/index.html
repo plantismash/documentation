@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="shortcut icon" href="../img/favicon.ico" />
-    <title>FAQ - PlantiSMASH Documentation</title>
+    <title>Overview - PlantiSMASH Documentation</title>
     <link rel="stylesheet" href="../css/theme.css" />
     <link rel="stylesheet" href="../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
@@ -13,8 +13,8 @@
     
       <script>
         // Current page data
-        var mkdocs_page_name = "FAQ";
-        var mkdocs_page_input_path = "faq.md";
+        var mkdocs_page_name = "Overview";
+        var mkdocs_page_input_path = "changelog/index.md";
         var mkdocs_page_url = null;
       </script>
     
@@ -85,30 +85,16 @@
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Change Log</span></p>
-              <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../changelog/">Overview</a>
+              <ul class="current">
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Overview</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../changelog/2.0/">Version 2.0</a>
+                  <li class="toctree-l1"><a class="reference internal" href="2.0/">Version 2.0</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../changelog/1.0/">Version 1.0</a>
+                  <li class="toctree-l1"><a class="reference internal" href="1.0/">Version 1.0</a>
                   </li>
               </ul>
-              <ul class="current">
-                <li class="toctree-l1 current"><a class="reference internal current" href="#">FAQ</a>
-    <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#can-i-run-antismash-locally-as-a-stand-alone-program">Can I run antiSMASH locally as a stand-alone program?</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#why-doesnt-plantismash-detect-my-gene-cluster">Why doesn't plantiSMASH detect my gene cluster?</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#why-are-several-genes-upstream-and-downstream-of-gene-clusters-included-even-though-they-do-not-seem-to-be-part-of-the-gene-cluster">Why are several genes upstream and downstream of gene clusters included, even though they do not seem to be part of the gene cluster?</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#why-is-my-bgc-not-detected-in-full">Why is my BGC not detected in full?</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#can-i-also-submit-an-unannotated-genome-sequence-in-fasta-format">Can I also submit an unannotated genome sequence in FASTA format?</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#what-is-the-privacy-policy-of-plantismash-concerning-my-sequence-data">What is the privacy policy of plantiSMASH concerning my sequence data?</a>
-    </li>
-    </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../faq/">FAQ</a>
                 </li>
               </ul>
               <ul>
@@ -133,7 +119,8 @@
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
-      <li class="breadcrumb-item active">FAQ</li>
+          <li class="breadcrumb-item">Change Log</li>
+      <li class="breadcrumb-item active">Overview</li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
@@ -142,19 +129,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h2 id="frequently-asked-questions">Frequently Asked Questions<a class="headerlink" href="#frequently-asked-questions" title="Permanent link">#</a></h2>
-<h3 id="can-i-run-antismash-locally-as-a-stand-alone-program">Can I run antiSMASH locally as a stand-alone program?<a class="headerlink" href="#can-i-run-antismash-locally-as-a-stand-alone-program" title="Permanent link">#</a></h3>
-<p>Yes. A stand-alone version of plantiSMASH is available from the <a href="../install/">download page</a>.</p>
-<h3 id="why-doesnt-plantismash-detect-my-gene-cluster">Why doesn't plantiSMASH detect my gene cluster?<a class="headerlink" href="#why-doesnt-plantismash-detect-my-gene-cluster" title="Permanent link">#</a></h3>
-<p>Some gene clusters, such as cofactor biosynthesis gene clusters are not identified by plantiSMASH, as they are categorized as primary metabolism instead of secondary metabolism. If you are aware of a true secondary metabolite biosynthesis gene cluster that escapes detection by antiSMASH, please contact us, and we will add the models necessary to detect it.</p>
-<h3 id="why-are-several-genes-upstream-and-downstream-of-gene-clusters-included-even-though-they-do-not-seem-to-be-part-of-the-gene-cluster">Why are several genes upstream and downstream of gene clusters included, even though they do not seem to be part of the gene cluster?<a class="headerlink" href="#why-are-several-genes-upstream-and-downstream-of-gene-clusters-included-even-though-they-do-not-seem-to-be-part-of-the-gene-cluster" title="Permanent link">#</a></h3>
-<p>In designing plantiSMASH, we tried to be very conservative in cutting gene cluster borders, leaving this to the expert eye of the user, as it is better to show some extra genes than to leave out key genes.</p>
-<h3 id="why-is-my-bgc-not-detected-in-full">Why is my BGC not detected in full?<a class="headerlink" href="#why-is-my-bgc-not-detected-in-full" title="Permanent link">#</a></h3>
-<p>The user can specify a different cutoff when running the program as a stand-alone program, by manually editing the cluster rules file, avaialble on the gitHub repository. If you run into such an issue, contact us or open a ticket on GitHub.</p>
-<h3 id="can-i-also-submit-an-unannotated-genome-sequence-in-fasta-format">Can I also submit an unannotated genome sequence in FASTA format?<a class="headerlink" href="#can-i-also-submit-an-unannotated-genome-sequence-in-fasta-format" title="Permanent link">#</a></h3>
-<p>To enable us to operate the plantiSMASH webserver with the resources available, users are expected to upload annotated Genbank-formatted or fasta files with gene/CDS annotations (i.e. fasta = gff3). Please first run your assembly on gene finding tools of your preference, such as <a href="https://bioinf.uni-greifswald.de/augustus/">AUGUSTUS</a> or <a href="https://www.yandell-lab.org/software/maker.html">MAKER</a> before submitting it into plantiSMASH.</p>
-<h3 id="what-is-the-privacy-policy-of-plantismash-concerning-my-sequence-data">What is the privacy policy of plantiSMASH concerning my sequence data?<a class="headerlink" href="#what-is-the-privacy-policy-of-plantismash-concerning-my-sequence-data" title="Permanent link">#</a></h3>
-<p>We keep this site and the data that it analyses as safe and secure as possible. The randomly generated URL ensures that your data cannot easily be found by third parties. Your output files will be periodically deleted from our server. However, sending your data to the web site is at your own risk. If you are concerned about the sensitivity of your data, please use the stand-alone version of our tool.</p>
+                
               
             </div>
           </div>
@@ -178,10 +153,10 @@
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../changelog/1.0/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../command_line/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="../glossary/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="2.0/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>

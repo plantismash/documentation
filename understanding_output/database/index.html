@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
-    <title>2.0.beta1 - PlantiSMASH Documentation</title>
+    <title>PlantiSMASH database - PlantiSMASH Documentation</title>
     <link rel="stylesheet" href="../../css/theme.css" />
     <link rel="stylesheet" href="../../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
@@ -13,8 +13,8 @@
     
       <script>
         // Current page data
-        var mkdocs_page_name = "2.0.beta1";
-        var mkdocs_page_input_path = "changelog/2.0.beta1.md";
+        var mkdocs_page_name = "PlantiSMASH database";
+        var mkdocs_page_input_path = "understanding_output/database.md";
         var mkdocs_page_url = null;
       </script>
     
@@ -45,16 +45,18 @@
                 </li>
               </ul>
               <p class="caption"><span class="caption-text">Using PlantiSMASH</span></p>
-              <ul>
+              <ul class="current">
                   <li class="toctree-l1"><a class="reference internal" href="../../intro/">Introduction</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../../website_submission/">Submitting jobs on the webserver</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../understanding_output/overview/">Results page</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../overview/">Results page</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../understanding_output/regions/">Region concept</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../regions/">Region concept</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../understanding_output/database/">PlantiSMASH database</a>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">PlantiSMASH database</a>
+    <ul class="current">
+    </ul>
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Generic modules</span></p>
@@ -86,11 +88,11 @@
               </ul>
               <p class="caption"><span class="caption-text">Change Log</span></p>
               <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../">Overview</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../changelog/">Overview</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../2.0/">Version 2.0</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../changelog/2.0/">Version 2.0</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../1.0/">Version 1.0</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../changelog/1.0/">Version 1.0</a>
                   </li>
               </ul>
               <ul>
@@ -119,7 +121,8 @@
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
-      <li class="breadcrumb-item active">2.0.beta1</li>
+          <li class="breadcrumb-item">Using PlantiSMASH</li>
+      <li class="breadcrumb-item active">PlantiSMASH database</li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
@@ -128,85 +131,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <p><strong>New features in 2.0-beta:</strong></p>
-<ul>
-<li>Expanded detection rules from 6 to 12</li>
-<li>Updated ClusterBlast database with 382 NCBI plant genomes</li>
-<li>Detection of repeats in BURP domains (cyclopeptide BGCs)</li>
-<li>Substrate prediction for various enzyme subfamilies</li>
-</ul>
-<h3 id="supported-cluster-types-version-20-beta">Supported Cluster Types (version 2.0-beta)<a class="headerlink" href="#supported-cluster-types-version-20-beta" title="Permanent link">#</a></h3>
-<table>
-<thead>
-<tr>
-<th>Rule</th>
-<th>Min. Generic Domains*</th>
-<th>Special Domains Required</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>alkaloid</td>
-<td>3</td>
-<td>Bet_v_1, Cu_amine_oxid, Str_synth, BBE, Orn_DAP_Arg_deC, Pyridoxal_deC</td>
-</tr>
-<tr>
-<td>fatty_acid</td>
-<td>3</td>
-<td>FA_desaturase, FA_desaturase_2, FA_hydroxylase, CER1-like_C, Transferase, ECH_2, AMP-binding</td>
-</tr>
-<tr>
-<td>lignan</td>
-<td>3</td>
-<td>Dirigent</td>
-</tr>
-<tr>
-<td>MatE</td>
-<td>3</td>
-<td>MatE</td>
-</tr>
-<tr>
-<td>phenolamide</td>
-<td>2</td>
-<td>Transferase, Pyridoxal_deC, Orn_DAP_Arg_deC, Orn_Arg_deC_N</td>
-</tr>
-<tr>
-<td>plant</td>
-<td>4</td>
-<td>None</td>
-</tr>
-<tr>
-<td>polyketide</td>
-<td>3</td>
-<td>Chal_sti_synt_C, Chal_sti_synt_N, AMP-binding, Thr_dehydrat_C</td>
-</tr>
-<tr>
-<td>saccharide</td>
-<td>3</td>
-<td>Glycos_transf_1, Glycos_transf_2, Glycos_transf_28, UDPGT, UDPGT_2, Glyco_hydro_1, Cellulose_synt</td>
-</tr>
-<tr>
-<td>sesterterpene</td>
-<td>2</td>
-<td>Terpene_synth_C, polyprenyl_synt</td>
-</tr>
-<tr>
-<td>strictosidine_like</td>
-<td>2</td>
-<td>Str_synth, Pyridoxal_deC</td>
-</tr>
-<tr>
-<td>terpene</td>
-<td>3</td>
-<td>Terpene_synth, Terpene_synth_C, Prenyltrans, SQHop_cyclase_C, SQHop_cyclase_N, PRISE</td>
-</tr>
-</tbody>
-</table>
-<p><strong>*</strong> <em>Generic domains:</em><br />
-<code>Orn_DAP_Arg_deC</code>, <code>Pyridoxal_deC</code>, <code>BBE</code>, <code>FA_hydroxylase</code>, <code>CER1-like_C</code>, <code>ECH_2</code>, <code>Oxidored_FMN</code>, <code>3Beta_HSD</code>, <code>Glyco_hydro_1</code>, <code>ADH_N</code>, <code>ADH_N_2</code>, <code>Abhydrolase_3</code>, <code>Aldo_ket_red</code>, <code>cMT</code>, <code>nMT</code>, <code>oMT</code>, <code>adh_short</code>, <code>Chal_sti_synt_C</code>, <code>Chal_sti_synt_N</code>, <code>COesterase</code>, <code>UDPGT</code>, <code>Glyco_transf_28</code>, <code>Glycos_transf_1</code>, <code>Glycos_transf_2</code>, <code>Lycopene_cycl</code>, <code>NAD_binding_1</code>, <code>p450</code>, <code>SQHop_cyclase_C</code>, <code>SQHop_cyclase_N</code>, <code>Prenyltrans</code>, <code>Terpene_synth_C</code>, <code>Terpene_synth</code>, <code>Transferase</code>, <code>Aminotran_1_2</code>, <code>AMP-binding</code>, <code>DIOX_N</code>, <code>Dirigent</code>, <code>Bet_v_1</code>, <code>Cu_amine_oxid</code>, <code>Str_synth</code>, <code>Trp_syntA</code>, <code>His_biosynth</code>, <code>adh_short_C2</code>, <code>Peptidase_S10</code>, <code>Prenyltransf</code>, <code>Epimerase</code>, <code>2OG-FeII_Oxy</code>, <code>Aminotran_3</code>, <code>Methyltransf_2</code>, <code>Methyltransf_3</code>, <code>Methyltransf_7</code>, <code>PRISE</code>, <code>Cellulose_synt</code>, <code>Chalcone</code>, <code>ERG4_ERG24</code>, <code>FA_desaturase</code>, <code>FA_desaturase_2</code>, <code>Methyltransf_11</code>, <code>polyprenyl_synt</code>, <code>SE</code>, <code>SQS_PSY</code>, <code>TPMT</code>, <code>UbiA</code>, <code>Lipoxygenase</code>, <code>Lyase_aromatic</code>, <code>HMGL-like</code>, <code>Chalcone_3</code>, <code>Chalcone_2</code>, <code>Acetyltransf_1</code>, <code>UDPGT_2</code>, <code>GMC_oxred_N</code>, <code>GMC_oxred_C</code>, <code>Amino_oxidase</code>, <code>DAHP_synth_1</code>, <code>DAHP_synth_2</code></p>
-<ul>
-<li>Note that sesterpene, strictosidine-like, phenolamide and cyclopeptide also use <code>MatE</code> as a generic domain. </li>
-</ul>
+                <h1 id="plantismash-database">plantiSMASH database<a class="headerlink" href="#plantismash-database" title="Permanent link">#</a></h1>
+<p>The plantiSMASH database contains a set of precalculated results for selected species. These are updated every plantiSMASH version. See the [Changelog] section. </p>
               
             </div>
           </div>
@@ -230,6 +156,10 @@
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
+      <span><a href="../regions/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../../modules/clusterrules/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>
