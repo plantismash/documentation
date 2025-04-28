@@ -6,13 +6,21 @@ nav:
         - Submitting jobs on the webserver: website_submission.md
         - Results page: understanding_output/overview.md
         - Region concept: understanding_output/regions.md
-    - Module-specific information:
+        - PlantiSMASH database: understanding_output/database.md
+    - Generic modules:
         - BGC detection: modules/clusterrules.md
+        - ClusterBLAST: modules/clusterblast.md
+        - KnownClusterBLAST: modules/knownclusterblast.md
+        - Coexpress: modules/coexpress.md
+        - Subgroup Finder: modules/subgroup.md
         - TFBS Finder: modules/tfbs.md
+    - Specific modules: 
+        - Cyclopeptide Finder: modules/cyclopeptides.md
     - Local Installation:
         - Installation: install.md
         - Starting command line runs: command_line.md
     - Change Log:
+        - Overview: changelog/index.md
         - Version 2.0: changelog/2.0.md
         - Version 1.0: changelog/1.0.md
     - FAQ: faq.md

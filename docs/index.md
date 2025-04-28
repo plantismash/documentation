@@ -25,7 +25,7 @@ For more details on how to use plantiSMASH, see our Springer's Protocols book ch
 If you need to run many analyses or custom analyses, please download and install a local copy of antiSMASH.
 Running large-scale analyses locally instead of on the webservice reduces the load and helps us to keep plantiSMASH available for everybody.
 
-For instructions on how to install antiSMASH locally, please see the [Install Guide](install.md).
+For instructions on how to install plantiSMASH locally, please see the [Install Guide](install.md).
 
 ### For developers 
 
