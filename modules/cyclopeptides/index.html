@@ -133,6 +133,43 @@
               
                 <h1 id="cyclopeptide-bgc-detection">Cyclopeptide BGC detection<a class="headerlink" href="#cyclopeptide-bgc-detection" title="Permanent link">#</a></h1>
 <p>This module supports the detection of cyclopeptide BGCs in the presence of a BURP domain and repeat sequences. </p>
+<p>The Cyclopeptide detection module identifies biosynthetic gene clusters (BGCs) associated with cyclopeptide production in plants.
+Detection is based on two main criteria:</p>
+<ul>
+<li>
+<p>The presence of a BURP domain (a characteristic biosynthetic domain).</p>
+</li>
+<li>
+<p>The presence of internal amino acid repeats within coding sequences, suggesting the existence of cyclopeptide precursor peptides.</p>
+</li>
+</ul>
+<p>Once a candidate BGC is identified, the module performs the following steps:</p>
+<ol>
+<li>
+<p>Repeat Detection: Using a repeat-finding algorithm, the module scans the coding sequences (CDSs) inside the cluster for repeated amino acid motifs.</p>
+</li>
+<li>
+<p>Pattern Matching: Detected repeats are matched against known cyclopeptide-related patterns where available, or reported as new motifs.</p>
+</li>
+<li>
+<p>Filtering Logic: Only clusters containing both a BURP domain and at least one repeat with appropriate features are retained.</p>
+</li>
+<li>
+<p>Result Summary: For each coding sequence with detected repeats, the module reports:</p>
+</li>
+<li>
+<p>The identified repeat patterns.</p>
+</li>
+<li>
+<p>The number of repeat instances.</p>
+</li>
+<li>
+<p>The location and sequence coverage.</p>
+</li>
+</ol>
+<p>A visual highlight of the repeats inside the amino acid sequence.</p>
+<p>The output includes a detailed view showing the repeat locations, pattern matches, and highlighted sequences.</p>
+<p><img alt="Cyclopeptide repeat" src="../../assets/images/cyclopeptide_repeat.png" /></p>
               
             </div>
           </div>
