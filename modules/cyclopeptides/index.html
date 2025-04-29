@@ -76,6 +76,14 @@
               <ul class="current">
                   <li class="toctree-l1 current"><a class="reference internal current" href="#">Cyclopeptide Finder</a>
     <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#known-cyclopeptide-motif-detection">Known Cyclopeptide Motif Detection</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#notes">Notes:</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#customising-the-module">Customising the module</a>
+    </li>
+        </ul>
+    </li>
     </ul>
                   </li>
               </ul>
@@ -170,6 +178,68 @@ Detection is based on two main criteria:</p>
 <p>A visual highlight of the repeats inside the amino acid sequence.</p>
 <p>The output includes a detailed view showing the repeat locations, pattern matches, and highlighted sequences.</p>
 <p><img alt="Cyclopeptide repeat" src="../../assets/images/cyclopeptide_repeat.png" /></p>
+<h2 id="known-cyclopeptide-motif-detection">Known Cyclopeptide Motif Detection<a class="headerlink" href="#known-cyclopeptide-motif-detection" title="Permanent link">#</a></h2>
+<p>This module includes detection of <strong>known amino acid repeat motifs</strong> that are commonly found in plant cyclopeptides. These motifs are defined using regular expressions to flexibly capture conserved sequence patterns, including tolerated variability.</p>
+<p>The following known motifs are currently supported:</p>
+<table>
+<thead>
+<tr>
+<th>Motif Name</th>
+<th>Regex Pattern</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Lyciumins</strong></td>
+<td><code>QP.{5}W</code></td>
+<td>Glutamine–Proline followed by any 5 residues and a Tryptophan.</td>
+</tr>
+<tr>
+<td><strong>Legumenin</strong></td>
+<td><code>QP.{3}Y.W</code></td>
+<td>Glutamine–Proline with 3 residues, a Tyrosine, any residue, and a Tryptophan.</td>
+</tr>
+<tr>
+<td><strong>Bicyclic cyclopeptide alkaloid</strong></td>
+<td><code>.{1}L.{1}Y..Y</code></td>
+<td>Leucine at position 2, Tyrosines spaced within six residues.</td>
+</tr>
+<tr>
+<td><strong>DUF2775 core peptide (Pfam: PF10905)</strong></td>
+<td><code>VS[AI]Y</code></td>
+<td>Conserved Valine–Serine followed by Alanine or Isoleucine, and Tyrosine.</td>
+</tr>
+<tr>
+<td><strong>DUF2775 leader peptide (Pfam: PF10905)</strong></td>
+<td><code>FEPR</code></td>
+<td>Short leader motif with Phenylalanine–Glutamate–Proline–Arginine.</td>
+</tr>
+<tr>
+<td><strong>Cca-like peptide</strong></td>
+<td><code>QI.{2}W</code></td>
+<td>Glutamine–Isoleucine followed by any two residues and a Tryptophan.</td>
+</tr>
+<tr>
+<td><strong>Stephanotic acid-like</strong></td>
+<td><code>QL.{2}W</code></td>
+<td>Glutamine–Leucine followed by any two residues and a Tryptophan.</td>
+</tr>
+<tr>
+<td><strong>Valine–Tyrosine pattern</strong></td>
+<td><code>V.{2}Y</code></td>
+<td>Valine followed by any two residues and a Tyrosine.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="notes">Notes:<a class="headerlink" href="#notes" title="Permanent link">#</a></h3>
+<ul>
+<li>These motifs are used to <strong>identify known cyclopeptide-related repeats</strong> in coding sequences.</li>
+<li>Only matches <strong>within CDS features containing internal repeats</strong> are considered.</li>
+<li>The list of motifs is defined in <code>known_motifs.txt</code> (one regex per line).</li>
+</ul>
+<h3 id="customising-the-module">Customising the module<a class="headerlink" href="#customising-the-module" title="Permanent link">#</a></h3>
+<p>You can easily extend <code>known_motifs.txt</code> to support additional motifs for other peptide classes.</p>
               
             </div>
           </div>
