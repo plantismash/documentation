@@ -1,5 +1,33 @@
-## Subgroup identification module
+# Subgroup identification module
 
-plantiSMASH predicts substrate specificities of enzyme subfamilies for cellulose synthases, UDP-glucuronosyltransferases, short-chain dehydrogenases, and oxidosqualene cyclases, using pplacer and hmmer. The phylogenetic placement tool pplacer is used to place the target protein sequence on a precomputed reference tree. If the other members under the target parent node belong to the same subgroup, the target is considered to belong to the subgroup. In addition, GraPhlAn (Graphical Phylogenetic Analysis) is used to generate a tree image of the placement result. The HMM of each subgroup used by hmmer scan is made based on the full-length protein sequences of members in the subgroup. HMMs find matches based on the conserved positions of subgroup members, so they are also an efficient and simple method to identify subgroups of targets, especially those sequences with big differences. When the subgroup represented by the HMM with the highest match bitscore is consistent with the results from pplacer, it will be reported on the overview page that the target may have the same substrate type as those members of the subgroup. If it belongs to the product type that is predicted by the existence of core enzymes, it is specifically marked with * . For situations where the results of these two tools are inconsistent, or the target is not placed in a subgroup, users need to make their judgment based on results shown on the webpage of each cluster.
+plantiSMASH includes a subgroup identification module that helps predict substrate specificities for enzyme subfamilies in plant biosynthetic gene clusters. Currently, this module supports several key protein families: cellulose synthases, UDP-glucuronosyltransferases (UDPGTs), short-chain dehydrogenases (SDRs), and oxidosqualene cyclases (OSCs).
 
-![Coexpression 1](../assets/images/subgroup.png)
+The workflow combines:
+
+- HMMER to detect domain-containing proteins,
+
+- pplacer to phylogenetically place these proteins onto precomputed reference trees, and
+
+- GraPhlAn to generate interactive and color-coded visualizations.
+
+How it works
+
+1. Domain detection: The target genome is scanned with profile HMMs to detect relevant domains.
+
+2. Phylogenetic placement: Identified protein sequences are placed onto curated reference trees using pplacer.
+
+3. Subgroup inference: If a target protein's neighboring nodes in the tree belong to a consistent known subgroup, it is inferred to belong to that subgroup.
+
+4. HMM matching: Separately, the full-length protein is scored against subgroup-specific HMMs. If the top-scoring subgroup matches the pplacer result, this is marked as high-confidence.
+
+5. Visualization: Color-coded trees are generated with GraPhlAn to display placements and subgroup contexts.
+
+Interpreting results
+In the cluster overview, when a subgroup is detected for a gene, a clickable label is shown. Clicking on the detected subgroup name will open an interactive phylogenetic tree showing the target protein and its neighbors, colored by subgroup.
+
+Subgroup predictions that align with known biosynthetic product types are marked with an asterisk *. If no consistent assignment is possible, or if the HMMER and pplacer results disagree, the module presents both results for user inspection.
+
+![Subgroup](../assets/images/subgroup.png)
+
+## Customization
+This module is modular and can be extended to support additional protein families or custom subgroup definitions. For detailed instructions on how to customize the subgroup analysis (e.g. adding new reference trees or HMMs), please refer to the [plantiSMASH Wiki](https://github.com/plantismash/plantismash/wiki). 
