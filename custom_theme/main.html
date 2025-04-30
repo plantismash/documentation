@@ -3,8 +3,8 @@
 {% block footer %}
 <hr>
 <p>
-    {% if config.copyright %}
-    <small>{{ config.copyright }}<br></small>
+    {% if config.extra.copyright %}
+    <small>{{ config.extra.copyright }}<br></small>
     {% endif %}
 
     {% if page and page.meta.revision_date %}
