@@ -7,9 +7,8 @@
     <small>{{ config.extra.copyright }}<br></small>
     {% endif %}
 
-    {% if git_revision_date_localized %}
-    <small><br><i>Last updated {{ git_revision_date_localized }}</i></small>
+    {% if page and page.meta.revision_date %}
+    <small><br><i>Last updated {{ page.meta.revision_date }}</i></small>
     {% endif %}
 </p>
 {% endblock %}
-

@@ -37,9 +37,7 @@ markdown_extensions:
     - pymdownx.superfences # Ensures proper code block rendering
 plugins:
   - search
-  - git-revision-date-localized:
-      type: iso_date
-      fallback_to_build_date: true
+  - git-revision-date
 extra_css: 
   - css/extra.css 
 extra: 
