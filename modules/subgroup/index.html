@@ -69,6 +69,10 @@
                   </li>
                   <li class="toctree-l1 current"><a class="reference internal current" href="#">Subgroup Finder</a>
     <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#supported-subgroups-in-v20">Supported subgroups in v2.0</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#references-for-the-subgroup-module">References for the Subgroup Module</a>
+    </li>
     <li class="toctree-l2"><a class="reference internal" href="#customization">Customization</a>
     </li>
     </ul>
@@ -169,6 +173,13 @@
 In the cluster overview, when a subgroup is detected for a gene, a clickable label is shown. Clicking on the detected subgroup name will open an interactive phylogenetic tree showing the target protein and its neighbors, colored by subgroup.</p>
 <p>Subgroup predictions that align with known biosynthetic product types are marked with an asterisk *. If no consistent assignment is possible, or if the HMMER and pplacer results disagree, the module presents both results for user inspection.</p>
 <p><img alt="Subgroup" src="../../assets/images/subgroup.png" /></p>
+<h2 id="supported-subgroups-in-v20">Supported subgroups in v2.0<a class="headerlink" href="#supported-subgroups-in-v20" title="Permanent link">#</a></h2>
+<p>This module enables the subgroup of protein sequences from various families based on the results of <code>hmmer</code> scans using domain pHMMs. The families it covers include the Cellulose synthase (CSLs) family (Chung et al., 2020; Jozwiak et al., 2020), UDP-glucuronosyltransferase (UGTs) family (Louveau &amp; Osbourn, 2019), short-chain dehydrogenases/reductases (SDRs) family (Moummou et al., 2012), and oxidosqualene cyclase (OSCs) family (unpublished work).</p>
+<h2 id="references-for-the-subgroup-module">References for the Subgroup Module<a class="headerlink" href="#references-for-the-subgroup-module" title="Permanent link">#</a></h2>
+<p>Chung, S. Y., Seki, H., Fujisawa, Y., Shimoda, Y., Hiraga, S., Nomura, Y., Saito, K., Ishimoto, M., &amp; Muranaka, T. (2020). A cellulose synthase-derived enzyme catalyses 3-O-glucuronosylation in saponin biosynthesis. Nature Communications 2020 11:1, 11(1), 1–11. https://doi.org/10.1038/s41467-020-19399-0</p>
+<p>Jozwiak, A., Sonawane, P. D., Panda, S., Garagounis, C., Papadopoulou, K. K., Abebie, B., Massalha, H., Almekias-Siegl, E., Scherf, T., &amp; Aharoni, A. (2020). Plant terpenoid metabolism co-opts a component of the cell wall biosynthesis machinery. Nature Chemical Biology 2020 16:7, 16(7), 740–748. https://doi.org/10.1038/s41589-020-0541-x</p>
+<p>Louveau, T., &amp; Osbourn, A. (2019). The Sweet Side of Plant-Specialized Metabolism. Cold Spring Harbor Perspectives in Biology, 11(12), a034744. https://doi.org/10.1101/CSHPERSPECT.A034744</p>
+<p>Moummou, H., Kallberg, Y., Tonfack, L. B., Persson, B., &amp; van der Rest, B. (2012). The Plant Short-Chain Dehydrogenase (SDR) superfamily: Genome-wide inventory and diversification patterns. BMC Plant Biology, 12(1), 1–17. https://doi.org/10.1186/1471-2229-12-219/FIGURES/7</p>
 <h2 id="customization">Customization<a class="headerlink" href="#customization" title="Permanent link">#</a></h2>
 <p>This module is modular and can be extended to support additional protein families or custom subgroup definitions. For detailed instructions on how to customize the subgroup analysis (e.g. adding new reference trees or HMMs), please refer to the <a href="https://github.com/plantismash/plantismash/wiki">plantiSMASH Wiki</a>. </p>
               
@@ -181,7 +192,7 @@ In the cluster overview, when a subgroup is detected for a gene, a clickable lab
     
 
     
-    <small><br><i>Last updated 2025-04-30</i></small>
+    <small><br><i>Last updated 2025-05-13</i></small>
     
 </p>
 

@@ -61,6 +61,18 @@
               <ul class="current">
                   <li class="toctree-l1 current"><a class="reference internal current" href="#">BGC detection</a>
     <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#1-how-do-rules-find-bgcs">1. How do rules find BGCs?</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#11-identify-domains-of-proteins">1.1 Identify domains of proteins</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#12-clustering-the-neighboring-genes-with-identified-domains-hmms-matches">1.2. Clustering the neighboring genes with identified domains HMMs matches</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#13-filter-the-clusters">1.3. Filter the clusters</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#14-output">1.4. output</a>
+    </li>
+        </ul>
+    </li>
     </ul>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../clusterblast/">ClusterBLAST</a>
@@ -134,6 +146,27 @@
                 <h1 id="bgc-detection-and-cluster-rules">BGC detection and cluster rules<a class="headerlink" href="#bgc-detection-and-cluster-rules" title="Permanent link">#</a></h1>
 <p>In its rule-based BGC detection mode, plantiSMASH first runs a set of BGC-related HMM profiles on the input data and then uses manually curated rules to identify the BGCs.</p>
 <p>The currently used rules can be found at <a href="https://github.com/plantismash/plantismash/tree/master/antismash/generic_modules/hmm_detection">GitHub</a>, and a summary is available <a href="../../glossary/">here</a></p>
+<p>For how to customise the rules see the <a href="https://github.com/plantismash/plantismash/wiki">plantiSMASH Developer Wiki</a>.</p>
+<h2 id="1-how-do-rules-find-bgcs">1. How do rules find BGCs?<a class="headerlink" href="#1-how-do-rules-find-bgcs" title="Permanent link">#</a></h2>
+<h3 id="11-identify-domains-of-proteins">1.1 Identify domains of proteins<a class="headerlink" href="#11-identify-domains-of-proteins" title="Permanent link">#</a></h3>
+<p>PlantiSMASH detects protein domains (HMMs) by running hmmerscan. The HMMs files, <code>cluster_rules.txt</code>, <code>hmmdetails.txt</code>, and <code>filterhmmdetails.txt</code> for plants are in <code>plant</code>. The <code>hmmdetails.txt</code> controls which HMMs will be used (4th column) and the bitscore cutoff (3rd column) to filter hmmerscan results. Usually the bitscore cutoff is <code>-1</code> equal to no filter. </p>
+<p>The results are recorded in the output .gbk files. To only show the HMMs with highest bitscore from matches on same proteins sequence range, add them in <code>filterhmmdetails.txt</code>. For example, the same domain range match HMM UDPGT and UDPGT_2 , but the output will only show the one with highest bitscore.</p>
+<p>Note: Another module by using the command <code>--full-hmmer</code> will use Pfam-A.hmm to identify any kind of domains. But the results only recorded in the output .gbk files and did not used in other module.</p>
+<h3 id="12-clustering-the-neighboring-genes-with-identified-domains-hmms-matches">1.2. Clustering the neighboring genes with identified domains HMMs matches<a class="headerlink" href="#12-clustering-the-neighboring-genes-with-identified-domains-hmms-matches" title="Permanent link">#</a></h3>
+<p>This involves the <code>essential</code> and <code>Cutoff</code> of a rule in <code>cluster_rules.txt</code>.
+A rule is usually formed as follows:
+<pre class="highlight"><code class="language-bash">Name            Rule                                 Cutoff (in kb) Extension (in kb)
+Product type    minimum(3,[required],[core_list])   5              1</code></pre></p>
+<p>The <code>core_list</code> is a list of HMMs names of domains determining product type, such as <code>Chal _ stic _ synt _ C/Chal _ stic _ synt _ N</code> for the rule <code>polyketide</code>. Here the two HMMs names are joined by <code>/</code>, representing the saved cluster contains at least one of them. If joined by <code>,</code> , the cluster containing both domains will be saved.</p>
+<p>In <code>required</code>, each HMMs name is joined by <code>,</code> , representing the saved cluster contains at least one of them. The <code>required</code> almost is the list of HMMs record in <code>hmmdetails.txt</code> because the clustering starts from the gene with a HMM (in the list) match. Then check the HMM matches of neighboring genes whether in the <code>required</code>. If a neighboring gene with the match belongs to the <code>required</code>, then add this gene and check the neighbors of it and so on until no new gene adding in the cluster. </p>
+<p>The span of left and right “neighborhood” of a gene on the conift or on the chromosome is calculated dynamically by function <code>get_dynamic_cutoff_multiplier</code>.</p>
+<p>Simply, <code>left span = right span = Cutoff*(the span of the nearest ten genes)/10</code></p>
+<p>In idea situation and <code>Cutoff = 5</code>, the neighboring genes are the nearest ten genes. But if one of the nearest is way far away then it will be in the ‘neighborhood’. You can increase the cutoff to consider more neighbor genes. When cutoff = 10, then the neighboring genes must include the nearest 10 genes.</p>
+<h3 id="13-filter-the-clusters">1.3. Filter the clusters<a class="headerlink" href="#13-filter-the-clusters" title="Permanent link">#</a></h3>
+<p>The domains composition of the cluster contains at least two different domains (<code>--min-domain-number  2</code>  is default) and meets <code>core_list</code>.</p>
+<p>The cluster contains at least three genes with <code>required</code> HMMs matches (set by the number behind <code>minimum(</code>) and they sharing the similarity below 50% (<code>--cdh-cutoff 0.5</code> is default). The similarity is calculated by CD-HIT. Maybe meet the error of memory, the default is <code>--cdh-memory  2000</code>.</p>
+<h3 id="14-output">1.4. output<a class="headerlink" href="#14-output" title="Permanent link">#</a></h3>
+<p>The cluster also contain genes in the <code>Extension</code> of the both ends biosynthetic genes. The cluster type is same to the name of rule found and saved it. </p>
               
             </div>
           </div>
@@ -144,7 +177,7 @@
     
 
     
-    <small><br><i>Last updated 2025-04-28</i></small>
+    <small><br><i>Last updated 2025-05-13</i></small>
     
 </p>
 
