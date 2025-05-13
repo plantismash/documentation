@@ -29,5 +29,22 @@ Subgroup predictions that align with known biosynthetic product types are marked
 
 ![Subgroup](../assets/images/subgroup.png)
 
+## Supported subgroups in v2.0
+
+This module enables the subgroup of protein sequences from various families based on the results of `hmmer` scans using domain pHMMs. The families it covers include the Cellulose synthase (CSLs) family (Chung et al., 2020; Jozwiak et al., 2020), UDP-glucuronosyltransferase (UGTs) family (Louveau & Osbourn, 2019), short-chain dehydrogenases/reductases (SDRs) family (Moummou et al., 2012), and oxidosqualene cyclase (OSCs) family (unpublished work).
+
+## References for the Subgroup Module
+
+Chung, S. Y., Seki, H., Fujisawa, Y., Shimoda, Y., Hiraga, S., Nomura, Y., Saito, K., Ishimoto, M., & Muranaka, T. (2020). A cellulose synthase-derived enzyme catalyses 3-O-glucuronosylation in saponin biosynthesis. Nature Communications 2020 11:1, 11(1), 1–11. https://doi.org/10.1038/s41467-020-19399-0
+
+
+Jozwiak, A., Sonawane, P. D., Panda, S., Garagounis, C., Papadopoulou, K. K., Abebie, B., Massalha, H., Almekias-Siegl, E., Scherf, T., & Aharoni, A. (2020). Plant terpenoid metabolism co-opts a component of the cell wall biosynthesis machinery. Nature Chemical Biology 2020 16:7, 16(7), 740–748. https://doi.org/10.1038/s41589-020-0541-x
+
+
+Louveau, T., & Osbourn, A. (2019). The Sweet Side of Plant-Specialized Metabolism. Cold Spring Harbor Perspectives in Biology, 11(12), a034744. https://doi.org/10.1101/CSHPERSPECT.A034744
+
+
+Moummou, H., Kallberg, Y., Tonfack, L. B., Persson, B., & van der Rest, B. (2012). The Plant Short-Chain Dehydrogenase (SDR) superfamily: Genome-wide inventory and diversification patterns. BMC Plant Biology, 12(1), 1–17. https://doi.org/10.1186/1471-2229-12-219/FIGURES/7
+
 ## Customization
 This module is modular and can be extended to support additional protein families or custom subgroup definitions. For detailed instructions on how to customize the subgroup analysis (e.g. adding new reference trees or HMMs), please refer to the [plantiSMASH Wiki](https://github.com/plantismash/plantismash/wiki). 

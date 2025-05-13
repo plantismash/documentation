@@ -12,6 +12,10 @@ with a minimum percentage identity between genes of 30%.
 
 It is normal to have multiple genes hitting for some types of genes. 
 
+### ClusterBLAST database 
+
+More infromation about how to update the clusterBLAST database are available in the [plantiSMASH Wiki](https://github.com/plantismash/plantismash/wiki). 
+
 ### Ranking system
 
 Reference areas are sorted first based on an empirical similarity score `S = h + H + s + S + B`, in which:
@@ -63,3 +67,5 @@ All of the matching genes have very high identity in their hits.
 The gene in `R` that is missing in `Q` should be in the middle of `Q` and is a core gene responsible for the scaffold of the compound.
 
 While it is still possible that `Q` produces the same compound as `R`, due to the functionality being present elsewhere, but it is much less likely.
+
+
