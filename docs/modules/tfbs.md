@@ -139,13 +139,8 @@ This module adds a **“Transcription factor binding sites (±W bp)”** panel t
 > **Example settings for the screenshots in this documentation**  
 > Species: *A. thaliana* — **p-value = 0.0001**, **scan window = ±500 bp** around each CDS TSS.
 
-### Figure placeholders (add your images)
 
-- **Overview panel / region context**  
-  _Add a figure here showing where TFBS panels appear within a cluster page._
-- **Details table**  
-  _Add a figure here showing the two TFBS tables described above._
-- **PlantTFDB link target**  
+Hits are linked to [**PlantTFDB**](https://planttfdb.gao-lab.org/)
 
 ![PlantTFBS link](../assets/images/planttfbs.png)
 
