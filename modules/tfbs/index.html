@@ -71,6 +71,32 @@
                   </li>
                   <li class="toctree-l1 current"><a class="reference internal current" href="#">TFBS Finder</a>
     <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#method-overview">Method overview</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#moods-based-scanning">MOODS-based scanning</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#confidence-labels-weak-medium-strong">Confidence labels (Weak / Medium / Strong)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#input-matrix-format-json">Input matrix format (JSON)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#parameters-cli-usage">Parameters &amp; CLI usage</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#output">Output</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#figure-placeholders-add-your-images">Figure placeholders (add your images)</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#customization">Customization</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#use-your-own-motif-library">Use your own motif library</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#tips">Tips</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#known-limitations">Known limitations</a>
+    </li>
     </ul>
                   </li>
               </ul>
@@ -132,14 +158,159 @@
             <div class="section" itemprop="articleBody">
               
                 <h1 id="transcription-factor-binding-site-tfbs-prediction">Transcription Factor Binding Site (TFBS) Prediction<a class="headerlink" href="#transcription-factor-binding-site-tfbs-prediction" title="Permanent link">#</a></h1>
-<p>Transcription factor binding sites are predicted using a curated subset of <a href="https://planttfdb.gao-lab.org/">PlantTFDB</a> profiles.</p>
-<p><img alt="TFBS flags" src="../../assets/images/tfbs_flags.png" /></p>
-<p>On the region overview, predicted TFBS hits are shown with small black pins.</p>
-<p><img alt="TFBS details" src="../../assets/images/tfbs_details.png" /></p>
-<p>In the "TFBS Finder" tab in the details panel, the different TFBS hit are shown
-with their binding site sequence and the surrounding genes for context.</p>
-<p><img alt="TFBS glossary" src="../../assets/images/tfbs_sidebar.png" /></p>
-<p>The "TFBS Finder" sidepanel contains an overview of all the TFBS hits found in the region.</p>
+<p>This module predicts <strong>Transcription Factor Binding Sites (TFBSs)</strong> around genes and displays the results inside plantiSMASH cluster pages. It uses curated motif matrices (from PlantTFDB) and the <strong>MOODS</strong> scanner for fast, strand-aware motif search on DNA.</p>
+<hr />
+<h2 id="method-overview">Method overview<a class="headerlink" href="#method-overview" title="Permanent link">#</a></h2>
+<ol>
+<li>
+<p><strong>Motif library</strong><br />
+   A JSON file provides a set of TFBS profiles (one per TF) as 4×N matrices (A,C,G,T by position) and metadata (name, species, PlantTFDB link, consensus, min/max score).</p>
+</li>
+<li>
+<p><strong>Where we scan</strong><br />
+   For each CDS in the contig, we take a window centered on the <strong>transcription start site (TSS)</strong>:</p>
+</li>
+<li><strong>+ strand CDS:</strong> <code>TSS = CDS.start</code></li>
+<li>
+<p><strong>− strand CDS:</strong> <code>TSS = CDS.end - 1</code><br />
+   A half-window <code>W</code> is applied on both sides, i.e. <code>[TSS − W, TSS + W]</code>.<br />
+   (In cluster pages, only CDS that overlap the cluster are reported.)</p>
+</li>
+<li>
+<p><strong>How we scan</strong><br />
+   Each window is scanned <strong>on both strands</strong> with MOODS using a motif-specific score threshold derived from a user-supplied <strong>p-value</strong>. Background nucleotide frequencies are estimated from the scanned window and assumed symmetric (A=T and C=G).</p>
+</li>
+<li>
+<p><strong>Hit filtering and reporting</strong><br />
+   MOODS returns all hits scoring above the per-motif threshold. Hits are then:</p>
+</li>
+<li>collected per CDS window,</li>
+<li>reported with position, strand, distance to TSS, score,</li>
+<li>aggregated per CDS (unique motif names and hit counts).</li>
+</ol>
+<hr />
+<h2 id="moods-based-scanning">MOODS-based scanning<a class="headerlink" href="#moods-based-scanning" title="Permanent link">#</a></h2>
+<p>We rely on <a href="https://github.com/jhkorhonen/MOODS">MOODS</a> for exact, high-performance scanning:</p>
+<ul>
+<li><strong>Matrix type:</strong> the module accepts PFMs or log-odds matrices. If any value is negative, the matrix is treated as <strong>log-odds</strong>; otherwise it is treated as a <strong>PFM</strong> and converted to log-odds with MOODS, using the window’s background distribution and a small pseudocount.</li>
+<li><strong>Thresholds from p-value:</strong> for each motif, MOODS computes a score threshold <code>thr</code> such that random hits exceed <code>thr</code> with probability <code>p</code> under the background model.</li>
+<li><strong>Strands:</strong> both forward and reverse-complement strands are scanned. Reverse hits are reported in <strong>forward coordinates</strong>.</li>
+</ul>
+<hr />
+<h2 id="confidence-labels-weak-medium-strong">Confidence labels (Weak / Medium / Strong)<a class="headerlink" href="#confidence-labels-weak-medium-strong" title="Permanent link">#</a></h2>
+<p>Each hit is labeled by comparing its score to <strong>per-motif</strong> min/max score statistics from the JSON:</p>
+<ul>
+<li><strong>Weak:</strong> <code>score ≤ min_score</code>  </li>
+<li><strong>Strong:</strong> <code>score ≥ (min_score + max_score)/2</code>  </li>
+<li><strong>Medium:</strong> otherwise</li>
+</ul>
+<blockquote>
+<p>These labels are <strong>not</strong> the p-value; they bucket scores relative to each motif’s observed score range. If you curate <code>min_score</code>/<code>max_score</code>, labels will track your expectations.</p>
+</blockquote>
+<hr />
+<h2 id="input-matrix-format-json">Input matrix format (JSON)<a class="headerlink" href="#input-matrix-format-json" title="Permanent link">#</a></h2>
+<p>The file contains a top-level dictionary keyed by motif/TF name:</p>
+<pre class="highlight"><code class="language-json">{
+  "AT1G28300": {
+    "name": "AT1G28300",
+    "description": "Unknown transcription factor",
+    "species": "Arabidopsis thaliana",
+    "link": "https://planttfdb.gao-lab.org/tf.php?sp=Ath&amp;did=AT1G28300.1",
+    "consensus": "ATGCATGC",
+    "max_score": 7.6068,
+    "min_score": 0.0214,
+    "pwm": [
+      [0.661184, 0.002475, ...],   // A row, length = motif length
+      [0.332237, 0.002475, ...],   // C row
+      [0.003289, 0.002475, ...],   // G row
+      [0.003289, 0.992574, ...]    // T row
+    ]
+  }
+}</code></pre>
+<blockquote>
+<p>Notes
+- <code>pwm</code> can be PFM (non-negative, typically columns sum to ~1) or log-odds (can contain negatives). The module auto-detects.
+- <code>min_score</code> and <code>max_score</code> are used only for confidence labels.
+- <code>link</code> is shown in the HTML output (motif names become links). Legacy http://planttfdb.cbi.pku.edu.cn/... links are automatically mapped to https://planttfdb.gao-lab.org/....</p>
+</blockquote>
+<h2 id="parameters-cli-usage">Parameters &amp; CLI usage<a class="headerlink" href="#parameters-cli-usage" title="Permanent link">#</a></h2>
+<p>Enable TFBS scanning and control sensitivity from the plantiSMASH CLI:</p>
+<pre class="highlight"><code class="language-bash">python run_antismash.py \
+  --tfbs-detection \
+  --tfbs-pvalue 1e-4 \
+  --tfbs-range 500 \
+  --taxon plants \
+  --outputfolder results/my_run \
+  my_sequences.gbff
+</code></pre>
+<p>Arguments</p>
+<p><code>--tfbs-detection</code>
+Turn on the TFBS module.</p>
+<p><code>--tfbs-pvalue FLOAT</code>
+Per-motif p-value used by MOODS to derive scan thresholds (e.g., 1e-4).</p>
+<p><code>--tfbs-range INT</code>
+Half-window size (bp) around each CDS TSS to scan (e.g., 500 scans [TSS−500, TSS+500]).</p>
+<blockquote>
+<p>Example in this documentation
+The <em>A. thaliana</em> results shown here were generated with p = 0.0001 and ±500 bp.</p>
+</blockquote>
+<h2 id="output">Output<a class="headerlink" href="#output" title="Permanent link">#</a></h2>
+<p>This module adds a <strong>“Transcription factor binding sites (±W bp)”</strong> panel to each cluster page with two data tables:</p>
+<ol>
+<li><strong>Motifs per CDS (aggregated)</strong><br />
+   Summarizes which motifs occur within the window around each CDS TSS.</li>
+<li><strong>CDS:</strong> gene label (from <code>locus_tag</code>, <code>gene</code>, or <code>protein_id</code>)  </li>
+<li><strong>CDS strand:</strong> orientation of the gene (+/−)  </li>
+<li><strong>TSS:</strong> coordinate used as transcription start site (TSS)  </li>
+<li><strong>Window:</strong> displayed portion of the scanned interval (clipped to cluster bounds)  </li>
+<li><strong>Motifs:</strong> unique TF motif names found in the window  </li>
+<li><strong>#Hits:</strong> total number of motif matches across those motifs</li>
+</ol>
+<p><img alt="Motifs per CDS" src="../../assets/images/tfbsmotifslist.png" /></p>
+<ol>
+<li><strong>TFBS hits per CDS (within ±window)</strong><br />
+   Full list of individual hits that pass the MOODS threshold.</li>
+<li><strong>CDS / CDS strand / TSS / Window:</strong> as above  </li>
+<li><strong>Motif:</strong> <strong>clickable</strong> motif name that links to the corresponding PlantTFDB TF page  </li>
+<li><strong>Hit start:</strong> genomic start (forward axis) of the match  </li>
+<li><strong>Hit strand:</strong> strand of the match (+/−)  </li>
+<li><strong>Distance to TSS:</strong> signed distance (negative = upstream, positive = downstream)  </li>
+<li><strong>Score:</strong> MOODS match score along with the motif’s <code>max_score</code> (for context)  </li>
+<li><strong>Confidence:</strong> Weak / Medium / Strong (label derived from per-motif min/threshold/max; see “Confidence labels”)</li>
+</ol>
+<p><img alt="TFBS list" src="../../assets/images/tfbshitlist.png" /></p>
+<blockquote>
+<p><strong>Example settings for the screenshots in this documentation</strong><br />
+Species: <em>A. thaliana</em> — <strong>p-value = 0.0001</strong>, <strong>scan window = ±500 bp</strong> around each CDS TSS.</p>
+</blockquote>
+<h3 id="figure-placeholders-add-your-images">Figure placeholders (add your images)<a class="headerlink" href="#figure-placeholders-add-your-images" title="Permanent link">#</a></h3>
+<ul>
+<li><strong>Overview panel / region context</strong><br />
+<em>Add a figure here showing where TFBS panels appear within a cluster page.</em></li>
+<li><strong>Details table</strong><br />
+<em>Add a figure here showing the two TFBS tables described above.</em></li>
+<li><strong>PlantTFDB link target</strong>  </li>
+</ul>
+<p><img alt="PlantTFBS link" src="../../assets/images/planttfbs.png" /></p>
+<hr />
+<h2 id="customization">Customization<a class="headerlink" href="#customization" title="Permanent link">#</a></h2>
+<h3 id="use-your-own-motif-library">Use your own motif library<a class="headerlink" href="#use-your-own-motif-library" title="Permanent link">#</a></h3>
+<p>You can run the TFBS Finder with any set of motifs as long as they follow the expected JSON format (4×N A/C/G/T rows per motif plus metadata).</p>
+<ol>
+<li><strong>Create a JSON file</strong> in the same format as the bundled library (see “Input matrix format” above).  </li>
+<li><strong>Place the file</strong> in <code>antismash/generic_modules/tfbs_finder/data/</code>.  </li>
+<li><strong>Point the module to it</strong> by updating the path in:</li>
+</ol>
+<pre class="highlight"><code class="language-python"># antismash/generic_modules/tfbs_finder/tfbs_detection.py
+PWM_PATH = utils.get_full_path(__file__, os.path.join("data", "MY_MOTIFS.json"))
+</code></pre>
+<h2 id="tips">Tips<a class="headerlink" href="#tips" title="Permanent link">#</a></h2>
+<p>If your matrices are PFMs (non-negative, columns ≈ sum to 1), the module will convert them to log-odds using MOODS and the local background of each scanned window.</p>
+<p>If your matrices are already log-odds (may include negatives), they’ll be used as-is.</p>
+<p>The confidence labels (Weak/Medium/Strong) depend on the min_score and max_score values you provide per motif; adjust them to suit your library.</p>
+<h2 id="known-limitations">Known limitations<a class="headerlink" href="#known-limitations" title="Permanent link">#</a></h2>
+<p>Confidence labels are heuristic and rely on the min_score/max_score ranges supplied in the JSON. If your PFMs are transformed to log-odds, you may wish to re-estimate these bounds for clearer labeling.</p>
+<p>The motif library path is configured in code (PWM_PATH). If you need to switch libraries at runtime, consider adding a small CLI option to pass a custom JSON path.</p>
               
             </div>
           </div>
@@ -150,7 +321,7 @@ with their binding site sequence and the surrounding genes for context.</p>
     
 
     
-    <small><br><i>Last updated 2025-04-23</i></small>
+    <small><br><i>Last updated 2025-08-13</i></small>
     
 </p>
 
