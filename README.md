@@ -1,12 +1,14 @@
 # PlantiSMASH Documentation 
 
-The documentation of the plant genome-mining tool [plantiSMASH](https://plantismash.secondarymetabolites.org/) 
+The documentation of the plant genome-mining tool [plantiSMASH](https://plantismash.bioinformatics.nl/) 
 
 To publish the documentation follow the [GitHub workflow](./.github/workflows/publish.yml)
 
 Check the deployment status of the last push at [Deploy MKdocs](https://github.com/plantismash/documentation/actions/workflows/publish.yml)
 
-This documentation is based on the template of  the [antiSMASH documentation](https://docs.antismash.secondarymetabolites.org/)
+Visit the website with the documentation at [plantiSMASH documentation](https://plantismash.github.io/documentation/) 
+
+This documentation is originally sources from the [antiSMASH documentation](https://docs.antismash.secondarymetabolites.org/)
 
 ### Run Mkdocs locally 
 
