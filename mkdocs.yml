@@ -40,5 +40,15 @@ plugins:
 extra_css: 
   - css/extra.css 
 extra: 
-    copyright: '© 2025 <a href="https://github.com/elenadelpup" target="_blank">Elena Del Pup</a>'
+extra:
+  copyright: >
+    © 2025 <a href="https://github.com/elenadelpup" target="_blank">Elena Del Pup</a> et al. 
+    under the <a href="https://opensource.org/licenses/MIT" target="_blank">MIT License</a>
+    |
+    <a href="https://github.com/plantismash/plantismash" target="_blank">
+      <img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/github.svg"
+           alt="GitHub"
+           style="height:1em;vertical-align:middle;margin-right:4px;">
+      plantiSMASH GitHub</a> 
+      under the <a href="https://github.com/plantismash/plantismash/blob/master/LICENSE.txt" target="_blank">GNU AGPL v3.0 License</a>
 
