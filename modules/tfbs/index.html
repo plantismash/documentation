@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
-    <title>TFBS Finder - PlantiSMASH Documentation</title>
+    <title>TFBS Finder - plantiSMASH Documentation</title>
     <link rel="stylesheet" href="../../css/theme.css" />
     <link rel="stylesheet" href="../../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
@@ -31,7 +31,7 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
     <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
-          <a href="../.." class="icon icon-home"> PlantiSMASH Documentation
+          <a href="../.." class="icon icon-home"> plantiSMASH Documentation
         </a><div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
       <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
@@ -44,7 +44,7 @@
                 <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
                 </li>
               </ul>
-              <p class="caption"><span class="caption-text">Using PlantiSMASH</span></p>
+              <p class="caption"><span class="caption-text">Using plantiSMASH</span></p>
               <ul>
                   <li class="toctree-l1"><a class="reference internal" href="../../intro/">Introduction</a>
                   </li>
@@ -52,9 +52,9 @@
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../../understanding_output/overview/">Results page</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../understanding_output/regions/">Region concept</a>
+                  <li class="toctree-l1"><a class="" href="../../understanding_output/regions.md">Region concept</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../understanding_output/database/">PlantiSMASH database</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../understanding_output/database/">plantiSMASH database</a>
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Generic modules</span></p>
@@ -136,7 +136,7 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
       <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../..">PlantiSMASH Documentation</a>
+          <a href="../..">plantiSMASH Documentation</a>
         
       </nav>
       <div class="wy-nav-content">
@@ -153,7 +153,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="transcription-factor-binding-site-tfbs-prediction">Transcription Factor Binding Site (TFBS) Prediction<a class="headerlink" href="#transcription-factor-binding-site-tfbs-prediction" title="Permanent link">#</a></h1>
+                <h1 id="transcription-factor-binding-site-tfbs-prediction-tfbs-finder-module">Transcription Factor Binding Site (TFBS) Prediction - TFBS Finder module<a class="headerlink" href="#transcription-factor-binding-site-tfbs-prediction-tfbs-finder-module" title="Permanent link">#</a></h1>
 <p>This module predicts <strong>Transcription Factor Binding Sites (TFBSs)</strong> around genes and displays the results inside plantiSMASH cluster pages. It uses curated motif matrices (from PlantTFDB) and the <strong>MOODS</strong> scanner for fast, strand-aware motif search on DNA.</p>
 <hr />
 <h2 id="method-overview">Method overview<a class="headerlink" href="#method-overview" title="Permanent link">#</a></h2>
@@ -164,14 +164,16 @@
 </li>
 <li>
 <p><strong>Where we scan</strong><br />
-   For each CDS in the contig, we take a window centered on the <strong>transcription start site (TSS)</strong>:</p>
+For each CDS in the contig, a promoter window is defined relative to its <strong>transcription start site (TSS)</strong> (approximated by the CDS start):</p>
 </li>
-<li><strong>+ strand CDS:</strong> <code>TSS = CDS.start</code></li>
 <li>
-<p><strong>− strand CDS:</strong> <code>TSS = CDS.end - 1</code><br />
-   A half-window <code>W</code> is applied on both sides, i.e. <code>[TSS − W, TSS + W]</code>.<br />
-   (In cluster pages, only CDS that overlap the cluster are reported.)</p>
+<p><strong>+ strand CDS:</strong> <code>TSS = CDS.start</code> → scanned region: <code>[TSS − W, TSS + 50]</code>  </p>
 </li>
+<li><strong>− strand CDS:</strong> <code>TSS = CDS.end − 1</code> → scanned region: <code>[TSS − 50, TSS + W]</code></li>
+</ol>
+<p>This captures the upstream promoter region and includes up to 50 bp downstream of the TSS to account for potential regulatory motifs within the 5′ untranslated region (5′ UTR).<br />
+Within cluster pages, only CDS whose coordinates overlap the cluster are reported.</p>
+<ol>
 <li>
 <p><strong>How we scan</strong><br />
    Each window is scanned <strong>on both strands</strong> with MOODS using a motif-specific score threshold derived from a user-supplied <strong>p-value</strong>. Background nucleotide frequencies are estimated from the scanned window and assumed symmetric (A=T and C=G).</p>
@@ -310,7 +312,7 @@ PWM_PATH = utils.get_full_path(__file__, os.path.join("data", "MY_MOTIFS.json"))
     
 
     
-    <small><br><i>Last updated 2025-08-13</i></small>
+    <small><br><i>Last updated 2025-10-20</i></small>
     
 </p>
 

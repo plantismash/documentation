@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
-    <title>BGC detection - PlantiSMASH Documentation</title>
+    <title>BGC detection - plantiSMASH Documentation</title>
     <link rel="stylesheet" href="../../css/theme.css" />
     <link rel="stylesheet" href="../../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
@@ -31,7 +31,7 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
     <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
-          <a href="../.." class="icon icon-home"> PlantiSMASH Documentation
+          <a href="../.." class="icon icon-home"> plantiSMASH Documentation
         </a><div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
       <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
@@ -44,7 +44,7 @@
                 <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
                 </li>
               </ul>
-              <p class="caption"><span class="caption-text">Using PlantiSMASH</span></p>
+              <p class="caption"><span class="caption-text">Using plantiSMASH</span></p>
               <ul>
                   <li class="toctree-l1"><a class="reference internal" href="../../intro/">Introduction</a>
                   </li>
@@ -52,9 +52,9 @@
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../../understanding_output/overview/">Results page</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../understanding_output/regions/">Region concept</a>
+                  <li class="toctree-l1"><a class="" href="../../understanding_output/regions.md">Region concept</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../understanding_output/database/">PlantiSMASH database</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../understanding_output/database/">plantiSMASH database</a>
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Generic modules</span></p>
@@ -126,7 +126,7 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
       <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../..">PlantiSMASH Documentation</a>
+          <a href="../..">plantiSMASH Documentation</a>
         
       </nav>
       <div class="wy-nav-content">
@@ -149,7 +149,7 @@
 <p>For how to customise the rules see the <a href="https://github.com/plantismash/plantismash/wiki">plantiSMASH Developer Wiki</a>.</p>
 <h2 id="1-how-do-rules-find-bgcs">1. How do rules find BGCs?<a class="headerlink" href="#1-how-do-rules-find-bgcs" title="Permanent link">#</a></h2>
 <h3 id="11-identify-domains-of-proteins">1.1 Identify domains of proteins<a class="headerlink" href="#11-identify-domains-of-proteins" title="Permanent link">#</a></h3>
-<p>PlantiSMASH detects protein domains (HMMs) by running hmmerscan. The HMMs files, <code>cluster_rules.txt</code>, <code>hmmdetails.txt</code>, and <code>filterhmmdetails.txt</code> for plants are in <code>plant</code>. The <code>hmmdetails.txt</code> controls which HMMs will be used (4th column) and the bitscore cutoff (3rd column) to filter hmmerscan results. Usually the bitscore cutoff is <code>-1</code> equal to no filter. </p>
+<p>plantiSMASH detects protein domains (HMMs) by running hmmerscan. The HMMs files, <code>cluster_rules.txt</code>, <code>hmmdetails.txt</code>, and <code>filterhmmdetails.txt</code> for plants are in <code>plant</code>. The <code>hmmdetails.txt</code> controls which HMMs will be used (4th column) and the bitscore cutoff (3rd column) to filter hmmerscan results. Usually the bitscore cutoff is <code>-1</code> equal to no filter. </p>
 <p>The results are recorded in the output .gbk files. To only show the HMMs with highest bitscore from matches on same proteins sequence range, add them in <code>filterhmmdetails.txt</code>. For example, the same domain range match HMM UDPGT and UDPGT_2 , but the output will only show the one with highest bitscore.</p>
 <p>Note: Another module by using the command <code>--full-hmmer</code> will use Pfam-A.hmm to identify any kind of domains. But the results only recorded in the output .gbk files and did not used in other module.</p>
 <h3 id="12-clustering-the-neighboring-genes-with-identified-domains-hmms-matches">1.2. Clustering the neighboring genes with identified domains HMMs matches<a class="headerlink" href="#12-clustering-the-neighboring-genes-with-identified-domains-hmms-matches" title="Permanent link">#</a></h3>
@@ -177,7 +177,7 @@ Product type    minimum(3,[required],[core_list])   5              1</code></pre
     
 
     
-    <small><br><i>Last updated 2025-05-13</i></small>
+    <small><br><i>Last updated 2025-10-20</i></small>
     
 </p>
 
