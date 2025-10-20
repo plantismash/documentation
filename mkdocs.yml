@@ -5,7 +5,6 @@ nav:
         - Introduction: intro.md
         - Submitting jobs on the webserver: website_submission.md
         - Results page: understanding_output/overview.md
-        - Region concept: understanding_output/regions.md
         - plantiSMASH database: understanding_output/database.md
     - Generic modules:
         - BGC detection: modules/clusterrules.md
