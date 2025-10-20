@@ -54,6 +54,14 @@
                   </li>
                   <li class="toctree-l1 current"><a class="reference internal current" href="#">plantiSMASH database</a>
     <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#directory-structure">📁 Directory Structure</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#details-on-plantismash-database-versioning-and-status">Details on plantiSMASH database versioning and status</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#usage">⚙️ Usage</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#license-and-citation">📄 License and Citation</a>
+    </li>
     </ul>
                   </li>
               </ul>
@@ -132,6 +140,74 @@
                 <h1 id="plantismash-database">plantiSMASH database<a class="headerlink" href="#plantismash-database" title="Permanent link">#</a></h1>
 <p>The plantiSMASH database contains a set of precalculated results for selected species. These are updated every plantiSMASH version. See the <a href="../../changelog/">Changelog</a> section. </p>
 <p>See the overview of results for plantiSMASH 2.0 database <a href="../../assets/images/BGCcount_tree_v2.pdf">View the PDF</a>. The full overview of the results is availbe on the webserver at <a href="https://plantismash.bioinformatics.nl/precalc/v2/">plantiSMASH 2.0 database</a>. </p>
+<p>This directory contains <strong>precalculated plantiSMASH database</strong> accessible at:<br />
+🔗 <a href="https://plantismash.bioinformatics.nl/precalc/v2">https://plantismash.bioinformatics.nl/precalc/v2</a></p>
+<hr />
+<h2 id="directory-structure">📁 Directory Structure<a class="headerlink" href="#directory-structure" title="Permanent link">#</a></h2>
+<pre class="highlight"><code class="language-bash">precalc/
+├── v1/
+├── v2-beta1/
+├── v2-beta4/
+└── v2/</code></pre>
+<hr />
+<h2 id="details-on-plantismash-database-versioning-and-status">Details on plantiSMASH database versioning and status<a class="headerlink" href="#details-on-plantismash-database-versioning-and-status" title="Permanent link">#</a></h2>
+<table>
+<thead>
+<tr>
+<th>Precalc Folder</th>
+<th>plantiSMASH version used to generate the output</th>
+<th>clusterBLAST Database used</th>
+<th>Public Release Date</th>
+<th>Nr. of genomes</th>
+<th>Notes</th>
+<th>Status (Public or Archived)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>v1/</code></td>
+<td>1.0</td>
+<td>clusterBLAST database hosted on GitHub plantiSMASH 1.0 release <a href="https://github.com/plantismash/plantismash/releases/tag/1.0">https://github.com/plantismash/plantismash/releases/tag/1.0</a></td>
+<td>DATE</td>
+<td>49</td>
+<td>Coexpress module results available in Arabidopsis thaliana <a href="https://plantismash.bioinformatics.nl/precalc/v1/Arabidopsis_thaliana/">https://plantismash.bioinformatics.nl/precalc/v1/Arabidopsis_thaliana/</a></td>
+<td>Public in the plantiSMASH database <a href="https://plantismash.bioinformatics.nl/precalc/v1">https://plantismash.bioinformatics.nl/precalc/v1</a></td>
+</tr>
+<tr>
+<td><code>v2-beta1/</code></td>
+<td>2.0 beta 1</td>
+<td>clusterBLAST available at <a href="https://zenodo.org/records/16927685">10.5281/zenodo.16927685</a></td>
+<td>DATE</td>
+<td>49</td>
+<td>NOTES</td>
+<td>Public in the plantiSMASH database <a href="https://plantismash.bioinformatics.nl/precalc/v2-beta1">https://plantismash.bioinformatics.nl/precalc/v2-beta1</a></td>
+</tr>
+<tr>
+<td><code>v2-beta4/</code></td>
+<td>2.0 beta 4</td>
+<td>clusterBLAST available at <a href="https://zenodo.org/records/17178066">10.5281/zenodo.17178066</a></td>
+<td>DATE</td>
+<td>387</td>
+<td>NOTES</td>
+<td>Public in the plantiSMASH database <a href="https://plantismash.bioinformatics.nl/precalc/v2-beta4">https://plantismash.bioinformatics.nl/precalc/v2-beta4</a></td>
+</tr>
+<tr>
+<td><code>v2/</code></td>
+<td>2.0</td>
+<td>clusterBLAST available at <a href="https://zenodo.org/records/17396002">10.5281/zenodo.17396002</a></td>
+<td>Public stable release</td>
+<td>430</td>
+<td>TFBS module results available in Arabidopsis thaliana for 1*10-4 p-value  and 500 bp window scanning size.</td>
+<td>Public in the plantiSMASH database <a href="https://plantismash.bioinformatics.nl/precalc/v2">https://plantismash.bioinformatics.nl/precalc/v2</a></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="usage">⚙️ Usage<a class="headerlink" href="#usage" title="Permanent link">#</a></h2>
+<p>When running <em>plantiSMASH</em> locally, you can specify the ClusterBlast database path with the corresponding version you wish to reproduce:</p>
+<pre class="highlight"><code class="language-bash">run_antismash.py input.gbk --clusterblast --clusterblast-database /path/to/precalc/clusterblastdb/</code></pre>
+<h2 id="license-and-citation">📄 License and Citation<a class="headerlink" href="#license-and-citation" title="Permanent link">#</a></h2>
+<p>See <a href="https://plantismash.github.io/documentation/about/#how-to-cite">How to cite plantiSMASH</a>. </p>
               
             </div>
           </div>
