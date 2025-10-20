@@ -86,9 +86,15 @@ The number of columns in each row should be identical. In case of no expression 
 
 plantiSMASH predicts substrate specificities of enzyme subfamilies for cellulose synthases, UDP-glucuronosyltransferases, short-chain dehydrogenases, and oxidosqualene cyclases, using [pplacer](https://github.com/matsen/pplacer) and hmmer. The phylogenetic placement tool pplacer is used to place the target protein sequence on a precomputed reference tree. If the other members under the target parent node belong to the same subgroup, the target is considered to belong to the subgroup. In addition, [GraPhlAn](https://huttenhower.sph.harvard.edu/graphlan/)(Graphical Phylogenetic Analysis) is used to generate a tree image of the placement result. The HMM of each subgroup used by hmmer scan is made based on the full-length protein sequences of members in the subgroup. HMMs find matches based on the conserved positions of subgroup members, so they are also an efficient and simple method to identify subgroups of targets, especially those sequences with big differences. When the subgroup represented by the HMM with the highest match bitscore is consistent with the results from pplacer, it will be reported on the overview page that the target may have the same substrate type as those members of the subgroup. 
 
+This module is available from the command line. See [Command Line Use](./command_line.md). 
+
 #### **TFBS Detection**   
 
 These results are displayed within the Pfam domains section of the plantiSMASH HTML results, by emphasising the borders of the relevant domains.
+
+This module is available from the command line. See [Command Line Use](./command_line.md). 
+
+#### **Results**   
 
 See [Understanding the output](./understanding_output/overview.md/#downloading-the-results) for instructions on how to download the results.
 
