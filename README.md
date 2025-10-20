@@ -1,4 +1,4 @@
-# PlantiSMASH Documentation 
+# plantiSMASH Documentation 
 
 The documentation of the plant genome-mining tool [plantiSMASH](https://plantismash.secondarymetabolites.org/) 
 

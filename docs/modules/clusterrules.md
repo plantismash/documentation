@@ -8,7 +8,7 @@ For how to customise the rules see the [plantiSMASH Developer Wiki](https://gith
 
 ## 1. How do rules find BGCs?
 ### 1.1 Identify domains of proteins
-PlantiSMASH detects protein domains (HMMs) by running hmmerscan. The HMMs files, `cluster_rules.txt`, `hmmdetails.txt`, and `filterhmmdetails.txt` for plants are in `plant`. The `hmmdetails.txt` controls which HMMs will be used (4th column) and the bitscore cutoff (3rd column) to filter hmmerscan results. Usually the bitscore cutoff is `-1` equal to no filter. 
+plantiSMASH detects protein domains (HMMs) by running hmmerscan. The HMMs files, `cluster_rules.txt`, `hmmdetails.txt`, and `filterhmmdetails.txt` for plants are in `plant`. The `hmmdetails.txt` controls which HMMs will be used (4th column) and the bitscore cutoff (3rd column) to filter hmmerscan results. Usually the bitscore cutoff is `-1` equal to no filter. 
 
 The results are recorded in the output .gbk files. To only show the HMMs with highest bitscore from matches on same proteins sequence range, add them in `filterhmmdetails.txt`. For example, the same domain range match HMM UDPGT and UDPGT_2 , but the output will only show the one with highest bitscore.
 

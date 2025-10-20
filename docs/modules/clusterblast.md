@@ -14,7 +14,7 @@ It is normal to have multiple genes hitting for some types of genes.
 
 ### ClusterBLAST database 
 
-More infromation about how to update the clusterBLAST database are available in the [plantiSMASH Wiki](https://github.com/plantismash/plantismash/wiki). 
+More information about how to update the clusterBLAST database are available in the [plantiSMASH Wiki](https://github.com/plantismash/plantismash/wiki). 
 
 ### Ranking system
 

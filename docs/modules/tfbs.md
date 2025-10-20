@@ -1,4 +1,4 @@
-# Transcription Factor Binding Site (TFBS) Prediction
+# Transcription Factor Binding Site (TFBS) Prediction - TFBS Finder module 
 
 
 This module predicts **Transcription Factor Binding Sites (TFBSs)** around genes and displays the results inside plantiSMASH cluster pages. It uses curated motif matrices (from PlantTFDB) and the **MOODS** scanner for fast, strand-aware motif search on DNA.
@@ -11,16 +11,18 @@ This module predicts **Transcription Factor Binding Sites (TFBSs)** around genes
    A JSON file provides a set of TFBS profiles (one per TF) as 4×N matrices (A,C,G,T by position) and metadata (name, species, PlantTFDB link, consensus, min/max score).
 
 2. **Where we scan**  
-   For each CDS in the contig, we take a window centered on the **transcription start site (TSS)**:
-   - **+ strand CDS:** `TSS = CDS.start`
-   - **− strand CDS:** `TSS = CDS.end - 1`  
-   A half-window `W` is applied on both sides, i.e. `[TSS − W, TSS + W]`.  
-   (In cluster pages, only CDS that overlap the cluster are reported.)
+For each CDS in the contig, a promoter window is defined relative to its **transcription start site (TSS)** (approximated by the CDS start):
 
-3. **How we scan**  
+- **+ strand CDS:** `TSS = CDS.start` → scanned region: `[TSS − W, TSS + 50]`  
+- **− strand CDS:** `TSS = CDS.end − 1` → scanned region: `[TSS − 50, TSS + W]`
+
+This captures the upstream promoter region and includes up to 50 bp downstream of the TSS to account for potential regulatory motifs within the 5′ untranslated region (5′ UTR).  
+Within cluster pages, only CDS whose coordinates overlap the cluster are reported.
+
+1. **How we scan**  
    Each window is scanned **on both strands** with MOODS using a motif-specific score threshold derived from a user-supplied **p-value**. Background nucleotide frequencies are estimated from the scanned window and assumed symmetric (A=T and C=G).
 
-4. **Hit filtering and reporting**  
+2. **Hit filtering and reporting**  
    MOODS returns all hits scoring above the per-motif threshold. Hits are then:
    - collected per CDS window,
    - reported with position, strand, distance to TSS, score,

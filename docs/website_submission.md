@@ -7,7 +7,7 @@ version of plantiSMASH available of which a screenshot is provided below:
 
 ![alt text][Fig1]
 
-## PlantiSMASH database of precalculated results
+## plantiSMASH database of precalculated results
 
 Before submitting your plantiSMASH job, check if the results for your genome are already available in the precalculated results on the [plantiSMASH database](./understanding_output/database.md
 ). 

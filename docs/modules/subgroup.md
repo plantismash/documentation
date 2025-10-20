@@ -1,4 +1,4 @@
-# Subgroup identification module
+# Subgroup detection module
 
 plantiSMASH includes a subgroup identification module that helps predict substrate specificities for enzyme subfamilies in plant biosynthetic gene clusters. Currently, this module supports several key protein families: cellulose synthases, UDP-glucuronosyltransferases (UDPGTs), short-chain dehydrogenases (SDRs), and oxidosqualene cyclases (OSCs).
 
