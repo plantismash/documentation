@@ -5,3 +5,11 @@
     color: red;
     font-weight: bold;
 }
+
+.md-typeset table {
+  display: table;
+  width: 100%;
+  table-layout: auto;
+  word-wrap: break-word;
+  white-space: normal;
+}
