@@ -90,6 +90,10 @@
     <li class="toctree-l2"><a class="reference internal" href="#tips">Tips</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#known-limitations">Known limitations</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#browse-the-a-thaliana-tfbs-results">🌿 Browse the A. thaliana TFBS results</a>
+    </li>
+        </ul>
     </li>
     </ul>
                   </li>
@@ -300,6 +304,21 @@ PWM_PATH = utils.get_full_path(__file__, os.path.join("data", "MY_MOTIFS.json"))
 <h2 id="known-limitations">Known limitations<a class="headerlink" href="#known-limitations" title="Permanent link">#</a></h2>
 <p>Confidence labels are heuristic and rely on the min_score/max_score ranges supplied in the JSON. If your PFMs are transformed to log-odds, you may wish to re-estimate these bounds for clearer labeling.</p>
 <p>The motif library path is configured in code (PWM_PATH). If you need to switch libraries at runtime, consider adding a small CLI option to pass a custom JSON path.</p>
+<hr />
+<h3 id="browse-the-a-thaliana-tfbs-results">🌿 Browse the A. <em>thaliana</em> TFBS results<a class="headerlink" href="#browse-the-a-thaliana-tfbs-results" title="Permanent link">#</a></h3>
+<p>You can explore the complete TFBS detection output used in these examples directly from the
+plantiSMASH database:</p>
+<p>🔗 <a href="https://plantismash.bioinformatics.nl/precalc/v2/tfbs-finder/">Browse TFBS-finder results for <em>A. thaliana</em></a></p>
+<p>This directory contains two restrictive motif sets:</p>
+<ul>
+<li><a href="https://plantismash.bioinformatics.nl/precalc/v2/tfbs-finder/Arabidopsis_thaliana_GCF_000001735.4_354PWMs/"><code>Arabidopsis_thaliana_GCF_000001735.4_354PWMs/</code></a></li>
+<li><a href="https://plantismash.bioinformatics.nl/precalc/v2/tfbs-finder/Arabidopsis_thaliana_GCF_000001735.4_576PMWs/"><code>Arabidopsis_thaliana_GCF_000001735.4_576PMWs/</code></a></li>
+</ul>
+<p>These correspond to curated TFBS motif subsets described in<br />
+<a href="https://doi.org/10.5281/zenodo.17144325">Zenodo record 10.5281/zenodo.17144325</a>,<br />
+representing different levels of motif stringency.</p>
+<p>For more details on how these results were generated, see the<br />
+<a href="https://plantismash.github.io/documentation/understanding_output/database/">database documentation</a>.</p>
               
             </div>
           </div>
@@ -316,7 +335,7 @@ PWM_PATH = utils.get_full_path(__file__, os.path.join("data", "MY_MOTIFS.json"))
     
 
     
-    <small><br><i>Last updated 2025-10-20</i></small>
+    <small><br><i>Last updated 2025-10-21</i></small>
     
 </p>
 
