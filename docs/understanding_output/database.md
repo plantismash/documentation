@@ -2,7 +2,9 @@
 
 The plantiSMASH database contains a set of precalculated results for selected species. These are updated every plantiSMASH version. See the [Changelog](../changelog/index.md) section. 
 
-See an overview of results for plantiSMASH 2.0 database: [View BGC summary 2.0 database](../assets/images/v2.1_Oct2025_bgccount_spe_rectangle.pdf) | [View in circular format](../assets/images/v2.1_Oct2025_bgccount_spe_circ.pdf). 
+See an overview of results for plantiSMASH 2.0 database:
+- [BGC summary per genome (rectangle)](../assets/images/v2.1_Oct2025_bgccount_spe_rectangle.pdf)
+- [BGC summary per genome (circular)](../assets/images/v2.1_Oct2025_bgccount_spe_circ.pdf)
 
 The full overview of the results is available on the webserver at [plantiSMASH 2.0 database](https://plantismash.bioinformatics.nl/precalc/v2/). 
 
@@ -46,3 +48,20 @@ run_antismash.py input.gbk --clusterblast --clusterblast-database /path/to/preca
 ## 📄 License and Citation
 
 See [How to cite plantiSMASH](https://plantismash.github.io/documentation/about/#how-to-cite). 
+
+<h3>BGC summary (rectangular)</h3>
+## Browsable versions of the results per genome 
+<iframe
+  src="/pdfjs/web/viewer.html?file=../assets/images/v2.1_Oct2025_bgccount_spe_rectangle.pdf#zoom=page-width"
+  width="100%"
+  height="800"
+  style="border:0"
+></iframe>
+
+<h3>BGC summary (circular)</h3>
+<embed
+  src="../assets/images/v2.1_Oct2025_bgccount_spe_circ.pdf#toolbar=1"
+  type="application/pdf"
+  width="100%"
+  height="800px"
+/>
