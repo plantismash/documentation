@@ -3,6 +3,7 @@
 The plantiSMASH database contains a set of precalculated results for selected species. These are updated every plantiSMASH version. See the [Changelog](../changelog/index.md) section. 
 
 See an overview of results for plantiSMASH 2.0 database:
+
 - [BGC summary per genome (rectangle)](../assets/images/v2.1_Oct2025_bgccount_spe_rectangle.pdf)
 - [BGC summary per genome (circular)](../assets/images/v2.1_Oct2025_bgccount_spe_circ.pdf)
 
@@ -32,7 +33,7 @@ precalc/
 | `v1/` | 1.0 | clusterBLAST database hosted on GitHub plantiSMASH 1.0 release [https://github.com/plantismash/plantismash/releases/tag/1.0](https://github.com/plantismash/plantismash/releases/tag/1.0) | DATE | 49 | Coexpress module results available in Arabidopsis thaliana [https://plantismash.bioinformatics.nl/precalc/v1/Arabidopsis_thaliana/](https://plantismash.bioinformatics.nl/precalc/v1/Arabidopsis_thaliana/) | Public in the plantiSMASH database [https://plantismash.bioinformatics.nl/precalc/v1](https://plantismash.bioinformatics.nl/precalc/v1) | 
 | `v2-beta1/` | 2.0 beta 1 | clusterBLAST available at [10.5281/zenodo.16927685](https://zenodo.org/records/16927685) | DATE | 387 | NOTES | Public in the plantiSMASH database [https://plantismash.bioinformatics.nl/precalc/v2-beta1](https://plantismash.bioinformatics.nl/precalc/v2-beta1) |
 | `v2-beta4/` | 2.0 beta 4 | clusterBLAST available at [10.5281/zenodo.17178066](https://zenodo.org/records/17178066) | DATE | 387 | NOTES | Public in the plantiSMASH database [https://plantismash.bioinformatics.nl/precalc/v2-beta4](https://plantismash.bioinformatics.nl/precalc/v2-beta4) |
-| `v2/` | 2.0 | clusterBLAST available at [10.5281/zenodo.17396002](https://zenodo.org/records/17396002) | Public stable release | 430 | TFBS module results available in Arabidopsis thaliana for 1*10-4 p-value  and 500 bp window scanning size. | Public in the plantiSMASH database [https://plantismash.bioinformatics.nl/precalc/v2](https://plantismash.bioinformatics.nl/precalc/v2)  | 
+| `v2/` | 2.0 | clusterBLAST available at [10.5281/zenodo.17396002](https://zenodo.org/records/17396002) | Public stable release | 430 | [TFBS module results](https://plantismash.bioinformatics.nl/precalc/v2/tfbs-finder/) available in Arabidopsis thaliana for 1*10-4 p-value  and 500 bp window scanning size. | Public in the plantiSMASH database [https://plantismash.bioinformatics.nl/precalc/v2](https://plantismash.bioinformatics.nl/precalc/v2)  | 
 
 ---
 

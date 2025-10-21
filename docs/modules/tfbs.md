@@ -181,3 +181,24 @@ The confidence labels (Weak/Medium/Strong) depend on the min_score and max_score
 Confidence labels are heuristic and rely on the min_score/max_score ranges supplied in the JSON. If your PFMs are transformed to log-odds, you may wish to re-estimate these bounds for clearer labeling.
 
 The motif library path is configured in code (PWM_PATH). If you need to switch libraries at runtime, consider adding a small CLI option to pass a custom JSON path.
+
+---
+
+### 🌿 Browse the A. *thaliana* TFBS results
+
+You can explore the complete TFBS detection output used in these examples directly from the
+plantiSMASH database:
+
+🔗 [Browse TFBS-finder results for *A. thaliana*](https://plantismash.bioinformatics.nl/precalc/v2/tfbs-finder/)
+
+This directory contains two restrictive motif sets:
+
+- [`Arabidopsis_thaliana_GCF_000001735.4_354PWMs/`](https://plantismash.bioinformatics.nl/precalc/v2/tfbs-finder/Arabidopsis_thaliana_GCF_000001735.4_354PWMs/)
+- [`Arabidopsis_thaliana_GCF_000001735.4_576PMWs/`](https://plantismash.bioinformatics.nl/precalc/v2/tfbs-finder/Arabidopsis_thaliana_GCF_000001735.4_576PMWs/)
+
+These correspond to curated TFBS motif subsets described in  
+[Zenodo record 10.5281/zenodo.17144325](https://doi.org/10.5281/zenodo.17144325),  
+representing different levels of motif stringency.
+
+For more details on how these results were generated, see the  
+[database documentation](https://plantismash.github.io/documentation/understanding_output/database/).
