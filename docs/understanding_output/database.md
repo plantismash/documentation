@@ -49,19 +49,3 @@ run_antismash.py input.gbk --clusterblast --clusterblast-database /path/to/preca
 
 See [How to cite plantiSMASH](https://plantismash.github.io/documentation/about/#how-to-cite). 
 
-<h3>BGC summary (rectangular)</h3>
-## Browsable versions of the results per genome 
-<iframe
-  src="/pdfjs/web/viewer.html?file=../assets/images/v2.1_Oct2025_bgccount_spe_rectangle.pdf#zoom=page-width"
-  width="100%"
-  height="800"
-  style="border:0"
-></iframe>
-
-<h3>BGC summary (circular)</h3>
-<embed
-  src="../assets/images/v2.1_Oct2025_bgccount_spe_circ.pdf#toolbar=1"
-  type="application/pdf"
-  width="100%"
-  height="800px"
-/>
