@@ -1,4 +1,4 @@
-## Coexpression analysis 
+## Coexpression analysis - Coexpress module 
 
 If coexpression data was provided (through either a .soft or .csv file), this panel will show expression information through both a hierarchically clustered heatmap and a coexpression network (see below).
 

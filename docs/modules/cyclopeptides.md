@@ -9,7 +9,7 @@ Detection is based on two main criteria:
 
 - The presence of internal amino acid repeats within coding sequences, suggesting the existence of cyclopeptide precursor peptides.
 
-Once a candidate BGC is identified, the module performs the following steps:
+Once a putative BGC is detected, the module performs the following steps:
 
 1. Repeat Detection: Using a repeat-finding algorithm, the module scans the coding sequences (CDSs) inside the cluster for repeated amino acid motifs.
 

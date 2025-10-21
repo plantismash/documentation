@@ -2,7 +2,9 @@
 
 The plantiSMASH database contains a set of precalculated results for selected species. These are updated every plantiSMASH version. See the [Changelog](../changelog/index.md) section. 
 
-See the overview of results for plantiSMASH 2.0 database [View the PDF](../assets/images/BGCcount_tree_v2.pdf). The full overview of the results is availbe on the webserver at [plantiSMASH 2.0 database](https://plantismash.bioinformatics.nl/precalc/v2/). 
+See an overview of results for plantiSMASH 2.0 database: [View BGC summary 2.0 database](../assets/images/v2.1_Oct2025_bgccount_spe_rectangle.pdf) | [View in circular format](../assets/images/v2.1_Oct2025_bgccount_spe_circ.pdf). 
+
+The full overview of the results is available on the webserver at [plantiSMASH 2.0 database](https://plantismash.bioinformatics.nl/precalc/v2/). 
 
 This directory contains **precalculated plantiSMASH database** accessible at:  
 🔗 [https://plantismash.bioinformatics.nl/precalc/v2](https://plantismash.bioinformatics.nl/precalc/v2)
