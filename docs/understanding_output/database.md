@@ -18,10 +18,15 @@ This directory contains **precalculated plantiSMASH database** accessible at:
 
 ```bash
 precalc/
-├── v1/
-├── v2-beta1/
-├── v2-beta4/
-└── v2/
+├── README.html                  # Overview of plantiSMASH precalculated database (v1–v2)
+├── v1/                          # plantiSMASH 1.0 precalculated results
+├── v2-beta1/                    # plantiSMASH 2.0 beta 1 results
+├── v2-beta4/                    # plantiSMASH 2.0 beta 4 results
+└── v2/                          # plantiSMASH 2.0 stable release
+    └── tfbs-finder/             # TFBS module results for Arabidopsis thaliana
+        ├── README-tfbs-finder.html  # Description of TFBS-finder results and data sources
+        ├── Arabidopsis_thaliana_GCF_000001735.4_354PWMs/ # results for 354 manually curated PWMs 
+        └── Arabidopsis_thaliana_GCF_000001735.4_576PMWs/ # results for 576 filtered PWMs 
 ```
 
 ---
