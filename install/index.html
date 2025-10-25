@@ -162,22 +162,19 @@ follow our <a href="../windows-linux-setup/">Windows setup guide</a> to install 
 This lets you run plantiSMASH natively inside Ubuntu on Windows before proceeding with the steps below.</p>
 </blockquote>
 <ol>
-<li>Clone the latest release from Github </li>
-</ol>
+<li>
+<p>Clone the latest release from Github </p>
 <pre class="highlight"><code class="language-bash">git clone https://github.com/plantismash/plantismash.git
 # navigate to that directory 
 cd plantismash</code></pre>
-<ol>
-<li>Create the Conda environment</li>
-</ol>
-<details>
-<summary><b>🧩 Don’t have Conda or Mamba installed yet? Click to expand setup instructions.</b></summary>
-
-To create a reproducible plantiSMASH environment, you’ll need a Conda-based package manager such as **[Miniforge (recommended)](https://github.com/conda-forge/miniforge)** or **Mambaforge**.
-
-Follow these steps to install it on Linux (or inside WSL on Windows):
-
-<pre class="highlight"><code class="language-bash"># 1. Download and install Miniforge
+</li>
+<li>
+<p>Create the Conda environment</p>
+<p><details>
+  <summary><b>🧩 Don’t have Conda or Mamba installed yet? Click to expand setup instructions.</b></summary></p>
+<p>To create a reproducible plantiSMASH environment, you’ll need a Conda-based package manager such as <strong><a href="https://github.com/conda-forge/miniforge">Miniforge (recommended)</a></strong> or <strong>Mambaforge</strong>.</p>
+<p>Follow these steps to install it on Linux (or inside WSL on Windows):</p>
+<p><pre class="highlight"><code class="language-bash"># 1. Download and install Miniforge
 curl -L -O "https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-$(uname)-$(uname -m).sh"
 bash Miniforge3-$(uname)-$(uname -m).sh
 
@@ -190,26 +187,24 @@ conda config --set auto_activate_base false
 conda config --add channels bioconda
 conda config --add channels conda-forge
 conda config --set channel_priority strict</code></pre>
-> 💡 Tip:
-> You only need to do this once — future plantiSMASH environments will reuse this configuration.
-</details>
-
+  💡 You only need to do this once — future plantiSMASH environments will reuse this configuration.
+  </details></p>
 <pre class="highlight"><code class="language-bash">
 # Using mamba (recommended)
 mamba env create -f environment.yml
 conda activate plantismash
 </code></pre>
-<ol>
-<li>Verify your installation: </li>
-</ol>
+</li>
+<li>
+<p>Verify your installation: </p>
 <pre class="highlight"><code class="language-bash">
 # check Python entry points
 plantismash --help
 plantismash_download_databases --help
 </code></pre>
-<ol>
-<li>Download the required databases </li>
-</ol>
+</li>
+<li>
+<p>Download the required databases </p>
 <pre class="highlight"><code class="language-bash"># default location is created automatically (uses appdirs)
 plantismash_download_databases</code></pre>
 <p>Tip: to test on an example genome, you can fetch A. thaliana with the NCBI Datasets CLI and run plantiSMASH:</p>
@@ -220,24 +215,24 @@ datasets download genome accession GCF_000001735.4 --include gbff
 unzip -o ncbi_dataset.zip
 
 plantismash --taxon plants --limit -1 --outputfolder result/ \
-  ncbi_dataset/data/GCF_000001735.4/genomic.gbff
+ncbi_dataset/data/GCF_000001735.4/genomic.gbff
 </code></pre>
+</li>
+</ol>
 <h2 id="option-2-python-package-only-advanced-users">Option 2 - Python package only (advanced users)<a class="headerlink" href="#option-2-python-package-only-advanced-users" title="Permanent link">#</a></h2>
 <ol>
-<li>Download the latest plantiSMASH standalone release from our GitHub page </li>
-</ol>
+<li>
+<p>Download the latest plantiSMASH standalone release from our GitHub page </p>
 <p><a href="https://github.com/plantismash/plantismash/releases/latest"><img alt="GitHub Release" src="https://img.shields.io/github/v/release/plantismash/plantismash?include_prereleases&amp;sort=semver&amp;display_name=tag&amp;logo=github" /></a></p>
-<ol>
+</li>
 <li>
 <p>Ensure you have the following dependencies installed (<strong>tested versions in parentheses</strong>):  </p>
-</li>
-<li>
-<p><a href="https://ccb.jhu.edu/software/glimmer/">Glimmer</a> (3.02)  </p>
-</li>
+<ul>
+<li><a href="https://ccb.jhu.edu/software/glimmer/">Glimmer</a> (3.02)  </li>
 <li><a href="https://ccb.jhu.edu/software/glimmerhmm/">GlimmerHMM</a> (3.0.4)  </li>
 <li><a href="http://hmmer.janelia.org/">HMMER 3</a> (3.3.2)  </li>
 <li><a href="ftp://ftp.sanger.ac.uk/pub/1000genomes/ftp/technical/working/20110111_hmmer-2.3.2.tar.gz">HMMER 2</a> (2.3.2) — <strong>plantiSMASH requires <code>hmmpfam2</code></strong>, a legacy binary not included in HMMER 3.x.<br />
-     Append a “2” to all HMMER 2 executables (e.g. <code>hmmalign</code> → <code>hmmalign2</code>) to avoid conflicts with HMMER 3 names.  </li>
+  Append a “2” to all HMMER 2 executables (e.g. <code>hmmalign</code> → <code>hmmalign2</code>) to avoid conflicts with HMMER 3 names.  </li>
 <li><a href="http://www.microbesonline.org/fasttree/">FastTree</a> (2.1.11)  </li>
 <li><a href="https://github.com/bbuchfink/diamond">DIAMOND</a> (2.0.15)  </li>
 <li><a href="http://www.drive5.com/muscle/">MUSCLE</a> (3.8.31)  </li>
@@ -249,22 +244,22 @@ plantismash --taxon plants --limit -1 --outputfolder result/ \
 <li><a href="https://www.ncbi.nlm.nih.gov/datasets/">NCBI Datasets CLI</a> (18.9.0)  </li>
 <li><a href="https://linux.die.net/man/1/unzip">Unzip</a> (6.0)  </li>
 <li><a href="https://github.com/helperlibs">Helperlibs</a> (0.2.1)  </li>
-<li>
-<p><a href="https://biopython.org/">Biopython</a> (1.76)  </p>
+<li><a href="https://biopython.org/">Biopython</a> (1.76)  </li>
+</ul>
 </li>
 <li>
 <p>Once all dependencies are installed and available on your <code>PATH</code>, install the Python package:</p>
-</li>
-</ol>
 <pre class="highlight"><code class="language-bash">pip install plantismash
 </code></pre>
-<ol>
-<li>Verify the installation: 
-<pre class="highlight"><code class="language-bash">plantismash --help
-plantismash_download_databases --help</code></pre></li>
-</ol>
+</li>
+<li>
+<p>Verify the installation: 
+      <pre class="highlight"><code class="language-bash">plantismash --help
+plantismash_download_databases --help</code></pre></p>
 <p>⚠️ This installs only the Python code, not the external binaries.
-To run full analyses, the required tools (HMMER, BLAST, DIAMOND, etc.) must be available on your PATH.</p>
+  To run full analyses, the required tools (HMMER, BLAST, DIAMOND, etc.) must be available on your <code>PATH</code>.</p>
+</li>
+</ol>
 <h2 id="notes-and-faqs">Notes and FAQs<a class="headerlink" href="#notes-and-faqs" title="Permanent link">#</a></h2>
 <pre><code>•   Why Python 3.8?
 </code></pre>
@@ -285,13 +280,17 @@ To run full analyses, the required tools (HMMER, BLAST, DIAMOND, etc.) must be a
 <hr>
 <p>
     
-    <small>© 2025 <a href="https://github.com/elenadelpup" target="_blank">Elena Del Pup</a> et al.  under the <a href="https://opensource.org/licenses/MIT" target="_blank">MIT License</a> | <a href="https://github.com/plantismash/plantismash" target="_blank">
+    <small>© 2025 <a href="https://github.com/elenadelpup" target="_blank">Elena Del Pup</a> et al.  under the <a href="https://opensource.org/licenses/MIT" target="_blank">MIT License</a> | <a href="https://github.com/plantismash/plantismash" target="_blank" style="text-decoration:none;">
   <img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/github.svg"
        alt="GitHub"
        style="height:1em;vertical-align:middle;margin-right:4px;">
-  plantiSMASH GitHub</a> 
-  under the <a href="https://github.com/plantismash/plantismash/blob/master/LICENSE.txt" target="_blank">GNU AGPL v3.0 License</a>
-<br></small>
+  <strong>plantiSMASH</strong> GitHub
+</a> under the  <a href="https://github.com/plantismash/plantismash/blob/master/LICENSE.txt" target="_blank">GNU AGPL v3.0 License</a> | <a href="https://github.com/plantismash/documentation/issues" target="_blank" style="text-decoration:none;">
+  <img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/github.svg"
+       alt="GitHub Issues"
+       style="height:1em;vertical-align:middle;margin-right:4px;">
+  <strong>Feedback or issues?</strong>
+</a><br></small>
     
 
     
