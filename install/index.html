@@ -82,12 +82,12 @@
     <li class="toctree-l2"><a class="reference internal" href="#current-release">Current Release</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#installation-options">Installation Options</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#option-1-downloading-the-standalone-release">Option 1: Downloading the standalone release</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#option-2-cloning-from-github">Option 2: Cloning from GitHub</a>
+    <li class="toctree-l2"><a class="reference internal" href="#option-1-recommended-full-installation-github-conda">Option 1 — Recommended full installation (GitHub + Conda)</a>
     </li>
-        </ul>
+    <li class="toctree-l2"><a class="reference internal" href="#option-2-python-package-only-advanced-users">Option 2 - Python package only (advanced users)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#notes-and-faqs">Notes and FAQs</a>
     </li>
     </ul>
                   </li>
@@ -140,87 +140,145 @@
             <div class="section" itemprop="articleBody">
               
                 <h1 id="download-plantismash-standalone">Download plantiSMASH Standalone<a class="headerlink" href="#download-plantismash-standalone" title="Permanent link">#</a></h1>
-<p>Stand-alone versions of plantiSMASH are available through <strong><a href="https://github.com/plantismash/plantismash">our GitHub page</a></strong>.</p>
+<p>Stand-alone releases are available on<br />
+<strong><a href="https://github.com/plantismash/plantismash/releases">GitHub Releases</a></strong> and <strong><a href="https://pypi.org/project/plantismash/">PyPI</a></strong>.</p>
 <h2 id="current-release">Current Release<a class="headerlink" href="#current-release" title="Permanent link">#</a></h2>
-<p>The current standalone release is <strong><a href="https://github.com/plantismash/plantismash/tree/dev">plantiSMASH 2.0-beta</a></strong> (<em>December 16th, 2024</em>).</p>
+<p><strong>Latest tag:</strong><br />
+<a href="https://github.com/plantismash/plantismash/releases/latest"><img alt="GitHub Release" src="https://img.shields.io/github/v/release/plantismash/plantismash?include_prereleases&amp;sort=semver&amp;display_name=tag&amp;logo=github" /></a>
+<a href="https://pypi.org/project/plantismash/"><img alt="PyPI" src="https://img.shields.io/pypi/v/plantismash?logo=pypi&amp;label=PyPI" /></a></p>
 <hr />
 <h2 id="installation-options">Installation Options<a class="headerlink" href="#installation-options" title="Permanent link">#</a></h2>
-<p>There are two ways to install plantiSMASH:</p>
+<p>There are two supported ways to install plantiSMASH:</p>
 <ol>
-<li><strong>Downloading the standalone release</strong> – Suitable for users who want to install plantiSMASH from a zip package and ensure dependencies are installed separately.</li>
-<li><strong>Cloning from GitHub</strong> – Recommended for users who want the latest development version and prefer managing dependencies in a virtual Conda environment.</li>
+<li><strong>Recommended: Clone from GitHub and install via Conda</strong> – creates a full reproducible environment with all external tools and the latest stable code.  </li>
+<li><strong>Alternative: Install the Python package only (from PyPI)</strong> – for developers or integration use; external dependencies must be installed manually.</li>
 </ol>
 <hr />
-<h3 id="option-1-downloading-the-standalone-release">Option 1: Downloading the standalone release<a class="headerlink" href="#option-1-downloading-the-standalone-release" title="Permanent link">#</a></h3>
+<h2 id="option-1-recommended-full-installation-github-conda">Option 1 — Recommended full installation (GitHub + Conda)<a class="headerlink" href="#option-1-recommended-full-installation-github-conda" title="Permanent link">#</a></h2>
+<p>This option gives you a fully functional <strong>standalone version</strong> of plantiSMASH.</p>
+<blockquote>
+<p>💡 <strong>Windows users:</strong> If you don’t already have a Linux environment,<br />
+follow our <a href="../windows-linux-setup/">Windows setup guide</a> to install <strong>WSL (Windows Subsystem for Linux)</strong>.<br />
+This lets you run plantiSMASH natively inside Ubuntu on Windows before proceeding with the steps below.</p>
+</blockquote>
+<ol>
+<li>Clone the latest release from Github </li>
+</ol>
+<pre class="highlight"><code class="language-bash">git clone https://github.com/plantismash/plantismash.git
+# navigate to that directory 
+cd plantismash</code></pre>
+<ol>
+<li>Create the Conda environment</li>
+</ol>
+<details>
+<summary><b>🧩 Don’t have Conda or Mamba installed yet? Click to expand setup instructions.</b></summary>
+
+To create a reproducible plantiSMASH environment, you’ll need a Conda-based package manager such as **[Miniforge (recommended)](https://github.com/conda-forge/miniforge)** or **Mambaforge**.
+
+Follow these steps to install it on Linux (or inside WSL on Windows):
+
+<pre class="highlight"><code class="language-bash"># 1. Download and install Miniforge
+curl -L -O "https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-$(uname)-$(uname -m).sh"
+bash Miniforge3-$(uname)-$(uname -m).sh
+
+# 2. Initialize Conda
+source ~/.bashrc
+conda init bash
+
+# 3. Set default configuration
+conda config --set auto_activate_base false
+conda config --add channels bioconda
+conda config --add channels conda-forge
+conda config --set channel_priority strict</code></pre>
+> 💡 Tip:
+> You only need to do this once — future plantiSMASH environments will reuse this configuration.
+</details>
+
+<pre class="highlight"><code class="language-bash">
+# Using mamba (recommended)
+mamba env create -f environment.yml
+conda activate plantismash
+</code></pre>
+<ol>
+<li>Verify your installation: </li>
+</ol>
+<pre class="highlight"><code class="language-bash">
+# check Python entry points
+plantismash --help
+plantismash_download_databases --help
+</code></pre>
+<ol>
+<li>Download the required databases </li>
+</ol>
+<pre class="highlight"><code class="language-bash"># default location is created automatically (uses appdirs)
+plantismash_download_databases</code></pre>
+<p>Tip: to test on an example genome, you can fetch A. thaliana with the NCBI Datasets CLI and run plantiSMASH:</p>
+<pre class="highlight"><code class="language-bash">mkdir -p test_datasets/Arabidopsis_thaliana &amp;&amp; cd $_
+
+datasets download genome accession GCF_000001735.4 --include gbff
+
+unzip -o ncbi_dataset.zip
+
+plantismash --taxon plants --limit -1 --outputfolder result/ \
+  ncbi_dataset/data/GCF_000001735.4/genomic.gbff
+</code></pre>
+<h2 id="option-2-python-package-only-advanced-users">Option 2 - Python package only (advanced users)<a class="headerlink" href="#option-2-python-package-only-advanced-users" title="Permanent link">#</a></h2>
+<ol>
+<li>Download the latest plantiSMASH standalone release from our GitHub page </li>
+</ol>
+<p><a href="https://github.com/plantismash/plantismash/releases/latest"><img alt="GitHub Release" src="https://img.shields.io/github/v/release/plantismash/plantismash?include_prereleases&amp;sort=semver&amp;display_name=tag&amp;logo=github" /></a></p>
 <ol>
 <li>
-<p>Download the latest plantiSMASH standalone release from our GitHub repo:<br />
-<a href="https://github.com/plantismash/plantismash/releases">https://github.com/plantismash/plantismash/releases</a></p>
+<p>Ensure you have the following dependencies installed (<strong>tested versions in parentheses</strong>):  </p>
 </li>
 <li>
-<p>Ensure you have the following dependencies installed (tested versions in parentheses):  </p>
-<ul>
-<li><a href="https://ccb.jhu.edu/software/glimmer/">Glimmer</a> (3.02)  </li>
+<p><a href="https://ccb.jhu.edu/software/glimmer/">Glimmer</a> (3.02)  </p>
+</li>
 <li><a href="https://ccb.jhu.edu/software/glimmerhmm/">GlimmerHMM</a> (3.0.4)  </li>
-<li><a href="http://hmmer.janelia.org/">HMMER3</a> (3.3.2)  </li>
-<li><a href="ftp://ftp.sanger.ac.uk/pub/1000genomes/ftp/technical/working/20110111_hmmer-2.3.2.tar.gz">HMMER2</a> (version 2.3.2 tested). plantiSMASH requires hmmpfam2, a legacy tool from HMMER 2. This binary is no longer included in HMMER 3.x and must be installed manuallyappend a 2 to all hmmer2 executables to avoid conflict with hmmer3 executable names, like hmmalign -&gt; hmmalign2 </li>
-<li><a href="http://www.microbesonline.org/fasttree/">FastTree</a> (2.1.8)  </li>
+<li><a href="http://hmmer.janelia.org/">HMMER 3</a> (3.3.2)  </li>
+<li><a href="ftp://ftp.sanger.ac.uk/pub/1000genomes/ftp/technical/working/20110111_hmmer-2.3.2.tar.gz">HMMER 2</a> (2.3.2) — <strong>plantiSMASH requires <code>hmmpfam2</code></strong>, a legacy binary not included in HMMER 3.x.<br />
+     Append a “2” to all HMMER 2 executables (e.g. <code>hmmalign</code> → <code>hmmalign2</code>) to avoid conflicts with HMMER 3 names.  </li>
+<li><a href="http://www.microbesonline.org/fasttree/">FastTree</a> (2.1.11)  </li>
 <li><a href="https://github.com/bbuchfink/diamond">DIAMOND</a> (2.0.15)  </li>
 <li><a href="http://www.drive5.com/muscle/">MUSCLE</a> (3.8.31)  </li>
 <li><a href="https://github.com/hyattpd/Prodigal">Prodigal</a> (2.6.3)  </li>
-<li><a href="https://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST/">NCBI Blast+</a> (2.12.0)  </li>
+<li><a href="https://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST/">NCBI BLAST+</a> (2.12.0)  </li>
 <li><a href="http://weizhongli-lab.org/cd-hit/">CD-HIT</a> (4.8.1)  </li>
 <li><a href="http://xmlsoft.org/">LibXML2</a> (2.10.3)  </li>
-<li><a href="https://matsen.fhcrc.org/pplacer/">pplacer</a>  </li>
-<li><a href="https://www.ncbi.nlm.nih.gov/datasets/">NCBI Datasets CLI</a> (16.40.1)  </li>
-<li><a href="https://linux.die.net/man/1/unzip">Unzip</a>  </li>
+<li><a href="https://matsen.fhcrc.org/pplacer/">pplacer</a> (1.1.alpha17)  </li>
+<li><a href="https://www.ncbi.nlm.nih.gov/datasets/">NCBI Datasets CLI</a> (18.9.0)  </li>
+<li><a href="https://linux.die.net/man/1/unzip">Unzip</a> (6.0)  </li>
 <li><a href="https://github.com/helperlibs">Helperlibs</a> (0.2.1)  </li>
-<li><a href="https://biopython.org/">Biopython</a> (1.76)  </li>
-</ul>
+<li>
+<p><a href="https://biopython.org/">Biopython</a> (1.76)  </p>
 </li>
 <li>
-<p>Once all dependencies are installed, plantiSMASH should be ready to use.</p>
+<p>Once all dependencies are installed and available on your <code>PATH</code>, install the Python package:</p>
 </li>
 </ol>
-<hr />
-<h3 id="option-2-cloning-from-github">Option 2: Cloning from GitHub<a class="headerlink" href="#option-2-cloning-from-github" title="Permanent link">#</a></h3>
-<p>Using Windows? Click here for the full <a href="../windows-linux-setup/">Windows Setup Guide</a>.</p>
+<pre class="highlight"><code class="language-bash">pip install plantismash
+</code></pre>
 <ol>
-<li>
-<p>Clone the latest version from GitHub:</p>
-<pre class="highlight"><code class="language-bash">git clone -b dev https://github.com/plantismash/plantismash.git
-cd plantismash</code></pre>
-</li>
-<li>
-<p>If not installed already, conda/mamba can be installed by following these instructions:</p>
-<pre class="highlight"><code class="language-bash"># install miniforge
-curl -L -O "https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-$(uname)-$(uname -m).sh"
-bash Miniforge3-$(uname)-$(uname -m).sh
-# follow instructions and let it run `conda init`
-
-# set default channels
-source ~/.bashrc
-conda config --set auto_activate_base false
-source ~/.bashrc
-conda config --add channels bioconda
-conda config --add channels conda-forge
-conda config --set channel_priority strict  </code></pre>
-</li>
-<li>
-<p>Create and activate a Conda environment using the provided <code>environment.yml</code> file</p>
-<pre class="highlight"><code class="language-bash">conda env create -f environment.yml
-conda activate plantismash</code></pre>
-</li>
-<li>
-<p>Download the required databases:</p>
-<pre class="highlight"><code class="language-bash">python download_databases.py</code></pre>
-</li>
-<li>
-<p>Verify the installation </p>
-<pre class="highlight"><code class="language-bash">python run_antismash.py -h</code></pre>
-</li>
+<li>Verify the installation: 
+<pre class="highlight"><code class="language-bash">plantismash --help
+plantismash_download_databases --help</code></pre></li>
 </ol>
-<hr />
+<p>⚠️ This installs only the Python code, not the external binaries.
+To run full analyses, the required tools (HMMER, BLAST, DIAMOND, etc.) must be available on your PATH.</p>
+<h2 id="notes-and-faqs">Notes and FAQs<a class="headerlink" href="#notes-and-faqs" title="Permanent link">#</a></h2>
+<pre><code>•   Why Python 3.8?
+</code></pre>
+<p>This release currently targets <code>Python &gt;=3.8,&lt;3.9</code> for compatibility with some dependencies. Use the provided environment.</p>
+<pre><code>•   HMMER2 note
+</code></pre>
+<p>plantiSMASH requires <code>hmmpfam2</code> from legacy HMMER 2 in addition to HMMER 3. The line
+<code>bioconda/label/cf201901::hmmer2</code> installs the legacy binaries under distinct names to avoid conflicts.</p>
+<pre><code>•   PyPI vs Conda
+</code></pre>
+<p>PyPI provides the Python package only. All native/CLI tools are installed via Conda in environment.yml.</p>
+<pre><code>•   Reproducibility
+</code></pre>
+<p>The <code>environment.yml</code> pins versions of external tools; PyPI pins Python libs in <code>pyproject.toml</code>. This combination reproduces the tested setup.</p>
               
             </div>
           </div>
@@ -237,7 +295,7 @@ conda activate plantismash</code></pre>
     
 
     
-    <small><br><i>Last updated 2025-04-17</i></small>
+    <small><br><i>Last updated 2025-10-25</i></small>
     
 </p>
 
