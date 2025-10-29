@@ -4,9 +4,12 @@ plantiSMASH allows the rapid genome-wide identification, annotation, and analysi
 
 ## News
 
-Version [**2.0-beta**](https://github.com/plantismash/plantismash/tree/dev) of plantiSMASH is live now!  
+Version 2.0 of plantiSMASH is live now!  
+
+[![GitHub Release](https://img.shields.io/github/v/release/plantismash/plantismash?include_prereleases&sort=semver&display_name=tag&logo=github)](https://github.com/plantismash/plantismash/releases)
+
 plantiSMASH is an extension of the widely used tool antiSMASH, now optimized for and made to work on plant genomes.  
-plantiSMASH version 2.0-beta features a range of updates and improvements in the areas of gene cluster identification, homology detection, and substrate prediction:
+plantiSMASH  features a range of updates and improvements in the areas of gene cluster identification, homology detection, and substrate prediction:
 
 plantiSMASH provides:
 
@@ -16,7 +19,7 @@ plantiSMASH provides:
 - Homology based metabolic modeling
 - Coexpression analysis and html-based visualization on detected biosynthetic gene clusters with the CoExpress module
 
-To top it off, these are the added features of plantiSMASH ver 2.0-beta:
+To top it off, these are the added features of plantiSMASH 2.0:
 
 - Updated library of pHMM models and the number of detection rules increased from 6 to 12, including 3 rules being updated.
 - Updated plant clusterblast database with precalculated plant biosynthetic gene clusters for 382 NCBI plant genomes.
@@ -76,6 +79,11 @@ and a National Institutes of Health Genome to Natural Products Network award U10
 
 If you have found plantiSMASH useful, please cite:
 
+**plantiSMASH 2.0: improvements to detection, annotation, and prioritization of plant biosynthetic gene clusters**
+Elena Del Pup, Charlotte Owen, Ziqiang Luo, Hannah E. Augustijn, Arjan Draisma, Guy Polturak, Satria A. Kautsar, Anne Osbourn, Justin J.J. van der Hooft, Marnix H. Medema
+bioRxiv 2025.10.28.683968; doi: [https://doi.org/10.1101/2025.10.28.683968](https://doi.org/10.1101/2025.10.28.683968)
+
 **plantiSMASH: automated identification, annotation and expression analysis of plant biosynthetic gene clusters.**  
 Satria A. Kautsar, Hernando G Suarez Duran, Kai Blin, Anne Osbourn & Marnix H. Medema
 Nucleic Acids Research, 45(W1), W55-W63. (2017) [https://doi.org/10.1093/nar/gkx305](https://doi.org/10.1093/nar/gkx305)
+
