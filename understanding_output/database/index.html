@@ -210,11 +210,20 @@
 <td><a href="https://plantismash.bioinformatics.nl/precalc/v2/tfbs-finder/">TFBS module results</a> available in Arabidopsis thaliana for 1*10-4 p-value  and 500 bp window scanning size.</td>
 <td>Public in the plantiSMASH database <a href="https://plantismash.bioinformatics.nl/precalc/v2">https://plantismash.bioinformatics.nl/precalc/v2</a></td>
 </tr>
+<tr>
+<td><code>v2.0.4</code></td>
+<td>2.0.4</td>
+<td>clusterBLAST available at <a href="https://zenodo.org/records/17396002">10.5281/zenodo.17396002</a></td>
+<td>Submitted: 2025-10-29</td>
+<td>430</td>
+<td>plantiSMASH-2.0.4 database (with internal cyclopeptide repeat detection only) using the <code>--require-internal-cyclopeptide-repeats</code> flag. This is a more restrictive mining method for putative cyclopeptide BGCs, leading to fewer proposed cyclopeptide hits. See <a href="../../modules/cyclopeptides/">Cyclopeptide detection module</a></td>
+<td>Archived at <a href="https://zenodo.org/records/17472815">10.5281/zenodo.17472814</a></td>
+</tr>
 </tbody>
 </table>
 <hr />
 <h2 id="usage">⚙️ Usage<a class="headerlink" href="#usage" title="Permanent link">#</a></h2>
-<p>When running <em>plantiSMASH</em> locally, you can specify the ClusterBlast database path with the corresponding version you wish to reproduce:</p>
+<p>When running <em>plantiSMASH</em> locally, you can specify the clusterBLAST database path with the corresponding version you wish to reproduce:</p>
 <pre class="highlight"><code class="language-bash">run_antismash.py input.gbk --clusterblast --clusterblast-database /path/to/precalc/clusterblastdb/</code></pre>
 <h2 id="license-and-citation">📄 License and Citation<a class="headerlink" href="#license-and-citation" title="Permanent link">#</a></h2>
 <p>See <a href="https://plantismash.github.io/documentation/about/#how-to-cite">How to cite plantiSMASH</a>. </p>
@@ -238,7 +247,7 @@
     
 
     
-    <small><br><i>Last updated 2025-10-22</i></small>
+    <small><br><i>Last updated 2025-10-29</i></small>
     
 </p>
 
