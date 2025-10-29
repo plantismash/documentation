@@ -13,11 +13,13 @@ Once a putative BGC is detected, the module performs the following steps:
 
 1. Repeat Detection: Using a repeat-finding algorithm, the module scans the coding sequences (CDSs) inside the cluster for repeated amino acid motifs.
 
-2. Pattern Matching: Detected repeats are matched against known cyclopeptide-related patterns where available, or reported as new motifs.
+- From the plantiSMASH CLI, the  `--require-internal-cyclopeptide-repeats` argument allows a more restrictive mining method for putative cyclopeptide BGCs, where repeat detection takes place only inside the limits of the BURP feature, leading to fewer proposed cyclopeptide hits.
 
-3. Filtering Logic: Only clusters containing both a BURP domain and at least one repeat with appropriate features are retained.
+1. Pattern Matching: Detected repeats are matched against known cyclopeptide-related patterns where available, or reported as new motifs.
 
-4. Result Summary: For each coding sequence with detected repeats, the module reports:
+2. Filtering Logic: Only clusters containing both a BURP domain and at least one repeat with appropriate features are retained.
+
+3. Result Summary: For each coding sequence with detected repeats, the module reports:
 
    - The identified repeat patterns.
 

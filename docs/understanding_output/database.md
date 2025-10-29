@@ -39,12 +39,13 @@ precalc/
 | `v2-beta1/` | 2.0 beta 1 | clusterBLAST available at [10.5281/zenodo.16927685](https://zenodo.org/records/16927685) | DATE | 387 | NOTES | Public in the plantiSMASH database [https://plantismash.bioinformatics.nl/precalc/v2-beta1](https://plantismash.bioinformatics.nl/precalc/v2-beta1) |
 | `v2-beta4/` | 2.0 beta 4 | clusterBLAST available at [10.5281/zenodo.17178066](https://zenodo.org/records/17178066) | DATE | 387 | NOTES | Public in the plantiSMASH database [https://plantismash.bioinformatics.nl/precalc/v2-beta4](https://plantismash.bioinformatics.nl/precalc/v2-beta4) |
 | `v2/` | 2.0 | clusterBLAST available at [10.5281/zenodo.17396002](https://zenodo.org/records/17396002) | Public stable release | 430 | [TFBS module results](https://plantismash.bioinformatics.nl/precalc/v2/tfbs-finder/) available in Arabidopsis thaliana for 1*10-4 p-value  and 500 bp window scanning size. | Public in the plantiSMASH database [https://plantismash.bioinformatics.nl/precalc/v2](https://plantismash.bioinformatics.nl/precalc/v2)  | 
+| `v2.0.4` | 2.0.4 | clusterBLAST available at [10.5281/zenodo.17396002](https://zenodo.org/records/17396002) | Submitted: 2025-10-29 | 430 | plantiSMASH-2.0.4 database (with internal cyclopeptide repeat detection only) using the `--require-internal-cyclopeptide-repeats` flag. This is a more restrictive mining method for putative cyclopeptide BGCs, leading to fewer proposed cyclopeptide hits. See [Cyclopeptide detection module](../modules/cyclopeptides.md) | Archived at [10.5281/zenodo.17472814](https://zenodo.org/records/17472815)
 
 ---
 
 ## ⚙️ Usage
 
-When running *plantiSMASH* locally, you can specify the ClusterBlast database path with the corresponding version you wish to reproduce:
+When running *plantiSMASH* locally, you can specify the clusterBLAST database path with the corresponding version you wish to reproduce:
 
 ```bash
 run_antismash.py input.gbk --clusterblast --clusterblast-database /path/to/precalc/clusterblastdb/
