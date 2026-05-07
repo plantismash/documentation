@@ -80,8 +80,7 @@ and a National Institutes of Health Genome to Natural Products Network award U10
 If you have found plantiSMASH useful, please cite:
 
 **plantiSMASH 2.0: improvements to detection, annotation, and prioritization of plant biosynthetic gene clusters**
-Elena Del Pup, Charlotte Owen, Ziqiang Luo, Hannah E. Augustijn, Arjan Draisma, Guy Polturak, Satria A. Kautsar, Anne Osbourn, Justin J.J. van der Hooft, Marnix H. Medema
-bioRxiv 2025.10.28.683968; doi: [https://doi.org/10.1101/2025.10.28.683968](https://doi.org/10.1101/2025.10.28.683968)
+Del Pup, Elena, Charlotte Owen, Ziqiang Luo, Hannah E. Augustijn, Arjan Draisma, Guy Polturak, Satria A. Kautsar, Anne Osbourn, Justin JJ van der Hooft, and Marnix H. Medema. "plantismash 2.0: improvements to detection, annotation, and prioritization of plant biosynthetic gene clusters." Journal of Molecular Biology (2026): 169798. [https://doi.org/10.1016/j.jmb.2026.169798](https://doi.org/10.1016/j.jmb.2026.169798)
 
 **plantiSMASH: automated identification, annotation and expression analysis of plant biosynthetic gene clusters.**  
 Satria A. Kautsar, Hernando G Suarez Duran, Kai Blin, Anne Osbourn & Marnix H. Medema
